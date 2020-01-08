@@ -17,11 +17,16 @@
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "12.10.0",
+    "npm": "6.11.3"
+  },
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "start": "webpack --mode=development --watch"
+    "start": "webpack --mode=development --watch",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
