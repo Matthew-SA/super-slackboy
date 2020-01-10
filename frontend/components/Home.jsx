@@ -36,9 +36,12 @@ const Home = () => (
     </header>
     <div className="main">
       <Switch>
+        {/* <Route exact path="/" component={frontpage} /> */}
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
       </Switch>
+      <video autoPlay playsInline loop muted className="background-vid" poster="https://a.slack-edge.com/59662/marketing/img/homepage/video/brand-campaign_hero-poster.jpg"> 
+      <source src="https://a.slack-edge.com/085e3/marketing/img/homepage/video/brand-campaign_hero-video.mp4" type="video/mp4"/></video>
     </div>
   </div>
 );
