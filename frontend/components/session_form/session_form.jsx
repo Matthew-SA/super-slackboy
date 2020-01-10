@@ -7,6 +7,7 @@ class SessionForm extends React.Component {
       email: '',
       password: '',
     };
+    this.demoLogin = this.demoLogin.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -27,6 +28,12 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    const guest = ({ email: 'guest@guest.com', password: 'guest12345' });
+    this.props.processForm(guest)
+  }
+
   renderErrors() {
     return (
       <ul className="errors">
@@ -43,15 +50,16 @@ class SessionForm extends React.Component {
 
   render() {
     let formTitle = this.props.formType === "Sign in" ? "Sign in to Slack" : "Sign up for Slack"
+    let demobutton = this.props.formType === "Sign in" ? <button className="demo-button" onClick={this.demoLogin}>Demo login</button> : ""
 
     return (
       <div className="login-card">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <h1 class="signin_header">{formTitle}</h1>
+        <form onSubmit={this.handleSubmit} className="login-form">
+          <h1 className="signin_header">{formTitle}</h1>
           <p className="subtitle">Slack Clone</p>
           <br />
           Enter your email address and password.
-          <div className="login-form">
+          {/* <div className="login-form"> */}
             <br />
               <input type="text"
                 value={this.state.email}
@@ -67,11 +75,11 @@ class SessionForm extends React.Component {
                 placeholder="password"
               />
             <br />
-            {/* <input className="session-submit" type="submit" value={this.props.formType} /> */}
             <button className="session-submit" type="submit" value={this.props.formType}>
               <span>{this.props.formType}</span>
             </button>
-          </div>
+          {/* </div> */}
+          {demobutton}
           {this.renderErrors()}
         </form>
       </div>

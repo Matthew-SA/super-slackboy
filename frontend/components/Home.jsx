@@ -34,12 +34,12 @@ const Home = () => (
           </li>
         </ul>
     </header>
-    <body className="main">
+    <div className="main">
       <Switch>
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
       </Switch>
-    </body>
+    </div>
   </div>
 );
 
