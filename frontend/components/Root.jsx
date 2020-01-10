@@ -19,7 +19,7 @@ export default ({ store }) => (
       <HashRouter>
         <Switch>
           <ProtectedRoute path= "/app" component={App}/>
-          <Route path="/" component={Home} />
+          <AuthRoute path="/" component={Home} />
         </Switch>
       </HashRouter>
     </Provider>

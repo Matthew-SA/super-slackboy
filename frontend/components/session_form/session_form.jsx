@@ -59,7 +59,6 @@ class SessionForm extends React.Component {
           <p className="subtitle">Slack Clone</p>
           <br />
           Enter your email address and password.
-          {/* <div className="login-form"> */}
             <br />
               <input type="text"
                 value={this.state.email}
@@ -78,7 +77,6 @@ class SessionForm extends React.Component {
             <button className="session-submit" type="submit" value={this.props.formType}>
               <span>{this.props.formType}</span>
             </button>
-          {/* </div> */}
           {demobutton}
           {this.renderErrors()}
         </form>
