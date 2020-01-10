@@ -103,7 +103,8 @@ p {
 }
 
 .errors {
-  position: absolute;
+  display: block;
+  align-content: center;
   text-align: center;
   color: red;
   margin-top: 10px;

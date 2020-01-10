@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ApplicationRecord.transaction do
+  User.destroy_all
+
   User.create(username: 'Guest', email: 'guest@guest.com', password: 'guest12345')
 end
 
