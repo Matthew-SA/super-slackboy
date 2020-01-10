@@ -18,10 +18,8 @@ export default ({ store }) => (
     <Provider store={store}>
       <HashRouter>
         <Switch>
-          <AuthRoute exact path="/" component={Home} />
-          <AuthRoute exact path="/login" component={LoginFormContainer} />
-          <AuthRoute exact path="/signup" component={SignupFormContainer} />
-          <ProtectedRoute exact path= "/app" component={App}/>
+          <ProtectedRoute path= "/app" component={App}/>
+          <Route path="/" component={Home} />
         </Switch>
       </HashRouter>
     </Provider>

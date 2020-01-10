@@ -14,18 +14,34 @@ import {
 
 const Home = () => (
   <div>
-    <header>
-      <Link to="/" className="header-link">
-        <h1>This is the Home Page! (login/signup)</h1>
-      </Link>
-      <GreetingContainer/>
+    <header className="nav-list">
+        <ul className="option-list">
+          <Link to="/" className="nav-logo">
+            <img src={window.logo} className="logo"/> 
+          </Link>
+          <li>Why Slack?</li>
+          <li>Solutions</li>
+          <li>Resources</li>
+          <li>Enterprise</li>
+          <li>Pricing</li>
+        </ul>
+        <ul className="user-links">
+          <li>
+            <Link to="/login">Sign in</Link>
+          </li>
+          <li>
+            <Link to="/signup" className="purple-button">GET STARTED</Link>
+          </li>
+        </ul>
     </header>
-    <Switch>
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/" component={App} />
-    </Switch>
+    <body className="main">
+      <Switch>
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      </Switch>
+    </body>
   </div>
 );
 
 export default Home;
+

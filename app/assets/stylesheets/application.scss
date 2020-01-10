@@ -1,0 +1,38 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+@import "reset.scss";
+@import "home.scss";
+@import "static_pages.scss"; 
+@import "api/*"; 
+
+
+ /* min / max width height  */
+ /* review box model and box model sizing */
+ /* review inline to allow elements to sit to left and right of el *** doesnt respect padding / margin? */ 
+
+ /* inline block respects padding / margin */
+ /* user display flex for everything possible? */
+
+ /* justfity content works along main axis */
+ /* align items works along the cross axis */
+
+ /* checkout position static, relative, **absolute**, fixed, sticky.  Use fixed for header, sidebarr, and footers */
+ /* ask about positioning demo */
+
+ /* use css reset file (gets rid of default styling) */
+ /* use borer 1 px red to help visualize web page */
+ /* * { border: 1px solid red; } */
+ /* CSS Grid (grid garden game?) */

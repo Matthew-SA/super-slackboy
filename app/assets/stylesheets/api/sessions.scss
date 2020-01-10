@@ -5,6 +5,17 @@
 body {
   color: #1d1c1d;
   line-height: 1.5rem;
+  background-color: #F8F8F8;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.signin_header {
+  text-align: center;
+  font-weight: 550;
 }
 
 .login-card {
@@ -12,19 +23,20 @@ body {
   justify-content: center;
   background-color: #fff;
   box-shadow: 0 1px 0 rgba(0,0,0,.25);
-  padding: 2rem 2rem 1rem;
+  padding: 2rem 2rem 6rem;
   border: 1px solid #ddd;
-  width: 66.13%;
-  padding-bottom: 2rem;
+  width: 40%;
   // margin-left: auto;
   // margin-right: auto;
   margin: auto;
   line-height: 1.5rem;
   // font-size: 16px;
+  min-width: 520px;
+  margin-top: 70px;
 }
 
 .login-form-box {
-  
+  line-height: 16px;
 }
 
 .login-input {
@@ -35,18 +47,18 @@ body {
   margin: 0 0 .5rem;
   height: auto;
   font-family: inherit;
+  width: 300px;
 }
 
-.session-submit {
-  vertical-align: middle;
-  font-size: 20px;
-  font-family: inherit;
-  padding: 14px 32px 16px; // this should pad around text in button?
+.extra-margin {
+  margin-bottom: 20px;
 }
 
 .session-submit { 
   background: #007a5a;
   color: #fff;
+  vertical-align: middle;
+  font-size: 20px;
   font-weight: 900;
   cursor: pointer;
   border: none;
@@ -54,10 +66,16 @@ body {
   font-family: inherit;
   padding: 14px 32px 16px;
   line-height: 1rem;
-  // width: 38%;
-  
+  width: 326px
 }
 
 p {
     margin: 0 0 1rem;
+}
+
+.errors {
+  position: absolute;
+  text-align: center;
+  color: red;
+  margin-top: 10px;
 }
