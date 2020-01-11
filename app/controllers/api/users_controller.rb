@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-    @user.username = (@user.email).split('@').first
+    @user.username = (@user.email).split('@')
 
     if @user.save
       login(@user)
