@@ -1,5 +1,4 @@
 import React from "react";
-import GreetingContainer from '../greeting/greeting_container';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Provider } from 'react-redux';
 import {
