@@ -14,11 +14,15 @@
  */
 
 @import "reset.scss";
-@import "home.scss";
+@import "./home/home.scss";
 @import "./home/intro.scss";
 @import "static_pages.scss"; 
 @import "api/*"; 
 
+// * { 
+//   outline: 1px solid red;
+//   outline-offset: -1px;
+// }
 
  /* min / max width height  */
  /* review box model and box model sizing */

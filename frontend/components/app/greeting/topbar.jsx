@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const Greeting = ({ currentUser, logout }) => {
+const Topbar = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <nav className="login-signup">
       <Link to="/login">Sign in</Link>
@@ -22,4 +22,4 @@ const Greeting = ({ currentUser, logout }) => {
 };
 
 
-export default Greeting;
+export default Topbar;

@@ -1,6 +1,7 @@
 import React from "react";
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Provider } from 'react-redux';
+import Topbar from './greeting/topbar_container'
 import {
   Route,
   Redirect,
@@ -13,15 +14,17 @@ import {
 
 const App = () => (
   <div>
-    <header>
+    <Topbar/>
+    <div>
       <Link to="/" className="header-link">
-        <h1>This is the App!</h1>
+        <h1>CHAT</h1>
       </Link>
-      <GreetingContainer/> 
-    </header>
+      
+    </div>
     <Switch>
       {/* <Route exact path="/" component={SearchContainer} /> */}
     </Switch>
+    {/* <TopBar/>  */}
     <footer>
       <h3>I'm a footer</h3>
     </footer>
