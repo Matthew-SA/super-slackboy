@@ -28,7 +28,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import ChatRoom from "./ChatRoom.js";
+import ChatRoom from "./Chatroom.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
