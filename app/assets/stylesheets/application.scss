@@ -24,6 +24,30 @@
 //   outline-offset: -1px;
 // }
 
+* {
+  margin: 2px;
+  padding: 5px;
+}
+li {
+  list-style: decimal;
+}
+.chatroom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.message-list {
+  overflow-y: scroll;
+  height: 300px;
+  width: 400px;
+  border: solid gray 1px;
+}
+.load-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
  /* min / max width height  */
  /* review box model and box model sizing */
  /* review inline to allow elements to sit to left and right of el *** doesnt respect padding / margin? */ 
