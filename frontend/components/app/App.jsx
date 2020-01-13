@@ -2,6 +2,7 @@ import React from "react";
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Provider } from 'react-redux';
 import Topbar from './greeting/topbar_container'
+import Chatroom from './Chatroom'
 import {
   Route,
   Redirect,
@@ -19,8 +20,9 @@ const App = () => (
       <Link to="/" className="header-link">
         <h1>CHAT</h1>
       </Link>
-      
+      <Chatroom />
     </div>
+    
     <Switch>
       {/* <Route exact path="/" component={SearchContainer} /> */}
     </Switch>

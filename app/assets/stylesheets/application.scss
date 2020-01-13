@@ -24,12 +24,13 @@
 //   outline-offset: -1px;
 // }
 
-* {
-  margin: 2px;
-  padding: 5px;
-}
+// * {
+//   margin: 2px;
+//   padding: 5px;
+// }
+
 li {
-  list-style: decimal;
+  list-style: none;
 }
 .chatroom-container {
   display: flex;

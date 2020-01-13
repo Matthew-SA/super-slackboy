@@ -1,4 +1,3 @@
-
 import React from "react";
 
 class MessageForm extends React.Component {
@@ -6,7 +5,7 @@ class MessageForm extends React.Component {
     super(props);
     this.state = { body: "" };
   }
-
+  
   update(field) {
     return e =>
       this.setState({ [field]: e.currentTarget.value });
