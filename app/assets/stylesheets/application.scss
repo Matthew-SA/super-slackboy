@@ -23,6 +23,16 @@
 @import "./app/sidebar.scss";
 @import "./app/main.scss";
 
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+}
+
 .client-page {
   height: 100%;
   width: 100%;

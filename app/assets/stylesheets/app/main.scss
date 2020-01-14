@@ -11,40 +11,14 @@ li {
   display: flex;
   flex-direction: column;
   flex-flow: column nowrap;
-  // justify-content: flex-end;
-  padding-left: 49px;
-  padding-bottom: 109px;
-  // border: 1px solid #999;
-  // display: inline-block;
-  // vertical-align: bottom;
-  // position: relative;
-  // margin: 0 5px;
+  padding-left: 64px;
+  margin-bottom: 109px;
   overflow-y: auto;
-  // pointer-events: auto;
-  // max-height: 90%;
-
 }
 
 .message-list :first-child {
   margin-top: auto !important;
 }
-
-
-// .message-list {
-//   display: flex;
-//   flex-direction: column;
-//   // justify-content: flex-end;
-//   padding-left: 49px;
-//   // border: 1px solid #999;
-//   // display: inline-block;
-//   // vertical-align: bottom;
-//   // position: relative;
-//   // margin: 0 5px;
-//   overflow-y: scroll;
-//   // pointer-events: auto;
-//   max-height: 90%;
-
-// }
 
 .primary-message-form {
   position: fixed;
@@ -60,10 +34,8 @@ li {
   right: 0px;
   left: 220px;
   height: 109px;
-  // width: 100%;
   box-sizing: border-box;
   padding: 0px 20px 8px 20px;
-
 }
 
 .primary-message-form textarea {
@@ -77,32 +49,9 @@ li {
   display: flex;
   flex-wrap: wrap;
   word-break: break-all;
-  padding: 0px 0px 48px 43px
+  padding: 10px 0px 48px 43px
 }
 
-// .chatroom-container {
-//   display: inline-block;
-//   vertical-align: bottom;
-//   position: relative;
-//   display: flex;
-//   grid-area: main;
-
-//   width: 100%;
-
-//   // height: 100px;
-//   // z-index: 20;
-//   // display: flex;
-//   flex-direction: column;
-//   align-items: flex-end;
-// }
-// .message-list {
-//   overflow-y: scroll;
-//   width: inherit;
-//   // height: inherit;
-//   // bottom: 0px;
-//   // width: 100vw;
-//   border: solid gray 1px;
-// }
 .load-button {
   // position: absolute;
   // bottom: 0px;
