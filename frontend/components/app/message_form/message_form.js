@@ -15,12 +15,12 @@ class MessageForm extends React.Component {
   handleSubmit(e) {
     if (e && e.keyCode == 13) {
       e.preventDefault();
-      App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body, user_id: this.props.currentUser.id, session_token: Cookies.get('session_token')});
+      App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body, user_id: this.props.currentUser.id});
       this.setState({ body: "" });
       e.target.value = "";
     }
   }
-
+  // session_token: Cookies.get('session_token')}
   render() {
     console.log(Cookies.get())
     return (
@@ -30,7 +30,7 @@ class MessageForm extends React.Component {
             wrap="hard"
             value={this.state.body}
             onChange={this.update("body")}
-            placeholder="Message"
+            placeholder={this.props.currentUserId}
           />
 
 
