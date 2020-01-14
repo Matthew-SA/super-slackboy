@@ -1,0 +1,30 @@
+.profile {
+  display: flex;
+  grid-area: profile-box;
+  background-color: #303E4D;
+}
+
+.profile-block {
+  box-sizing: border-box;
+  color: white;
+  padding: 8px 16px 8px 16px;
+}
+
+.profile-block > h2 {
+  display: flex;
+  font-size: 18px;
+  margin-bottom: -1px;
+}
+
+.profile-block > p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: lighter;
+  padding-left: 20px;
+}
+
+.logout-button {
+  display: flex;
+  font-size: 8px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import MessageForm from "./message_form/message_form";
+import MessageForm from "./message_form/message_form_container";
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -50,13 +50,12 @@ class ChatRoom extends React.Component {
     });
     return (
       <div className="chatroom-container">
-        <div>ChatRoom</div>
-        <button className="load-button"
-          onClick={this.loadChat.bind(this)}>
-          Load Chat History
-        </button>
         <div className="message-list">{messageList}</div>
         <MessageForm />
+        {/* <button className="load-button"
+          onClick={this.loadChat.bind(this)}>
+          Load Chat History
+        </button> */}
       </div>
     );
   }

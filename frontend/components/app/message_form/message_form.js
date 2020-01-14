@@ -12,22 +12,27 @@ class MessageForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
-    this.setState({ body: "" });
+    if (e && e.keyCode == 13) {
+      e.preventDefault();
+      App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
+      this.setState({ body: "" });
+      e.target.value = "";
+    }
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-            type="text"
+      <div className="primary-message-form" >
+        <form onKeyDown={this.handleSubmit.bind(this)}>
+          <textarea
+            wrap="soft"
             value={this.state.body}
             onChange={this.update("body")}
-            placeholder="Type message here"
+            placeholder="Message"
           />
-          <input type="submit" />
+
+
+          {/* {this.props.currentUser.username} */}
         </form>
       </div>
     );
@@ -35,3 +40,4 @@ class MessageForm extends React.Component {
 }
 
 export default MessageForm;
+

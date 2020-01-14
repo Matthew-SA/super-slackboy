@@ -1,8 +1,10 @@
 import React from "react";
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Provider } from 'react-redux';
-import Topbar from './greeting/topbar_container'
+import Topnav from './topnav/topnav_container'
+import Sidebar from './sidebar/sidebar'
 import Chatroom from './Chatroom'
+import Profile from './profile/profile_container'
 import {
   Route,
   Redirect,
@@ -11,25 +13,17 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-// NOTE: REWRITE HEADER HERE.
 
 const App = () => (
-  <div>
-    <Topbar/>
-    <div>
-      <Link to="/" className="header-link">
-        <h1>CHAT</h1>
-      </Link>
-      <Chatroom />
-    </div>
+  <div className="client-page">
+    <Profile/>
+    <Topnav />
+    <Sidebar/>
+    <Chatroom/>
     
-    <Switch>
+    {/* <Switch> */}
       {/* <Route exact path="/" component={SearchContainer} /> */}
-    </Switch>
-    {/* <TopBar/>  */}
-    <footer>
-      <h3>I'm a footer</h3>
-    </footer>
+    {/* </Switch> */}
   </div>
 );
 

@@ -24,13 +24,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
 });
-
-
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import ChatRoom from "./Chatroom.js";
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const root = document.getElementById("root");
-//   ReactDOM.render(<ChatRoom />, root);
-// });
