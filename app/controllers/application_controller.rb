@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     session[:session_token] = user.session_token
+    cookies[:session_token] = user.session_token
   end
 
   def logout
@@ -12,7 +13,7 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
-  def current_user
+  def current_user # TODO: Verify by user_id
     return nil unless session[:session_token]
     @current_user ||= User.find_by_session_token(session[:session_token])
   end
