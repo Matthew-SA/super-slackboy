@@ -53,33 +53,35 @@ class SessionForm extends React.Component {
     let demobutton = this.props.formType === "Sign in" ? <button className="demo-button" onClick={this.demoLogin}>Demo login</button> : ""
 
     return (
-      <div className="login-card">
-        <form onSubmit={this.handleSubmit} className="login-form">
-          <h1 className="signin_header">{formTitle}</h1>
-          <p className="subtitle">Slack Clone</p>
-          <br />
-          Enter your email address and password.
+      <div className="login-body">
+        <div className="login-card">
+          <form onSubmit={this.handleSubmit} className="login-form">
+            <h1 className="signin_header">{formTitle}</h1>
+            <p className="subtitle">Slack Clone</p>
             <br />
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-                placeholder="you@example.com"
-              />
-            <br />
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input extra-margin"
-                placeholder="password"
-              />
-            <br />
-            <button className="session-submit" type="submit" value={this.props.formType}>
-              <span>{this.props.formType}</span>
-            </button>
-          {demobutton}
-          <div className="errors">{this.renderErrors()}</div>
-        </form>
+            Enter your email address and password.
+              <br />
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  className="login-input"
+                  placeholder="you@example.com"
+                />
+              <br />
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input extra-margin"
+                  placeholder="password"
+                />
+              <br />
+              <button className="session-submit" type="submit" value={this.props.formType}>
+                <span>{this.props.formType}</span>
+              </button>
+            {demobutton}
+            <div className="errors">{this.renderErrors()}</div>
+          </form>
+        </div>
       </div>
     );
   }

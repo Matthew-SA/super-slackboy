@@ -2,10 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
+.login-body {
   color: #1d1c1d;
   line-height: 1.5rem;
   background-color: #F8F8F8;
+  height: 100vh;
+  padding: 77px;
 }
 
 .subtitle {
@@ -19,6 +21,7 @@ body {
 }
 
 .login-card {
+  top: 77px;
   display: flex;
   justify-content: center;
   background-color: #fff;
@@ -32,7 +35,7 @@ body {
   line-height: 1.5rem;
   // font-size: 16px;
   min-width: 480px;
-  margin-top: 77px;
+  // margin-top: 77px;
 }
 
 .login-form {

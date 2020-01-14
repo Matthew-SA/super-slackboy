@@ -25,7 +25,7 @@ class MessageForm extends React.Component {
       <div className="primary-message-form" >
         <form onKeyDown={this.handleSubmit.bind(this)}>
           <textarea
-            wrap="soft"
+            wrap="hard"
             value={this.state.body}
             onChange={this.update("body")}
             placeholder="Message"
