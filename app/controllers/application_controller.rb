@@ -4,17 +4,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def login(user)
-    cookies[:session_token] = user.session_token
+    session[:session_token] = user.session_token
   end
 
   def logout
     current_user.reset_session_token!
-    cookies[:session_token] = nil
+    session[:session_token] = nil
   end
 
-  def current_user # TODO: Verify by user_id
-    return nil unless cookies[:session_token]
-    @current_user ||= User.find_by_session_token(cookies[:session_token])
+  def current_user
+    return nil unless session[:session_token]
+    @current_user ||= User.find_by_session_token(session[:session_token])
   end
 
   def logged_in?
@@ -29,4 +29,3 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless logged_in?
   end
 end
-

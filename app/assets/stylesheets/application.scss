@@ -43,6 +43,8 @@ body {
     "profile-box topnav"
     "sidebar main";
   position: fixed;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 // * { 

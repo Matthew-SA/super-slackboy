@@ -22,7 +22,7 @@ class MessageForm extends React.Component {
   }
   // session_token: Cookies.get('session_token')}
   render() {
-    console.log(Cookies.get())
+    // console.log(Cookies.get())
     return (
       <div className="primary-message-form" >
         <form onKeyDown={this.handleSubmit.bind(this)}>
@@ -30,7 +30,7 @@ class MessageForm extends React.Component {
             wrap="hard"
             value={this.state.body}
             onChange={this.update("body")}
-            placeholder={this.props.currentUserId}
+            placeholder='Message'
           />
 
 

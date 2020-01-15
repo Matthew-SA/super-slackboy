@@ -11,7 +11,7 @@ li {
   display: flex;
   flex-direction: column;
   flex-flow: column nowrap;
-  padding-left: 64px;
+  // padding-left: 64px;
   margin-bottom: 109px;
   overflow-y: auto;
 }
@@ -52,9 +52,34 @@ li {
   padding: 10px 0px 48px 43px
 }
 
-.load-button {
-  // position: absolute;
-  // bottom: 0px;
-  // top: 5px;
-  // right: 5px;
+.message-list-card {
+  display: flex;
+  float: left;
+  // flex-direction: row;
+  // align-content: flex-start;
+  justify-content: flex-start;
+  left: 220px;
+  right: 0px;
+  padding: 6px 20px 6px 20px;
+}
+
+.message-body {
+  padding-left: 44px;
+
+}
+
+.message-body h6 {
+  font-weight: bold;
+}
+
+.message-body div {
+  position: relative;
+  left: 0px;
+  right: 1000px;
+  line-height: 1.5rem;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  word-break: break-all;
 }

@@ -4,7 +4,7 @@ import MessageForm from './message_form';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
-    currentUser: users[session.id],
+    currentUser: users[session.id], // This may not ne needed anymore?
     currentUserId: users[session.id].id,
   };
 };
