@@ -1,19 +1,13 @@
 import { connect } from 'react-redux';
-import { logout } from '../../../actions/session_actions'
 import MessageForm from './message_form';
+import { requestMessages } from '../../../actions/message_actions'
 
-const mapStateToProps = ({ session, entities: { users } }) => {
-  return {
-    currentUser: users[session.id], // This may not ne needed anymore?
-    currentUserId: users[session.id].id,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-
+const mSTP = ({ session, entities: { users } }) => ({
+  currentUser: users[session.id],
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MessageForm);
+const mDTP = dispatch => ({
+  requestMessages: () => dispatch(requestMessages())
+});
+
+export default connect(mSTP,mDTP)(MessageForm);

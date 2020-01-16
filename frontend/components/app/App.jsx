@@ -3,7 +3,7 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { Provider } from 'react-redux';
 import Topnav from './topnav/topnav_container'
 import Sidebar from './sidebar/sidebar'
-import Chatroom from './Chatroom'
+import Chatroom from './chatroom/chatroom_container'
 import Profile from './profile/profile_container'
 import {
   Route,
@@ -15,7 +15,7 @@ import {
 
 
 const App = () => (
-  <div className="client-page">
+  <div className="app">
     <Profile/>
     <Topnav />
     <Sidebar/>

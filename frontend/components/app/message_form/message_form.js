@@ -6,7 +6,7 @@ class MessageForm extends React.Component {
     super(props);
     this.state = { body: "" };
   }
-  
+
   update(field) {
     return e =>
       this.setState({ [field]: e.currentTarget.value });
@@ -20,9 +20,8 @@ class MessageForm extends React.Component {
       e.target.value = "";
     }
   }
-  // session_token: Cookies.get('session_token')}
+
   render() {
-    // console.log(Cookies.get())
     return (
       <div className="primary-message-form" >
         <form onKeyDown={this.handleSubmit.bind(this)}>

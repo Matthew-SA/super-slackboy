@@ -9,7 +9,12 @@ class Topnav extends React.Component {
   render() {
     return (
       <div className="topnav-bar">
+        <div className="left-header">
+          <h2>#Channel Name</h2>
+        </div>
+        <div className="right-header">
 
+        </div>
       </div>
     );
   }

@@ -6,12 +6,27 @@ class Profile extends React.Component {
     super(props);
   }
   
+  componentDidMount() {
+    $('.profile').click(() => {
+      $('.profile-dropdown').removeClass('hide')
+    })
+
+    // $('.app').click(function (event) {
+    //   if (!$(event.target).closest(`#project-dropdown-${that.props.project.id}`).length && !$(event.target).is(`#project-dropdown-${that.props.project.id}`)) {
+    //     $(`.project-dropdown`).removeClass('reveal-dropdown')
+    //   }
+    // });
+  }
+
   render() {
     return (
       <div className="profile">
         <div className="profile-block">
           <h2>Current Channel</h2>
           <p>{this.props.currentUser.username}<button className="logout-button" onClick={this.props.logout}>Log Out</button></p>
+        </div>
+        <div className="profile-dropdown hide">
+          OH NO
         </div>
       </div>
     );

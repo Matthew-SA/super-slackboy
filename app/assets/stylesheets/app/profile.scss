@@ -2,6 +2,13 @@
   display: flex;
   grid-area: profile-box;
   background-color: #303E4D;
+  &:hover .profile-block p{
+    color: white;
+  }
+}
+
+.profile:hover {
+  background-color: #2E3848  
 }
 
 .profile-block {
@@ -17,6 +24,8 @@
 }
 
 .profile-block > p {
+  line-height: 1.46668;
+  color: #BBBFC4;
   display: flex;
   justify-content: space-between;
   font-size: 14px;
@@ -27,4 +36,16 @@
 .logout-button {
   display: flex;
   font-size: 8px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  color: white;
+  border-radius: 6px;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  top: 50px;
+  left: 8px;
+  z-index: 10;
 }

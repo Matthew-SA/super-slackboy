@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from "./components/Root"
 import { login } from './actions/session_actions'
-
+import { fetchMessages }from '../frontend/util/message_api_util'
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
+  window.fetchMessages = fetchMessages
   window.login = login
   window.getState = store.getState;
   window.dispatch = store.dispatch; 

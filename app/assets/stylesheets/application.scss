@@ -33,7 +33,7 @@ body {
     overflow: auto;
 }
 
-.client-page {
+.app {
   height: 100%;
   width: 100%;
   display: grid;
@@ -47,6 +47,9 @@ body {
   word-wrap: break-word;
 }
 
+.hide {
+  display: none;
+}
 // * { 
 //   outline: 1px solid red;
 //   outline-offset: -1px;
