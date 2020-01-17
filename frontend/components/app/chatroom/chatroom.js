@@ -28,26 +28,19 @@ class ChatRoom extends React.Component {
     );
   }
 
-  componentWillUnmount() {
-    if (App.room) App.cable.subscriptions.remove(App.room)
-  }
-
   componentDidUpdate() {
     if (this.props.messages.length) this.bottom.current.scrollIntoView();
   }
 
   render() {
     const messageList = this.props.messages.map((message, idx) => {
-      let previousAuthorId = this.props.messages[idx - 1] ? this.props.messages[idx - 1].user_id : null
-      let thisAuthorId = message.user_id
-
-
+      const previousAuthorId = this.props.messages[idx - 1] ? this.props.messages[idx - 1].user_id : null
+      const thisAuthorId = message.user_id
 
       if (previousAuthorId === thisAuthorId) {
         return (
           <li className="message-list-card" key={message.id}>
             <div className="left-gutter">
-              {/* <img src={window.profile_pic} className="chat-profile-pic" /> */}
             </div>
             <div className="message-body">
               <div>{message.body}</div>
@@ -69,18 +62,6 @@ class ChatRoom extends React.Component {
           </li>
         );
       }
-      // return (
-      //   <li className="message-list-card" key={message.id}>
-      //     {/* <div className="message-avatar"> */}
-      //       <img src={window.profile_pic} className="chat-profile-pic" /> 
-      //     {/* </div> */}
-      //     <div className="message-body">
-      //       <h6>{message.author.username}</h6>
-      //       <div>{message.body}</div>
-      //     </div>
-      //     <div ref={this.bottom} />
-      //   </li>
-      // );
     });
 
     return (
