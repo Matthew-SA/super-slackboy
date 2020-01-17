@@ -16,7 +16,7 @@ class ChatRoom extends React.Component {
         received: data => {
           switch (data.type) {
             case "message":
-              const message = { author: data.author, body: data.body, id: data.id };
+              const message = { author: data.author, body: data.body, id: data.id, user_id: data.user_id };
               this.props.incomingMessage(message)
               break;
           }
@@ -36,7 +36,8 @@ class ChatRoom extends React.Component {
     const messageList = this.props.messages.map((message, idx) => {
       const previousAuthorId = this.props.messages[idx - 1] ? this.props.messages[idx - 1].user_id : null
       const thisAuthorId = message.user_id
-
+      console.log(previousAuthorId)
+      console.log(thisAuthorId)
       if (previousAuthorId === thisAuthorId) {
         return (
           <li className="message-list-card" key={message.id}>
