@@ -36,8 +36,7 @@ class ChatRoom extends React.Component {
     const messageList = this.props.messages.map((message, idx) => {
       const previousAuthorId = this.props.messages[idx - 1] ? this.props.messages[idx - 1].user_id : null
       const thisAuthorId = message.user_id
-      console.log(previousAuthorId)
-      console.log(thisAuthorId)
+      
       if (previousAuthorId === thisAuthorId) {
         return (
           <li className="message-list-card" key={message.id}>
