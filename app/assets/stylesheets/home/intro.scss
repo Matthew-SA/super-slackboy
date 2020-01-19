@@ -8,11 +8,12 @@
 }
 .intro-banner video {
   /* Make video to at least 100% wide and tall */
-  min-width: 100%; 
+  width: 100%;
+  min-width: 1300px; 
   // object-fit: contain;
 
   /* Setting width & height to auto prevents the browser from stretching or squishing the video */
-  width: auto;
+  // width: auto;
   height: auto;
 
   /* Center the video */
