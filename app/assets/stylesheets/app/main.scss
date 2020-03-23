@@ -5,7 +5,9 @@ li {
   display: grid;
   grid-area: main;
   bottom: 109px;
-  overflow-y: scroll;
+  // overflow: auto;
+  overflow-y: auto;
+  // -webkit-overflow-scrolling: touch;
 }
 .message-list {
   display: flex;
@@ -76,6 +78,7 @@ li {
 
 .message-body div {
   position: relative;
+  left: 0px;
   line-height: 1.46668;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -87,6 +90,7 @@ li {
 .left-gutter {
   height: 100%;
   width: 44px;
+
 }
 
 .chat-profile-pic {
