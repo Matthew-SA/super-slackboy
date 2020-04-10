@@ -9,17 +9,9 @@
     left:0;
     right:0;
     overflow:hidden;
+    min-width: 810px;
     z-index: 0;
 }
-
-
-// .login-body {
-//   color: #1d1c1d;
-//   line-height: 1.5rem;
-//   background-color: #F8F8F8;
-//   // height: 100vh;
-//   padding: 77px;
-// }
 
 .subtitle {
   text-align: center;
@@ -94,7 +86,7 @@
 .demo-button {
   box-sizing: border-box;
   margin-top: 10px;
-  background: #007a5a;
+  background: #611f69;
   color: #fff;
   vertical-align: middle;
   font-size: 20px;
@@ -107,7 +99,6 @@
   line-height: 1rem;
   width: 80%;
   min-width: 326px;
-  
 }
 
 p {
