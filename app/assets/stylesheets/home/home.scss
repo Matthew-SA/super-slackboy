@@ -1,13 +1,27 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  height: 100%;
+}
+
 .nav-list {
+  position: absolute;
+  min-width: 810px;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
   height: 69px;
-  background-color: #fff;
-  padding-left: 12%;
-  padding-right: 13%;
+  background-color: #ffffff;
   border-bottom: 1px solid rgb(224, 224, 224);
+  z-index: 100;
 }
 
 .logo {
@@ -61,3 +75,13 @@
   font-size: 14px;
 }
 
+.home-footer {
+  position: fixed;
+  border-top: 1px solid rgb(224, 224, 224);
+  height: 100px;
+  background-color: #ffffff;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}

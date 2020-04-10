@@ -13,8 +13,13 @@ class SessionForm extends React.Component {
 
   componentDidMount() {
     this.props.clearErrors();
+    document.body.addEventListener('click', this.myHandler);
+
   }
-  
+
+  myHandler(e) {
+    console.log(e.target)
+  }
 
   update(field) {
     return e => this.setState({
@@ -49,7 +54,7 @@ class SessionForm extends React.Component {
 
 
   render() {
-    let formTitle = this.props.formType === "Sign in" ? "Sign in to Slack" : "Sign up for Slack"
+    let formTitle = this.props.formType === "Sign in" ? "Sign in to Super Slackboy" : "Sign up for Super Slackboy"
     let demobutton = this.props.formType === "Sign in" ? <button className="demo-button" onClick={this.demoLogin}>Demo login</button> : ""
 
     return (
@@ -57,7 +62,7 @@ class SessionForm extends React.Component {
         <div className="login-card">
           <form onSubmit={this.handleSubmit} className="login-form">
             <h1 className="signin_header">{formTitle}</h1>
-            <p className="subtitle">Slack Clone</p>
+            <p className="subtitle">Instant message board service</p>
             <br />
             Enter your email address and password.
               <br />

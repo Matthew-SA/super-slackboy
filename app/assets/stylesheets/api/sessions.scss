@@ -1,14 +1,25 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.login-body {
-  color: #1d1c1d;
-  line-height: 1.5rem;
-  background-color: #F8F8F8;
-  // height: 100vh;
-  padding: 77px;
+.login-body{
+    background-color: #f8f8f8;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:hidden;
+    z-index: 0;
 }
+
+
+// .login-body {
+//   color: #1d1c1d;
+//   line-height: 1.5rem;
+//   background-color: #F8F8F8;
+//   // height: 100vh;
+//   padding: 77px;
+// }
 
 .subtitle {
   text-align: center;
@@ -21,14 +32,17 @@
 }
 
 .login-card {
-  top: 77px;
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  top: 140px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  // justify-content: center;
   background-color: #fff;
   box-shadow: 0 1px 0 rgba(0,0,0,.25);
   padding: 2rem 2rem 6rem;
   border: 1px solid #ddd;
-  width: 45%;
+  width: 40%;
   margin: auto;
   line-height: 1.5rem;
   min-width: 480px;
@@ -36,7 +50,8 @@
 
 .login-form {
   text-align: center;
-  width: 90%;
+  z-index: 3;
+  // width: 90%;
 }
 
 .login-form-box {
