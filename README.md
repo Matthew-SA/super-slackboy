@@ -1,30 +1,30 @@
-# Slack-Clone (working title!)
+# Super SlackBoy
 
-Slack clone is a light weight communication application where users can post messages to a common channel for others to view.
+Slack clone is a light weight communication application where users can post real-time messages in channels for others to view.
 
 ## Features
 * Instant messaging
 * Messages persist in channel
 
 
-## [Slack Clone Homepage](https://fullstack-slack-clone.herokuapp.com/#/ "Slack Clone Homepage")
+## [Super SlackBoy live page](https://fullstack-slack-clone.herokuapp.com/#/ "Slack Clone Homepage")
 
 
 
 
-## Slack Clone Stack:
+## Super SlackBoy Stack:
 React / Redux
 Rails
 Postgres
 
 ### Additional technologies:
-Websockets (Action Cable)
+Web sockets (Action Cable)
 
 
 
 
 ## Main Features:
-* Messages are instant by use of websockets.  When a user joins the chat page, a user subscription is created to the chat channel.  Any time a user posts a new message, the chat channel will update all current clients with the new message.
+* Messages are instant through use of websockets.  When a user joins the chat page, a user subscription is created to the chat channel.  Anytime a user posts a new message, the chat channel will update all current clients with the new message.
 
 * Messages are persistant.  All older messages are handled through standard routes and the database, and will render upon page load.
 
