@@ -20,6 +20,8 @@
   padding: 8px 16px 8px 16px;
   height: inherit;
   width: inherit;
+  border-top: 1px solid #46525F;
+  border-bottom: 1px solid #46525F;
 }
 
 .profile-block-content > h2 {
@@ -64,6 +66,7 @@
   width: 36px;
   margin-top: 0px;
   margin-right: 9px;
+  background-color: red;
 }
 
 .profile-menu-header {

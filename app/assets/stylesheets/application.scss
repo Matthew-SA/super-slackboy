@@ -38,8 +38,8 @@ body {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 220px auto;
-  grid-template-rows: 60px auto;
+  grid-template-columns: 260px auto;
+  grid-template-rows: 64px auto;
   grid-template-areas: 
     "profile-box topnav"
     "sidebar main";
@@ -51,6 +51,7 @@ body {
 .hide {
   display: none;
 }
+//see outlines
 // * { 
 //   outline: 1px solid red;
 //   outline-offset: -1px;
