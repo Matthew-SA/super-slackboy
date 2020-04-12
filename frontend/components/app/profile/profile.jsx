@@ -41,7 +41,7 @@ class Profile extends React.Component {
           </div>
           <div className="profile-menu-items">
             <div className="profile-sign-out">
-              Sign Out of <span className="bold">Slack Clone</span>
+              Sign Out of <span className="bold">Super SlackBoy</span>
             </div>
           </div>
         </div>

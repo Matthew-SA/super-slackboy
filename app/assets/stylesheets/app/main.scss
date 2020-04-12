@@ -9,14 +9,17 @@ li {
   overflow-y: auto;
   // -webkit-overflow-scrolling: touch;
 }
-.message-list {
-  display: flex;
-  flex-direction: column;
-  flex-flow: column nowrap;
-  // padding-left: 64px;
-  margin-bottom: 109px;
-  overflow-y: auto;
-}
+// .message-list {
+//   display:-webkit-flex;
+//   // display: flex;
+//   flex-direction: column;
+//   -webkit-flex-direction: column;
+//   flex-flow: column nowrap;
+//   -webkit-flex-flow: column nowrap;
+//   // padding-left: 64px;
+//   margin-bottom: 109px;
+//   overflow-y: auto;
+// }
 
 .message-list :first-child {
   margin-top: auto !important;
@@ -55,7 +58,8 @@ li {
 }
 
 .message-list-card {
-  display: flex;
+  display:-webkit-flex;
+  
   left: 220px;
   right: 0px;
   padding: 6px 20px 6px 20px;

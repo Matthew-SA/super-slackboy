@@ -39,10 +39,11 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 260px auto;
-  grid-template-rows: 64px auto;
+  grid-template-rows: 64px auto 109px;;
   grid-template-areas: 
     "profile-box topnav"
-    "sidebar main";
+    "sidebar main"
+    "sidebar chatbox";
   position: fixed;
   overflow-wrap: break-word;
   word-wrap: break-word;
