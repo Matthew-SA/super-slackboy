@@ -1,0 +1,18 @@
+.viewHeader-container {
+  grid-area: viewHeader;
+  border-bottom: 1px solid #E2E2E2;
+}
+
+.left-header {
+  box-sizing: border-box;
+  padding: 12px 8px 8px 20px
+}
+
+.left-header h2 {
+  font-size: 14px;
+  line-height: 1.33334;
+  font-weight: 900;
+  display: inline-flex;
+  max-width: 100%;
+  align-items: baseline;
+}

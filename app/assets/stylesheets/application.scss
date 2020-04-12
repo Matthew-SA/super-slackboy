@@ -18,6 +18,7 @@
 @import "./home/home.scss";
 @import "./home/intro.scss";
 @import "static_pages.scss"; 
+@import "./app/view_header";
 @import "./app/profile.scss";
 @import "./app/topnav.scss";
 @import "./app/sidebar.scss";
@@ -39,9 +40,10 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 260px auto;
-  grid-template-rows: 64px auto 109px;;
+  grid-template-rows: 38px 64px auto 109px;
   grid-template-areas: 
-    "profile-box topnav"
+    "topnav topnav"
+    "profile-box viewHeader"
     "sidebar main"
     "sidebar chatbox";
   position: fixed;

@@ -1,28 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Topnav extends React.Component {
+class TopNav extends React.Component {
   constructor(props) {
     super(props);
   }
   
   render() {
     return (
-      <div className="topnav-bar">
-        <div className="left-header">
-          <h2>#Channel Name</h2>
-        </div>
-        <div className="right-header">
-
-        </div>
+      <div className="topnav-container">
       </div>
     );
   }
 }
 
-export default Topnav;
+export default TopNav;
 
-
+//old code for reference
 // const Topnav = ({ currentUser, logout }) => {
 //   const sessionLinks = () => (
 //     <nav className="login-signup">
