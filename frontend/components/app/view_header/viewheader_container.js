@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../../../actions/session_actions'
-import ViewHeader from './Viewheader';
+import ViewHeader from './viewheader';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
