@@ -5,24 +5,7 @@ li {
   display: grid;
   grid-area: main;
   bottom: 109px;
-  // overflow: auto;
   overflow-y: auto;
-  // -webkit-overflow-scrolling: touch;
-}
-// .message-list {
-//   display:-webkit-flex;
-//   // display: flex;
-//   flex-direction: column;
-//   -webkit-flex-direction: column;
-//   flex-flow: column nowrap;
-//   -webkit-flex-flow: column nowrap;
-//   // padding-left: 64px;
-//   margin-bottom: 109px;
-//   overflow-y: auto;
-// }
-
-.message-list :first-child {
-  margin-top: auto !important;
 }
 
 .primary-message-form {

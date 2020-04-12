@@ -10,7 +10,7 @@ class Profile extends React.Component {
 
   componentDidMount() {
     let that = this
-    $('.profile-block').click(e => {
+    $('.profile').click(e => {
       e.stopPropagation()
       $('.profile-dropdown').removeClass('hide')
     })
@@ -29,11 +29,9 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div className="profile-block">
-        <div className="profile-block-content">
-          <h2>Super SlackBoy<FontAwesomeIcon className="chevron-down" icon="chevron-down" /></h2>
-          <p><FontAwesomeIcon className="status-dot" icon="circle" /> {this.props.currentUser.username}</p>
-        </div>
+      <div className="profile">
+        <h2>Super SlackBoy<FontAwesomeIcon className="chevron-down" icon="chevron-down" /></h2>
+        <p><FontAwesomeIcon className="status-dot" icon="circle" /> {this.props.currentUser.username}</p>
         <div className="profile-dropdown hide">
           <div className="profile-menu-header">
             <img src={window.profile_pic} className="profile-pic" />
