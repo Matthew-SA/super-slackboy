@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -30,8 +31,8 @@ class Profile extends React.Component {
     return (
       <div className="profile-block">
         <div className="profile-block-content">
-          <h2>Slack Clone</h2>
-          <p>{this.props.currentUser.username}</p>
+          <h2>Super SlackBoy<FontAwesomeIcon className="chevron-down" icon="chevron-down" /></h2>
+          <p><FontAwesomeIcon className="status-dot" icon="circle" /> {this.props.currentUser.username}</p>
         </div>
         <div className="profile-dropdown hide">
           <div className="profile-menu-header">

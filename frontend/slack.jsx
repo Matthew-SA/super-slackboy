@@ -4,6 +4,10 @@ import configureStore from './store/store';
 import Root from "./components/Root"
 import { login } from './actions/session_actions'
 import { fetchMessages }from '../frontend/util/message_api_util'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faChevronDown, faCircle } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faEnvelope, faChevronDown, faCircle);
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
