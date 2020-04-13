@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {

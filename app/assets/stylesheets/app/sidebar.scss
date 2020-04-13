@@ -3,4 +3,16 @@
   background-color: #303E4D;
   height: 100%;
   position: relative;
+  padding: 12px 16px 8px 16px;
+  color: silver;
+}
+
+.sidebar-header-container {
+  display: flex;
+}
+
+.channel-header {
+  font-size: 14px;
+  font-weight: 1;
+  margin-left: 8px;
 }
