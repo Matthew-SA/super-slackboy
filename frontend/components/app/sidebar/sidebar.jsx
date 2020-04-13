@@ -9,6 +9,9 @@ export class Sidebar extends Component {
         <div className="sidebar-header-container">
           <FontAwesomeIcon icon="caret-down" /> <p className="channel-header">Channels</p>
         </div>
+        <div className="sidebar-header-container">
+          <FontAwesomeIcon icon="caret-down" /> <p className="channel-header">Direct Messages</p>
+        </div>
       </div>
     );
   }
