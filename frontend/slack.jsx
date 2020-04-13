@@ -5,9 +5,9 @@ import Root from "./components/Root"
 import { login } from './actions/session_actions'
 import { fetchMessages }from '../frontend/util/message_api_util'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faChevronDown, faCircle, faCaretDown} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faEnvelope, faChevronDown, faCircle, faCaretDown);
+library.add(faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus);
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;

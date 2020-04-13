@@ -7,10 +7,12 @@ export class Sidebar extends Component {
     return (
       <div className="sidebar">
         <div className="sidebar-header-container">
-          <FontAwesomeIcon icon="caret-down" /> <p className="channel-header">Channels</p>
+          <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Channels</p> 
+          <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
         </div>
         <div className="sidebar-header-container">
-          <FontAwesomeIcon icon="caret-down" /> <p className="channel-header">Direct Messages</p>
+          <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p> 
+          <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
         </div>
       </div>
     );
