@@ -10,7 +10,7 @@ class ViewHeader extends React.Component {
     return (
       <div className="viewHeader-container">
         <div className="left-header">
-          <h2>#Channel</h2>
+          <h2>#Super SlackBoy</h2>
         </div>
         <div className="right-header">
 

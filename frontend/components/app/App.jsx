@@ -23,8 +23,6 @@ const App = () => (
     <Sidebar/>
     <Chatroom/>
     
-
-    
     {/* <Switch> */}
       {/* <Route exact path="/" component={SearchContainer} /> */}
     {/* </Switch> */}
