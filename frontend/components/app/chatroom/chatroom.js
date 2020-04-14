@@ -69,7 +69,7 @@ class ChatRoom extends React.Component {
         <div className="message-list">
           {messageList}
         </div>
-        <MessageForm />
+        {/* <MessageForm /> */}
       </div>
     );
   }

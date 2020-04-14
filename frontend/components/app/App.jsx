@@ -6,6 +6,7 @@ import ViewHeader from './view_header/viewheader_container'
 import Sidebar from './sidebar/sidebar_container'
 import Chatroom from './chatroom/chatroom_container'
 import Profile from './profile/profile_container'
+import MessageForm from './message_form/message_form_container'
 import {
   Route,
   Redirect,
@@ -22,6 +23,7 @@ const App = () => (
     <ViewHeader />
     <Sidebar/>
     <Chatroom/>
+    <MessageForm/>
     
     {/* <Switch> */}
       {/* <Route exact path="/" component={SearchContainer} /> */}

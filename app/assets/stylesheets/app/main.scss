@@ -9,29 +9,21 @@ li {
 }
 
 .primary-message-form {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-  left: 260px;
-  height: 109px;
+  grid-area: chatbox;
+  // background-color: black;
 }
 
-.primary-message-form form{
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-  left: 260px;
-  height: 109px;
-  box-sizing: border-box;
+.primary-message-form {
   padding: 0px 20px 8px 20px;
 }
 
 .primary-message-form textarea {
-  height: 90px;
+  height: 85px;
   width: 100%;
-  left: 0;
+  left: 20px;
   right: 0;
   border-radius: 4px;
+  border-color: #8D8D8E;
   box-sizing: border-box;
   resize: none;
   display: flex;
