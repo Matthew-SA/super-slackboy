@@ -8,21 +8,22 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    let that = this
     $('.profile').click(e => {
       e.stopPropagation()
+      // if (e.target.className === 'profile') 
       $('.profile-dropdown').removeClass('hide')
     })
 
-    $('.app').click(function (event) {
-      if (!$(event.target).closest('.profile-dropdown').length && !$(event.target).is('.profile-dropdown')) {
+    $('.app').click(function (e) {
+      e.stopPropagation()
+      if (!$(e.target).closest('.profile-dropdown').length && !$(e.target).is('.profile-dropdown')) {
         $('.profile-dropdown').addClass('hide')
       }
     });
 
     $('.profile-sign-out').click((e) => {
       e.stopPropagation();
-      that.props.logout();
+      this.props.logout();
     })
   }
 
