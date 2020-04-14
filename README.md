@@ -7,7 +7,7 @@ Slack clone is a light weight communication application where users can post rea
 * Messages persist in channel
 
 
-## [Super SlackBoy live page](https://fullstack-slack-clone.herokuapp.com/#/ "Slack Clone Homepage")
+## [Super SlackBoy live page](https://super-slackboy.herokuapp.com "Super SlackBoy")
 
 
 
