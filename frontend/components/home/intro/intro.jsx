@@ -16,12 +16,12 @@ export class Intro extends Component {
             <source src="https://a.slack-edge.com/085e3/marketing/img/homepage/video/brand-campaign_hero-video.mp4" type="video/mp4" />
           </video>
           <header className="intro-header">
-            <h1>Slack replaces email inside your company</h1>
-            <p>Keep conversations organized in Slack, the smart alternative to email.</p>
+            <h1>Super SlackBoy replaces email inside your company</h1>
+            <p>Keep conversations organized in Super SlackBoy, the smart alternative to email.</p>
             <div className="intro-buttons">
               <Link to="/login" className="purple-try-button">TRY DEMO</Link>
             </div>
-            Already using Slack? <Link to="/login">Sign in</Link>
+            Already using Super Slackboy? <Link to="/login">Sign in</Link>
           </header>
         </div>
       </div>

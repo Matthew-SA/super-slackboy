@@ -5,9 +5,10 @@ import Root from "./components/Root"
 import { login } from './actions/session_actions'
 import { fetchMessages }from '../frontend/util/message_api_util'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus, faBriefcase} from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faAngellist, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
-library.add(faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus);
+library.add(faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus, faBriefcase, faLinkedin, faAngellist, faGithubSquare);
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;

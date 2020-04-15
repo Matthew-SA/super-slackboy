@@ -10,7 +10,6 @@ class Profile extends React.Component {
   componentDidMount() {
     $('.profile').click(e => {
       e.stopPropagation()
-      // if (e.target.className === 'profile') 
       $('.profile-dropdown').removeClass('hide')
     })
 

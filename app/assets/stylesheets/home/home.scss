@@ -7,57 +7,55 @@ body {
   height: 100%;
 }
 
-.nav-list {
-  position: absolute;
-  min-width: 810px;
+a {
+  text-decoration: none;
+}
+
+.home-top-nav {
+  position: fixed;
+  min-width: 1300px;
   width: 100%;
-  top: 0;
-  right: 0;
-  left: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   box-shadow: 0 1px 1px rgba(0,0,0,.1);
   height: 69px;
   background-color: #ffffff;
   border-bottom: 1px solid rgb(224, 224, 224);
   z-index: 10;
+  box-sizing:border-box;
+  padding-left: 194px;
+  padding-right: 194px;
+}
+
+.option-list {
+  float: left;
+}
+
+.user-links {
+  height: 69px;
+  text-align: center;
+  float: right;
 }
 
 .logo {
-  display: block;
   margin: 0;
   max-height: 69px;
 }
 
-.nav-logo {
-  display: flex;
-  vertical-align: middle;
-}
-
-.nav-list ul {
+.home-top-nav ul {
   display: flex;
   flex-direction: row;
   list-style: none;
-  margin: 0;
-  /* height: 10 px; */
 }
 
-.nav-list ul li {
+.home-top-nav ul li {
   display: flex;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   align-items: center;
-  padding-top: 0px;
 }
   
 .nav-options {
   display: flex;
   justify-content: space-between;
-}
-
-.user-links {
-
 }
 
 .purple-button {
@@ -67,7 +65,6 @@ body {
   cursor: pointer;
   border: none;
   border-radius: .25rem;
-  font-family: inherit;
   padding: 13px 19px 13px;
   line-height: 1rem;
   text-decoration: none;
@@ -77,7 +74,7 @@ body {
 
 .home-footer {
   position: fixed;
-  // border-top: 1px solid rgb(224, 224, 224);
+  vertical-align: middle;
   height: 124px;
   background-color: #ffffff;
   bottom: 0px;
@@ -86,11 +83,44 @@ body {
   margin-bottom: 0px;
 }
 .first-subfooter {
+  display: flex;
+  align-items: center;
+  // justify-content: center;
   height: 84px;
   background-color: #F5F5F5;
+  box-sizing:border-box;
+  padding-left: 194px;
+  padding-right: 194px;
 }
 
 .second-subfooter {
   height: 40px;
   background-color: #EBEAEB;
+}
+
+.social-icons {
+  margin-left: auto;
+  font-size: 24px;
+}
+
+.social-icons li {
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 12px;
+  // a {
+  //   text-decoration: none;
+  // }
+  // &:hover {
+  //   color: rgb(70, 132, 248);
+  //   cursor: pointer;
+  // }
+}
+
+.social-icons li a {
+  text-decoration: none;
+  color: #454545;
+  &:hover {
+    color: rgb(70, 132, 248);
+    cursor: pointer;
+  }
 }
