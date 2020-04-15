@@ -4,6 +4,8 @@ import LoginFormContainer from './session_form/login_form_container'
 import { AuthRoute, ProtectedRoute } from '../../util/route_util'
 import { Provider } from 'react-redux';
 import Intro from "./intro/intro"
+
+
 import {
   Route,
   Redirect,
@@ -44,7 +46,8 @@ const Home = () => (
     </div>
     </div>
     <footer className="home-footer">
-
+      <div className="first-subfooter"></div>
+      <div className="second-subfooter"></div>
     </footer>
   </div>
 );

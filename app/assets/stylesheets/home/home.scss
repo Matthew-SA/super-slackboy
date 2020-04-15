@@ -77,11 +77,20 @@ body {
 
 .home-footer {
   position: fixed;
-  border-top: 1px solid rgb(224, 224, 224);
-  height: 100px;
+  // border-top: 1px solid rgb(224, 224, 224);
+  height: 124px;
   background-color: #ffffff;
   bottom: 0px;
   left: 0px;
   right: 0px;
   margin-bottom: 0px;
+}
+.first-subfooter {
+  height: 84px;
+  background-color: #F5F5F5;
+}
+
+.second-subfooter {
+  height: 40px;
+  background-color: #EBEAEB;
 }
