@@ -1,5 +1,4 @@
 import React from "react";
-import Cookies from 'js-cookie'
 
 class MessageForm extends React.Component {
   constructor(props) {
@@ -31,9 +30,6 @@ class MessageForm extends React.Component {
             onChange={this.update("body")}
             placeholder='Message'
           />
-
-
-          {/* {this.props.currentUser.username} */}
         </form>
       </div>
     );
