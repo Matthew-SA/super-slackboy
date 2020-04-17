@@ -1,6 +1,4 @@
 import React from "react";
-import MessageForm from "../message_form/message_form_container";
-import { logoutCurrentUser } from "../../../actions/session_actions";
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -69,7 +67,6 @@ class ChatRoom extends React.Component {
         <div className="message-list">
           {messageList}
         </div>
-        {/* <MessageForm /> */}
       </div>
     );
   }
