@@ -43,6 +43,9 @@ li {
 
 .message-list-card:hover {
   background-color: #F7F7F7;
+  .gutter-timestamp {
+    display: initial;
+  }
 }
 
 .message-body {
@@ -51,6 +54,7 @@ li {
 }
 
 .message-body h6 {
+  display: flex;
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -67,6 +71,7 @@ li {
 }
 
 .left-gutter {
+  position: relative;
   height: 100%;
   min-width: 44px;
 
@@ -77,4 +82,25 @@ li {
   width: 36px;
   margin-top: 0px;
   margin-right: 9px;
+}
+
+.timestamp {
+  position: absolute;
+  top: 1px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 23px;
+  text-align: right;
+  color: grey;
+}
+
+.gutter-timestamp {
+  display: none;
+  position: absolute;
+  top: 5.5px;
+  right: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: right;
+  color: grey;
 }

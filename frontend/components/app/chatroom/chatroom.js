@@ -39,6 +39,7 @@ class ChatRoom extends React.Component {
         return (
           <li className="message-list-card" key={message.id}>
             <div className="left-gutter">
+              <div className="gutter-timestamp">{message.time}</div>
             </div>
             <div className="message-body">
               <div>{message.body}</div>
@@ -53,7 +54,7 @@ class ChatRoom extends React.Component {
               <img src={window.profile_pic} className="chat-profile-pic" />
             </div>
             <div className="message-body">
-              <h6>{message.author.username}</h6>
+              <h6>{message.author.username}&nbsp;&nbsp;<div className="timestamp">{message.time}</div> </h6>
               <div>{message.body}</div>
             </div>
             <div ref={this.bottom} />
