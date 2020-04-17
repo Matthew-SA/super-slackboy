@@ -1,5 +1,6 @@
-json.extract! message, :id, :body, :user_id, :updated_at
+json.extract! message, :id, :body, :time
+
 
 json.author do
-  json.extract! message.user, :username
+  json.extract! message.user, :username, :id
 end
