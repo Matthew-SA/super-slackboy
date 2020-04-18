@@ -23,19 +23,3 @@ class Message < ApplicationRecord
   end
 
 end
-
-
-def time(input)
-  time = input
-  hours = time[0..1].to_i
-
-  hours < 12 ? time += ' AM' : time += 'PM'
-
-  if hours <= 12
-    time[0..1] = hours.to_s
-  else
-    time[0..1] = (hours - 12).to_s
-  end
-
-  time
-end
