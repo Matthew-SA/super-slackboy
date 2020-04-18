@@ -9,7 +9,16 @@ class Message < ApplicationRecord
 
   def time
     time = "#{(self.created_at.to_time)}"[11..15]
-    time[0] == '0' ? time[1..4] : time
+    hours = time[0..1].to_i
+
+    if hours < 12
+      time += " AM"
+    else
+      time[0..1] = (hours - 12).to_s
+      time += " PM"
+    end
+
+    time
   end
 
 end

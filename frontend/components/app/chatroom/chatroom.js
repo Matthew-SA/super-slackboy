@@ -39,7 +39,7 @@ class ChatRoom extends React.Component {
         return (
           <li className="message-list-card" key={message.id}>
             <div className="left-gutter">
-              <div className="gutter-timestamp">{message.time}</div>
+              <div className="gutter-timestamp">{message.time.slice(0,-2)}</div>
             </div>
             <div className="message-body">
               <div>{message.body}</div>
