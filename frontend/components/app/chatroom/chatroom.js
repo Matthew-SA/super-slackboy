@@ -32,14 +32,17 @@ class ChatRoom extends React.Component {
 
   render() {
     const messageList = this.props.messages.map((message, idx) => {
-      const previousAuthorId = this.props.messages[idx - 1] ? this.props.messages[idx - 1].author.id : null
-      const thisAuthorId = message.author.id
-      
+      let previousAuthorId = this.props.messages[idx - 1] ? this.props.messages[idx - 1].author.id : null
+      let thisAuthorId = message.author.id
+      let date = new Date(message.time)
+      let timeStamp = date.toLocaleTimeString()
+      // let timeStamp = date.getHours() + ":" + date.getMinutes();
+
       if (previousAuthorId === thisAuthorId) {
         return (
           <li className="message-list-card" key={message.id}>
             <div className="left-gutter">
-              <div className="gutter-timestamp">{message.time.slice(0,-2)}</div>
+              <div className="gutter-timestamp">{timeStamp}</div>
             </div>
             <div className="message-body">
               <div>{message.body}</div>
@@ -54,7 +57,7 @@ class ChatRoom extends React.Component {
               <img src={window.profile_pic} className="chat-profile-pic" />
             </div>
             <div className="message-body">
-              <h6>{message.author.username}&nbsp;&nbsp;<div className="timestamp">{message.time}</div> </h6>
+              <h6>{message.author.username}&nbsp;&nbsp;<div className="timestamp">{timeStamp}</div> </h6>
               <div>{message.body}</div>
             </div>
             <div ref={this.bottom} />
