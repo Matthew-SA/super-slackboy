@@ -7,16 +7,11 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
-    // $('.channel-header').click(() => {
-    //   $('.caret-down').toggleClass('caret-rotate');
-    // });
-
     $('.channel-header').on('click', (e) => {
       e.stopPropagation();
       $(e.currentTarget).find(".caret-down").toggleClass('caret-rotate');
       $(e.currentTarget).parent().parent().find('.sidebar-ul').toggleClass('hide')
     });
-
   }
 
   render() {
@@ -28,9 +23,9 @@ class Sidebar extends React.Component {
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
           <ul className="sidebar-ul">
-            <li># first item</li>
-            <li># second item</li>
-            <li># third item</li>
+            <li># Demo item 1</li>
+            <li># Demo item 2</li>
+            <li># Demo item 3</li>
           </ul>
         </div>
         <div className="sidebar-menu-item">
@@ -39,9 +34,9 @@ class Sidebar extends React.Component {
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
           <ul className="sidebar-ul">
-            <li># first item</li>
-            <li># second item</li>
-            <li># third item</li>
+            <li># Demo item 1</li>
+            <li># Demo item 2</li>
+            <li># Demo item 3</li>
           </ul>
         </div>
       </div>
