@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-// import { logout } from '../../../actions/session_actions'
 import Siderbar from './sidebar';
 
-const mapStateToProps = () => {
+const mapStateToProps = ({ session, entities: { users } }) => {
   return {
-
+    hideChannels: users[session.id].hide_channels_ui,
+    hideDirectMessages: users[session.id].hide_direct_messages_ui,
   };
 };
 

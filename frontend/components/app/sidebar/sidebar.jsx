@@ -14,7 +14,28 @@ class Sidebar extends React.Component {
     });
   }
 
+  getChannelList() {
+    return(
+      <ul className="sidebar-ul">
+        <li># Status: {this.props.hideChannels.toString()}</li>
+        <li># Demo item 2</li>
+        <li># Demo item 3</li>
+      </ul>
+    )
+  }
+
+  getDirectMessageList() {
+    return(
+      <ul className="sidebar-ul">
+      <li># Status: {this.props.hideDirectMessages.toString()}</li>
+      <li># Demo item 2</li>
+      <li># Demo item 3</li>
+    </ul>
+    )
+  }
+
   render() {
+
     return (
       <div className="sidebar">
         <div className="sidebar-menu-item">
@@ -22,22 +43,14 @@ class Sidebar extends React.Component {
             <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Channels</p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
-          <ul className="sidebar-ul">
-            <li># Demo item 1</li>
-            <li># Demo item 2</li>
-            <li># Demo item 3</li>
-          </ul>
+          {this.props.hideChannels ? "" : this.getChannelList()}
         </div>
         <div className="sidebar-menu-item">
           <div className="sidebar-header-container">
             <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
-          <ul className="sidebar-ul">
-            <li># Demo item 1</li>
-            <li># Demo item 2</li>
-            <li># Demo item 3</li>
-          </ul>
+          {this.props.hideDirectMessages ? "" : this.getDirectMessageList()}
         </div>
       </div>
     );
