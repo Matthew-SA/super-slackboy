@@ -67,16 +67,7 @@ li {
   align-self: center;
   margin-right: 8px;
 }
-.post-content div {
-  // position: relative;
-  // left: 0px;
-  // line-height: 1.46668;
-  // -ms-hyphens: auto;
-  // -moz-hyphens: auto;
-  // -webkit-hyphens: auto;
-  // hyphens: auto;
-  // word-break: break-all;
-}
+
 
 .post-left-margin {
   position: relative;
@@ -102,7 +93,7 @@ li {
 .gutter-timestamp {
   display: none;
   position: absolute;
-  top: 5.5px;
+  top: 6px;
   right: 10px;
   font-size: 12px;
   font-weight: 500;
