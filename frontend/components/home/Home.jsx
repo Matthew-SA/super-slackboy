@@ -6,8 +6,6 @@ import { Provider } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Intro from "./intro/intro"
 
-
-
 import {
   Route,
   Redirect,

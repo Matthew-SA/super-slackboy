@@ -13,12 +13,7 @@ class SessionForm extends React.Component {
 
   componentDidMount() {
     this.props.clearErrors();
-    // document.body.addEventListener('click', this.myHandler);
   }
-
-  // myHandler(e) {
-  //   console.log(e.target)
-  // }
 
   update(field) {
     return e => this.setState({

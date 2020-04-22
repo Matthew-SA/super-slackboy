@@ -1,5 +1,6 @@
 .sidebar {
   grid-area: sidebar;
+  user-select: none;
   background-color: #303E4D;
   height: 100%;
   position: relative;
@@ -17,6 +18,9 @@
   font-size: 14px;
   font-weight: 1;
   margin-left: 0;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .plus-button {
@@ -33,4 +37,13 @@
 .plus-button:hover {
   cursor: pointer;
   background-color: #CBCFD34C;
+}
+
+.caret-down {
+  transition: .1s linear;
+  transform-style: preserve-3d;
+}
+
+.caret-rotate {
+  transform: rotate(-90deg)
 }

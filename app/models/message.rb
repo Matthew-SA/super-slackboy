@@ -4,7 +4,7 @@ class Message < ApplicationRecord
   belongs_to :user
 
   def time
-    "#{(self.created_at.to_time)}"
+    self.created_at.to_time
   end
 
 end
