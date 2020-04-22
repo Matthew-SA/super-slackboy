@@ -4,13 +4,14 @@
   background-color: #303E4D;
   height: 100%;
   position: relative;
-  padding: 12px 16px 8px 16px;
+  padding: 12px 0px 8px 0px;
   color: silver;
 }
 
 .sidebar-header-container {
   display: flex;
   height: 30px;
+  padding: 0 16px 0 16px;
 }
 
 .channel-header {
@@ -46,4 +47,14 @@
 
 .caret-rotate {
   transform: rotate(-90deg)
+}
+
+.sidebar-ul {
+  li {
+    padding: 4px 20px 4px 20px;
+  }
+}
+
+.hide {
+  display: none;
 }

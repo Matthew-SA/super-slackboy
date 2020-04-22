@@ -13,20 +13,36 @@ class Sidebar extends React.Component {
 
     $('.channel-header').on('click', (e) => {
       e.stopPropagation();
-      $(e.target).find(".caret-down").toggleClass('caret-rotate');
+      $(e.currentTarget).find(".caret-down").toggleClass('caret-rotate');
+      $(e.currentTarget).parent().parent().find('.sidebar-ul').toggleClass('hide')
     });
+
   }
 
   render() {
     return (
       <div className="sidebar">
-        <div className="sidebar-header-container">
-          <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Channels</p>
-          <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
+        <div className="sidebar-menu-item">
+          <div className="sidebar-header-container">
+            <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Channels</p>
+            <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
+          </div>
+          <ul className="sidebar-ul">
+            <li># first item</li>
+            <li># second item</li>
+            <li># third item</li>
+          </ul>
         </div>
-        <div className="sidebar-header-container">
-          <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
-          <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
+        <div className="sidebar-menu-item">
+          <div className="sidebar-header-container">
+            <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
+            <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
+          </div>
+          <ul className="sidebar-ul">
+            <li># first item</li>
+            <li># second item</li>
+            <li># third item</li>
+          </ul>
         </div>
       </div>
     );
