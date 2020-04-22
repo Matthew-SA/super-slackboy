@@ -3,6 +3,7 @@ class ChatChannel < ApplicationCable::Channel
     stream_for 'chat_channel'
   end
   def speak(data)
+    user = 
     message = Message.new(body: data['message'], user_id: data['user_id'])
     if message.save
       ChatChannel.broadcast_to('chat_channel',  

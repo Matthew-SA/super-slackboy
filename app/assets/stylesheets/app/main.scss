@@ -32,36 +32,24 @@ li {
   padding: 10px 0px 48px 43px
 }
 
-.message-list-card {
-  display:-webkit-flex;
-  
-  left: 220px;
-  right: 0px;
-  padding: 6px 20px 6px 20px;
+///////// CHATROOM //////////
 
+.post {
+  display:-webkit-flex;
+  padding: 4px 20px 4px 20px;
+  min-height: 18px;
 }
 
-.message-list-card:hover {
+.post:hover {
   background-color: #F7F7F7;
   .gutter-timestamp {
     display: initial;
   }
 }
 
-.message-body {
+.post-content {
   position: relative;
   font-size: 15px;
-}
-
-.message-body h6 {
-  display: flex;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.message-body div {
-  position: relative;
-  left: 0px;
   line-height: 1.46668;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
@@ -70,14 +58,33 @@ li {
   word-break: break-all;
 }
 
-.left-gutter {
-  position: relative;
-  height: 100%;
-  min-width: 44px;
-
+.post-header {
 }
 
-.chat-profile-pic {
+.post-author {
+  display: inline-block;
+  font-weight: bold;
+  align-self: center;
+  margin-right: 8px;
+}
+.post-content div {
+  // position: relative;
+  // left: 0px;
+  // line-height: 1.46668;
+  // -ms-hyphens: auto;
+  // -moz-hyphens: auto;
+  // -webkit-hyphens: auto;
+  // hyphens: auto;
+  // word-break: break-all;
+}
+
+.post-left-margin {
+  position: relative;
+  height: 100%;
+  min-width: 45px;
+}
+
+.post-avatar {
   height: 36px;
   width: 36px;
   margin-top: 0px;
@@ -85,13 +92,11 @@ li {
 }
 
 .timestamp {
-  position: absolute;
-  top: 1px;
+  display: inline-block;
   font-size: 12px;
   font-weight: 500;
-  line-height: 23px;
-  text-align: right;
   color: grey;
+
 }
 
 .gutter-timestamp {

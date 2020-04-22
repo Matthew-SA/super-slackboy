@@ -1,4 +1,6 @@
 import React from "react";
+import Moment from "react-moment"
+import "moment-timezone"
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -34,18 +36,14 @@ class ChatRoom extends React.Component {
     const messageList = this.props.messages.map((message, idx) => {
       let previousAuthorId = this.props.messages[idx - 1] ? this.props.messages[idx - 1].author.id : null;
       let thisAuthorId = message.author.id;
-      let date = new Date(message.time);
-      let timeParts = date.toLocaleTimeString().split(" ");
-      let formattedTime = timeParts[0].slice(0,-3)
-      let timeSuffix = ` ${timeParts[1]}`;
 
       if (previousAuthorId === thisAuthorId) {
         return (
-          <li className="message-list-card" key={message.id}>
-            <div className="left-gutter">
-              <div className="gutter-timestamp">{formattedTime}</div>
+          <li className="post" key={message.id}>
+            <div className="post-left-margin">
+              <Moment className="gutter-timestamp" parse="YYYY-MM-DD HH:mm" date={message.time} format="h:mm"/>
             </div>
-            <div className="message-body">
+            <div className="post-content">
               <div>{message.body}</div>
             </div>
             <div ref={this.bottom} />
@@ -53,13 +51,16 @@ class ChatRoom extends React.Component {
         );
       } else {
         return (
-          <li className="message-list-card" key={message.id}>
-            <div className="left-gutter">
-              <img src={window.profile_pic} className="chat-profile-pic" />
+          <li className="post" key={message.id}>
+            <div className="post-left-margin">
+              <img src={window.profile_pic} className="post-avatar" />
             </div>
-            <div className="message-body">
-              <h6>{message.author.username}&nbsp;&nbsp;<div className="timestamp">{formattedTime + timeSuffix}</div> </h6>
-              <div>{message.body}</div>
+            <div className="post-content">
+              <div className="post-header">
+                <div className="post-author">{message.author.username}</div>
+                <Moment parse="YYYY-MM-DD HH:mm" className="timestamp" date={message.time} format="h:mm A" />
+              </div>
+              <div className="post-body">{message.body}</div>
             </div>
             <div ref={this.bottom} />
           </li>

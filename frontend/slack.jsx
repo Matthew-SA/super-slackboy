@@ -31,10 +31,3 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
 });
-
-// TODO: 
-// - finalize splash page
-// - clean up css code
-// - fix safari compatability on chat page
-// - create edit feature
-// - create channel feature
