@@ -44,3 +44,7 @@ export const logout = () => dispatch => (
     dispatch(logoutCurrentUser())
   ))
 );
+
+// export const toggleChannelList = () => ({
+//   type: TOGGLE_CHANNELS_LIST,
+// })
