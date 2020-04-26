@@ -4,12 +4,11 @@ class ChatChannel < ApplicationCable::Channel
   end
   def speak(data)
     user = current_user(data['user_id'], data['token'])
-    return if !user
+    return false if !user
 
 
     message = Message.new(body: data['message'], user_id: data['user_id'])
     if message.save
-      puts 'test'
       ChatChannel.broadcast_to('chat_channel',  
         JSON.parse(
           ApplicationController.render(template: 'api/messages/show.json.jbuilder', locals: { message: message })
