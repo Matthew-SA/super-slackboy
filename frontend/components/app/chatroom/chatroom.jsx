@@ -33,8 +33,9 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    const messageList = this.props.messages.map((message, idx) => {
-      let previousAuthorId = this.props.messages[idx - 1] ? this.props.messages[idx - 1].author.id : null;
+    let messages = this.props.messages
+    const messageList = messages.map((message, idx) => {
+      let previousAuthorId = messages[idx - 1] ? messages[idx - 1].author.id : null;
       let thisAuthorId = message.author.id;
 
       if (previousAuthorId === thisAuthorId) {

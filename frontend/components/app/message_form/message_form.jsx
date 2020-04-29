@@ -1,7 +1,6 @@
 import React from "react";
 import Cookie from "js-cookie";
 
-
 class MessageForm extends React.Component {
   constructor(props) {
     super(props);
