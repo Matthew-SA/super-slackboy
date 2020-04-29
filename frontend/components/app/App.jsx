@@ -1,6 +1,4 @@
 import React from "react";
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
-import { Provider } from 'react-redux';
 import TopNav from './topnav/topnav_container'
 import ViewHeader from './view_header/viewheader_container'
 import Sidebar from './sidebar/sidebar_container'

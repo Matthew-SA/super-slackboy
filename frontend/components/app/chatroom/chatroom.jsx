@@ -1,6 +1,8 @@
 import React from "react";
-import Moment from "react-moment"
 import "moment-timezone"
+import LargeChatItem from "./large_chat_item"
+import SmallChatItem from "./small_chat_item"
+
 
 class ChatRoom extends React.Component {
   constructor(props) {
@@ -21,9 +23,7 @@ class ChatRoom extends React.Component {
               break;
           }
         },
-        // connected: function () { App.cable.subscriptions.subscriptions[0].load()},
         speak: function (data) { return this.perform("speak", data) },
-        // load: function () { return this.perform("load") }
       }
     );
   }
@@ -39,31 +39,11 @@ class ChatRoom extends React.Component {
 
       if (previousAuthorId === thisAuthorId) {
         return (
-          <li className="post" key={message.id}>
-            <div className="post-left-margin">
-              <Moment className="gutter-timestamp" parse="YYYY-MM-DD HH:mm" date={message.time} format="h:mm"/>
-            </div>
-            <div className="post-content">
-              <div>{message.body}</div>
-            </div>
-            <div ref={this.bottom} />
-          </li>
+          <SmallChatItem message={message} key={idx}/>
         );
       } else {
         return (
-          <li className="post" key={message.id}>
-            <div className="post-left-margin">
-              <img src={window.profile_pic} className="post-avatar" />
-            </div>
-            <div className="post-content">
-              <div className="post-header">
-                <div className="post-author">{message.author.username}</div>
-                <Moment parse="YYYY-MM-DD HH:mm" className="timestamp" date={message.time} format="h:mm A" />
-              </div>
-              <div className="post-body">{message.body}</div>
-            </div>
-            <div ref={this.bottom} />
-          </li>
+          <LargeChatItem message={message} key={idx}/>
         );
       }
     });
@@ -72,6 +52,7 @@ class ChatRoom extends React.Component {
       <div className="chatroom-container">
         <div className="message-list">
           {messageList}
+          <div ref={this.bottom} />
         </div>
       </div>
     );

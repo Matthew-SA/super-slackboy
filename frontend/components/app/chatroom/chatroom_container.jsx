@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { requestMessages, incomingMessage } from '../../../actions/message_actions'
-import ChatRoom from './chatroom';
+import ChatRoom from './chatroom.jsx';
 
 const mSTP = state => ({
   messages: Object.values(state.entities.messages),
