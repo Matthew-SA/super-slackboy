@@ -1,36 +1,30 @@
 # Super SlackBoy
+[Super SlackBoy live page](https://super-slackboy.herokuapp.com "Super SlackBoy")
+<img width="1685" alt="Screen Shot 2020-04-29 at 11 16 47 AM" src="https://user-images.githubusercontent.com/47997709/80632101-95c1c980-8a0b-11ea-8ebc-8fe0c36ce811.png">
 
-Slack clone is a light weight communication application where users can post real-time messages in channels for others to view.
+Super SlackBoy is a light weight communication application where users can post real-time messages in channels for others to view.  Chat messages persist between sessions.
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Technologies](#technologies)
+3. [Features](#features)
+5. [Future Direction](#future-direction)
+
+## Introduction
+Super SlackBoy is a light weight communication application where users can post real-time messages in channels for others to view.  Chat messages persist between sessions.
+
+## Technologies
+ * React
+ * Redux
+ * Javascript
+ * Action Cable (web sockets)
+ * Ruby on Rails
+ * Ruby
+ * PostgreSQL
 
 ## Features
-* Instant messaging
-* Messages persist in channel
 
-
-## [Super SlackBoy live page](https://super-slackboy.herokuapp.com "Super SlackBoy")
-
-
-
-
-## Super SlackBoy Stack:
-React / Redux
-Rails
-Postgres
-
-### Additional technologies:
-Web sockets (Action Cable)
-
-
-
-
-## Main Features:
-* Messages are instant through use of websockets.  When a user joins the chat page, a user subscription is created to the chat channel.  Anytime a user posts a new message, the chat channel will update all current clients with the new message.
-
-* Messages are persistant.  All older messages are handled through standard routes and the database, and will render upon page load.
-
-
-
-## Code highlights
+* Instant Messaging - Action Cable web sockets provide messaging updates without having to manually refresh the page.  When a user joins the chat page, a user subscription is created to the chat channel.  Anytime a user posts a new message, the chat channel will update all current clients with the new message.
 
 ```javascript
   componentDidMount() {
@@ -54,3 +48,9 @@ Web sockets (Action Cable)
   }
 ```
 
+* Messages persist between session - All older messages are handled through standard routes and the database, and will render chat history upon page load.
+
+## Future Direction
+* Persistant user UI elements
+* Multiple channels
+* Direct messaging
