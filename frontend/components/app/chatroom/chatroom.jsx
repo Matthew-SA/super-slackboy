@@ -1,7 +1,7 @@
 import React from "react";
 import "moment-timezone"
-import LargeChatItem from "./large_chat_item"
-import SmallChatItem from "./small_chat_item"
+import LargeChatItem from "./large_chat_item.jsx"
+import SmallChatItem from "./small_chat_item.jsx"
 
 
 class ChatRoom extends React.Component {
