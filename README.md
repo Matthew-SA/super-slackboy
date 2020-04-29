@@ -1,5 +1,6 @@
 # Super SlackBoy
 [Super SlackBoy live page](https://super-slackboy.herokuapp.com "Super SlackBoy")
+<img width="1675" alt="Screen Shot 2020-04-29 at 11 16 47 AM" src="https://user-images.githubusercontent.com/47997709/80631714-04eaee00-8a0b-11ea-8038-1b80cc990f57.png">
 
 Super SlackBoy is a light weight communication application where users can post real-time messages in channels for others to view.  Chat messages persist between sessions.
 
