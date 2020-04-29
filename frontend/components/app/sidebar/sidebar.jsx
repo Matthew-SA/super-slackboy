@@ -17,7 +17,7 @@ class Sidebar extends React.Component {
   getChannelList() {
     return(
       <ul className="sidebar-ul">
-        <li># Status: {this.props.hideChannels.toString()}</li>
+        <li># Demo item 1</li>
         <li># Demo item 2</li>
         <li># Demo item 3</li>
       </ul>
@@ -27,7 +27,7 @@ class Sidebar extends React.Component {
   getDirectMessageList() {
     return(
       <ul className="sidebar-ul">
-      <li># Status: {this.props.hideDirectMessages.toString()}</li>
+      <li># Demo item 1</li>
       <li># Demo item 2</li>
       <li># Demo item 3</li>
     </ul>

@@ -3,8 +3,8 @@ import Siderbar from './sidebar';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
-    hideChannels: users[session.id].hide_channels_ui,
-    hideDirectMessages: users[session.id].hide_direct_messages_ui,
+    showChannels: users[session.id].hide_channels_ui,
+    showDirectMessages: users[session.id].hide_direct_messages_ui,
   };
 };
 
