@@ -19,6 +19,7 @@ Super SlackBoy is a light weight communication application where users can post 
  * Javascript
  * Action Cable (web sockets)
  * Ruby on Rails
+ * Ruby
  * PostgreSQL
 
 ## Features
