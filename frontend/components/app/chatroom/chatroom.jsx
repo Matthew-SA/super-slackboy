@@ -18,7 +18,12 @@ class ChatRoom extends React.Component {
         received: data => {
           switch (data.type) {
             case "message":
-              const message = { author: data.author, body: data.body, id: data.id, time: data.time };
+              const message = { 
+                author: data.author, 
+                body: data.body, 
+                id: data.id, 
+                time: data.time 
+              };
               this.props.incomingMessage(message)
               break;
           }
