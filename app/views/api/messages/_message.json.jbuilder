@@ -1,4 +1,4 @@
-json.extract! message, :id, :body, :time
+json.extract! message, :id, :body, :time 
 
 
 json.author do

@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     @user.username = (@user.email).split('@').first
 
-    if @user.save
+    if @user.save_with_ui
       login(@user)
       render "api/users/show"
     else

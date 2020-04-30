@@ -10,6 +10,21 @@ class User < ApplicationRecord
   has_many :messages
   has_one :ui
 
+  def save_with_ui
+    User.transaction do 
+      if self.save
+        ui = Ui.new()
+        ui.user_id = @user.id
+        if ui.save
+          return true
+        else 
+          raise ActiveRecord::Rollback
+        end
+      end
+    end
+      false
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user
