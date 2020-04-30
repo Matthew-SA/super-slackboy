@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
   getChannelList() {
     return(
       <ul className="sidebar-ul">
-        <li>{`${this.props.showChannels}`}</li>
+        <li># {`${this.props.showChannels}`}</li>
         <li># Demo item 2</li>
         <li># Demo item 3</li>
       </ul>
