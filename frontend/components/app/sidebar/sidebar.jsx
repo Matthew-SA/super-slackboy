@@ -7,6 +7,7 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
+    this.props.requestUi()
     $('.channel-header').on('click', (e) => {
       e.stopPropagation();
       $(e.currentTarget).find(".caret-down").toggleClass('caret-rotate');
@@ -17,7 +18,7 @@ class Sidebar extends React.Component {
   getChannelList() {
     return(
       <ul className="sidebar-ul">
-        <li># Demo item 1</li>
+        <li>{`${this.props.showChannels}`}</li>
         <li># Demo item 2</li>
         <li># Demo item 3</li>
       </ul>

@@ -1,0 +1,1 @@
+json.extract! @ui, :show_channels, :show_direct_messages

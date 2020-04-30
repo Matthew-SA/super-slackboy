@@ -1,5 +1,5 @@
 json.extract! user, :id, :username, :email
 
-json.test do
+json.ui do
   json.extract! user.ui, :show_channels
 end

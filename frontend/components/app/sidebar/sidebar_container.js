@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
 import Siderbar from './sidebar';
+import { requestUi } from '../../../actions/ui_actions'
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = ({ ui }) => {
   return {
-    showChannels: users[session.id].hide_channels_ui,
-    showDirectMessages: users[session.id].hide_direct_messages_ui,
+    showChannels: ui.show_channels,
+    showDirectMessages: ui.show_direct_messages,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-
+  requestUi: (userId) => dispatch(requestUi(userId))
 });
 
 export default connect(
