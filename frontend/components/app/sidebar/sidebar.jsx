@@ -8,17 +8,12 @@ class Sidebar extends React.Component {
 
   componentDidMount() {
     this.props.requestUi()
-    $('.channel-header').on('click', (e) => {
-      e.stopPropagation();
-      $(e.currentTarget).find(".caret-down").toggleClass('caret-rotate');
-      $(e.currentTarget).parent().parent().find('.sidebar-ul').toggleClass('hide')
-    });
   }
 
   getChannelList() {
     return(
       <ul className="sidebar-ul">
-        <li># {`${this.props.showChannels}`}</li>
+        <li># Demo item 1</li>
         <li># Demo item 2</li>
         <li># Demo item 3</li>
       </ul>
@@ -38,20 +33,20 @@ class Sidebar extends React.Component {
   render() {
 
     return (
-      <div className="sidebar">
+      <div className="sidebar" >
         <div className="sidebar-menu-item">
-          <div className="sidebar-header-container">
+          <div className="sidebar-header-container" onClick={() => this.props.toggleUi("show_channels")}>
             <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Channels</p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
-          {this.props.hideChannels ? "" : this.getChannelList()}
+          {this.props.showChannels ? this.getChannelList() : "" }
         </div>
         <div className="sidebar-menu-item">
-          <div className="sidebar-header-container">
+          <div className="sidebar-header-container" onClick={() => this.props.toggleUi("show_direct_messages")}>
             <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
-          {this.props.hideDirectMessages ? "" : this.getDirectMessageList()}
+          {this.props.showDirectMessages ? this.getDirectMessageList() : "" }
         </div>
       </div>
     );

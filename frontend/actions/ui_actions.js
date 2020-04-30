@@ -7,6 +7,10 @@ const receiveUi = ui => ({
   ui
 });
 
-export const requestUi = userId => dispatch => (
-  UiAPIUtil.fetchUI(userId).then(ui => dispatch(receiveUi(ui)))
+export const requestUi = () => dispatch => (
+  UiAPIUtil.fetchUi().then(ui => dispatch(receiveUi(ui)))
+)
+
+export const toggleUiElement = uiElement => dispatch => (
+  UiAPIUtil.toggleUiElement(uiElement).then(ui => dispatch(receiveUi(ui)))
 )

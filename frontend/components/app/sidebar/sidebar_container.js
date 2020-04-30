@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Siderbar from './sidebar';
-import { requestUi } from '../../../actions/ui_actions'
+import { requestUi, toggleUiElement,  } from '../../../actions/ui_actions'
 
 const mapStateToProps = ({ ui }) => {
   return {
@@ -10,7 +10,8 @@ const mapStateToProps = ({ ui }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestUi: (userId) => dispatch(requestUi(userId))
+  requestUi: () => dispatch(requestUi()),
+  toggleUi: (uiElement) => dispatch(toggleUiElement(uiElement))
 });
 
 export default connect(

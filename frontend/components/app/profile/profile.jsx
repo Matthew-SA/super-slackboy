@@ -7,22 +7,22 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    $('.profile').click(e => {
-      e.stopPropagation()
-      $('.profile-dropdown').removeClass('hide')
-    })
+    // $('.profile').click(e => {
+    //   e.stopPropagation()
+    //   $('.profile-dropdown').removeClass('hide')
+    // })
 
-    $('.app').click(function (e) {
-      e.stopPropagation()
-      if (!$(e.target).closest('.profile-dropdown').length && !$(e.target).is('.profile-dropdown')) {
-        $('.profile-dropdown').addClass('hide')
-      }
-    });
+    // $('.app').click(function (e) {
+    //   e.stopPropagation()
+    //   if (!$(e.target).closest('.profile-dropdown').length && !$(e.target).is('.profile-dropdown')) {
+    //     $('.profile-dropdown').addClass('hide')
+    //   }
+    // });
 
-    $('.profile-sign-out').click((e) => {
-      e.stopPropagation();
-      this.props.logout();
-    })
+    // $('.profile-sign-out').click((e) => {
+    //   e.stopPropagation();
+    //   this.props.logout();
+    // })
   }
 
   render() {
