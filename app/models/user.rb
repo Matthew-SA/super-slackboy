@@ -14,7 +14,7 @@ class User < ApplicationRecord
     User.transaction do 
       if self.save
         ui = Ui.new()
-        ui.user_id = @user.id
+        ui.user_id = self.id
         if ui.save
           return true
         else 
