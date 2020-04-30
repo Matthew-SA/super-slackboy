@@ -22,7 +22,7 @@ const Home = () => (
           <Link to="/" className="nav-logo">
             <img src={window.logo} className="logo"/> 
           </Link>
-          <li><button onClick={() => alert("hello world")}></button></li>
+          <li></li>
           <li></li>
           <li></li>
           <li></li>
