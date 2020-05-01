@@ -9,7 +9,7 @@ class Profile extends React.Component {
   componentDidMount() {
     $('.profile').click(e => {
       e.stopPropagation()
-      $('.profile-dropdown').removeClass('hide')
+      $('.profile-dropdown').toggleClass('hide')
     })
 
     $('.app').click(function (e) {
