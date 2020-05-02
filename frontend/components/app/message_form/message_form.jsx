@@ -5,6 +5,7 @@ class MessageForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { body: "" };
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   update(field) {
@@ -25,7 +26,7 @@ class MessageForm extends React.Component {
   render() {
     return (
       <div className="primary-message-form" >
-        <form onKeyDown={this.handleSubmit.bind(this)}>
+        <form onKeyDown={this.handleSubmit}>
           <textarea
             wrap="hard"
             value={this.state.body}
