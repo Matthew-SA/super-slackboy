@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   has_many :messages
   has_one :ui
+  has_many :memberships
+  has_many :channels, through: :memberships
 
   def save_with_ui
     User.transaction do 
