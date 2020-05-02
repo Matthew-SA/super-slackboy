@@ -35,15 +35,15 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar" >
         <div className="sidebar-menu-item">
-          <div className="sidebar-header-container" onClick={() => this.props.toggleUi("show_channels")}>
-            <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Channels</p>
+          <div className="sidebar-header-container">
+            <p className="channel-header" onClick={() => this.props.toggleUi("show_channels")}><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Channels</p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
           {this.props.showChannels ? this.getChannelList() : "" }
         </div>
         <div className="sidebar-menu-item">
-          <div className="sidebar-header-container" onClick={() => this.props.toggleUi("show_direct_messages")}>
-            <p className="channel-header"><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
+          <div className="sidebar-header-container">
+            <p className="channel-header" onClick={() => this.props.toggleUi("show_channels")}><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
           {this.props.showDirectMessages ? this.getDirectMessageList() : "" }
