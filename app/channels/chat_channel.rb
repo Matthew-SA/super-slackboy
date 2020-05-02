@@ -6,8 +6,7 @@ class ChatChannel < ApplicationCable::Channel
     user = current_user(data['user_id'], data['token'])
     return false if !user
 
-    
-    message = Message.new(body: data['message'], user_id: data['user_id'])
+    message = Message.new(body: data['message'], user_id: data['user_id'], channel_id: 1)
     if message.save
       ChatChannel.broadcast_to('chat_channel',  
         JSON.parse(
