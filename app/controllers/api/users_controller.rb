@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save_with_ui
       login(@user)
-      render "api/users/show"
+      render "api/user/show"
     else
       render json: @user.errors.full_messages, status: 422
     end
