@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { logout } from '../../../actions/session_actions'
 import ViewHeader from './viewheader';
 
-const mapStateToProps = ({ session, entities: {users, channels}}) => {
+const mapStateToProps = ({ session, entities: {user, channels}}) => {
   return {
-    currentUser: users[session.id],
-    currentChannel: channels[users[session.id].current_channel],
+    currentUser: user[session.id],
+    currentChannel: channels[user[session.id].current_channel],
   };
 };
 

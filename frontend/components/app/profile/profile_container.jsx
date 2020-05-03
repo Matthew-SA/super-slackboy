@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { logout } from '../../../actions/session_actions'
 import Profile from './profile';
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = ({ session, entities: { user } }) => {
   return {
-    currentUser: users[session.id]
+    currentUser: user[session.id]
   };
 };
 
