@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class ViewHeader extends React.Component {
   constructor(props) {
     super(props);
   }
+
   
   render() {
+    const currentChannelName = this.props.currentChannel ? this.props.currentChannel.name : ""
     return (
       <div className="viewHeader-container">
         <div className="left-header">
-          <h2>#Super SlackBoy</h2>
+          <h2># {currentChannelName}</h2>
         </div>
         <div className="right-header">
 

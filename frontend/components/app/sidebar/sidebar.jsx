@@ -37,8 +37,6 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    console.log(this.props.ChannelList)
-
     return (
       <div className="sidebar" >
         <div className="sidebar-menu-item">
