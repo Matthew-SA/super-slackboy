@@ -13,9 +13,10 @@ class ChatRoom extends React.Component {
   componentDidMount() {
     this.props.requestMessages()
     App.room = App.cable.subscriptions.create(
-      { channel: "ChatChannel" },
+      { channel: "ChatChannel"},
       {
         received: data => {
+          console.log(data.type)
           switch (data.type) {
             case "message":
               const message = { 
