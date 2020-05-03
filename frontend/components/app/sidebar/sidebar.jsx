@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
         </div>
         <div className="sidebar-menu-item">
           <div className="sidebar-header-container">
-            <p className="channel-header" onClick={() => this.props.toggleUi("show_channels")}><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
+            <p className="channel-header" onClick={() => this.props.toggleUi("show_direct_messages")}><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
           {this.props.showDirectMessages ? this.getDirectMessageList() : "" }
