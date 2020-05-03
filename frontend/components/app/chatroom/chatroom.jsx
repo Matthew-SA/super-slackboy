@@ -16,7 +16,6 @@ class ChatRoom extends React.Component {
       { channel: "ChatChannel"},
       {
         received: data => {
-          console.log(data.type)
           switch (data.type) {
             case "message":
               const message = { 
