@@ -9,7 +9,17 @@
 ApplicationRecord.transaction do
   User.destroy_all
 
-  User.create(username: 'Guest', email: 'guest@guest.com', password: 'guest12345')
+  User.create(username: 'Guest', email: 'guest@guest.com', password: 'guest12345', current_channel: 1)
+  Ui.create(user_id: 1)
+
+  Channel.create(name: 'General', topic: 'Talk about anything!', description: 'General Chat!')
+  Channel.create(name: 'Demo Channel 1', topic: 'such channel', description: 'demo purposes only!')
+  Channel.create(name: 'Demo Channel 2', topic: 'much chat', description: 'demo purposes only!')
+  
+  Membership.create(user_id: 1, channel_id: 1)
+  Membership.create(user_id: 1, channel_id: 2)
+  Membership.create(user_id: 1, channel_id: 3)
+  
 end
 
 

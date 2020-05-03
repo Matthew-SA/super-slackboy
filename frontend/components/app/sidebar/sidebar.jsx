@@ -8,14 +8,20 @@ class Sidebar extends React.Component {
 
   componentDidMount() {
     this.props.requestUi()
+    this.props.requestChannels()
   }
 
   getChannelList() {
+    let channels = this.props.channelList
+    const channelList = channels.map((channel, idx) => {
+      return (
+        <li key={idx}># {channel.name}</li>
+      )
+    })
+
     return(
       <ul className="sidebar-ul">
-        <li># Demo item 1</li>
-        <li># Demo item 2</li>
-        <li># Demo item 3</li>
+        {channelList}
       </ul>
     )
   }
@@ -31,6 +37,7 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    console.log(this.props.ChannelList)
 
     return (
       <div className="sidebar" >
