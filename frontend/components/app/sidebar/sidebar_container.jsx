@@ -4,8 +4,9 @@ import { requestUi, toggleUiElement,  } from '../../../actions/ui_actions'
 import { requestChannels  } from '../../../actions/channel_actions'
 import { changeCurrentChannel } from '../../../actions/session_actions'
 
-const mapStateToProps = ({ ui, entities }) => {
+const mapStateToProps = ({ ui, entities, session }) => {
   return {
+    currentChannel: entities.user[session.id].current_channel,
     showChannels: ui.show_channels,
     showDirectMessages: ui.show_direct_messages,
     channelList: Object.values(entities.channels),

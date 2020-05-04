@@ -17,9 +17,11 @@ class Sidebar extends React.Component {
 
   getChannelList() {
     let channels = this.props.channelList
+
     const channelList = channels.map((channel, idx) => {
+      let sidebarClass = this.props.currentChannel === channel.id ? "sidebar-selected" : "sidebar-item"
       return (
-        <li className="sidebar-item" onClick={() => this.changeChannel(channel.id)} key={idx}># {channel.name}</li>
+        <li className={sidebarClass} onClick={() => this.changeChannel(channel.id)} key={idx}># {channel.name}</li>
       )
     })
 

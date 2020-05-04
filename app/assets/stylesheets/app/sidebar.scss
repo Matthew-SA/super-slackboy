@@ -16,7 +16,7 @@
 
 .sidebar-item {
   cursor: pointer;
-  font-weight: 200;
+  font-weight: 1;
   &:hover {
     background-color: #4C5663;
   }
@@ -66,4 +66,11 @@
 
 .hide {
   display: none;
+}
+
+.sidebar-selected {
+  cursor: pointer;
+  font-weight: 1;
+  background-color: #7098C4;
+  color: white;
 }
