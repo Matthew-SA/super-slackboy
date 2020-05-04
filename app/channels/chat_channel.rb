@@ -5,7 +5,6 @@ class ChatChannel < ApplicationCable::Channel
   end
   def speak(data)
     return false if !current_user
-
     Message.create!(
       body: data['message'], 
       user_id: current_user.id, 

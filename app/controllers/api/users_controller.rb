@@ -4,11 +4,20 @@ class Api::UsersController < ApplicationController
     @user.username = (@user.email).split('@').first
 
     if @user.save_with_ui
+      Membership.create(user_id: @user.id, channel_id: 1)
+      Membership.create(user_id: @user.id, channel_id: 2)
+      Membership.create(user_id: @user.id, channel_id: 3)
       login(@user)
       render "api/user/show"
     else
       render json: @user.errors.full_messages, status: 422
     end
+  end
+
+  def update
+    @user = current_user
+    @user.update(current_channel: params['newChannelId'])
+    render "api/user/show"
   end
 
   private

@@ -45,6 +45,8 @@ export const logout = () => dispatch => (
   ))
 );
 
-// export const toggleChannelList = () => ({
-//   type: TOGGLE_CHANNELS_LIST,
-// })
+export const changeCurrentChannel = newChannelId => dispatch => (
+  APIUtil.changeCurrentChannel(newChannelId).then(user =>
+    dispatch(receiveCurrentUser(user))
+  )
+)

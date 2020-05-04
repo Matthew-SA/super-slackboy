@@ -14,6 +14,13 @@
   padding: 0 16px 0 16px;
 }
 
+.sidebar-item {
+  cursor: pointer;
+  &:hover {
+    background-color: #4C5663;
+  }
+}
+
 .channel-header {
   min-width: 180px;
   margin: auto;

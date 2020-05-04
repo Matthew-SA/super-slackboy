@@ -14,9 +14,11 @@ const receiveChannel = channel => ({
 })
 
 export const requestChannels = () => dispatch => (
-  ChannelAPIUtil.fetchChannels().then(channels => dispatch(receiveChannels(channels)))
+  ChannelAPIUtil.fetchChannels()
+    .then(channels => dispatch(receiveChannels(channels)))
 )
 
 export const requestChannel = channelId => dispatch => (
-  ChannelAPIUtil.fetchChannel(channelId).then(channel => dispatch(receiveChannel(channel)))
+  ChannelAPIUtil.fetchChannel(channelId)
+    .then(channel => dispatch(receiveChannel(channel)))
 )

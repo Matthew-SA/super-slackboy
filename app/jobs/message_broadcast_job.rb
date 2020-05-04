@@ -11,7 +11,10 @@ class MessageBroadcastJob < ApplicationJob
 
   def render_message(message)
     JSON.parse(
-      ApplicationController.render(template: 'api/messages/show', locals: { message: message })
+      ApplicationController.render(
+        template: 'api/messages/show', 
+        locals: { message: message }
+      )
     )
   end
 

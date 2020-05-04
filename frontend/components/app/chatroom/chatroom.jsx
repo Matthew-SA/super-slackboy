@@ -11,18 +11,23 @@ class ChatRoom extends React.Component {
   }
   
   componentDidMount() {
+    this.refreshConnection()
+  }
+
+  refreshConnection() {
+    App.cable.disconnect()
     this.props.requestMessages()
     App.room = App.cable.subscriptions.create(
-      { channel: "ChatChannel"},
+      { channel: "ChatChannel" },
       {
         received: data => {
           switch (data.type) {
             case "message":
-              const message = { 
-                author: data.author, 
-                body: data.body, 
-                id: data.id, 
-                time: data.time 
+              const message = {
+                author: data.author,
+                body: data.body,
+                id: data.id,
+                time: data.time
               };
               this.props.incomingMessage(message)
               break;
@@ -33,7 +38,8 @@ class ChatRoom extends React.Component {
     );
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    if (this.props.channel != prevProps.channel) this.refreshConnection();
     if (this.props.messages.length) this.bottom.current.scrollIntoView();
   }
 

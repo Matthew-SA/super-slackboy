@@ -11,11 +11,15 @@ class Sidebar extends React.Component {
     this.props.requestChannels()
   }
 
+  changeChannel(newChannelId) {
+    this.props.changeCurrentChannel(newChannelId)
+  }
+
   getChannelList() {
     let channels = this.props.channelList
     const channelList = channels.map((channel, idx) => {
       return (
-        <li key={idx}># {channel.name}</li>
+        <li className="sidebar-item" onClick={() => this.changeChannel(channel.id)} key={idx}># {channel.name}</li>
       )
     })
 
@@ -29,10 +33,10 @@ class Sidebar extends React.Component {
   getDirectMessageList() {
     return(
       <ul className="sidebar-ul">
-      <li># Demo item 1</li>
-      <li># Demo item 2</li>
-      <li># Demo item 3</li>
-    </ul>
+        <li className="sidebar-item"># Demo item 1</li>
+        <li className="sidebar-item"># Demo item 2</li>
+        <li className="sidebar-item"># Demo item 3</li>
+      </ul>
     )
   }
 

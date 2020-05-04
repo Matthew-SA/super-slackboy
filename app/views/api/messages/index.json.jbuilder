@@ -1,5 +1,9 @@
 @messages.each do |message|
   json.set! message.id do 
-    json.partial! 'api/messages/message', message: message
+    json.extract! message, :id, :body, :time 
+
+    json.author do
+      json.extract! message.user, :username, :id
+    end
   end
 end

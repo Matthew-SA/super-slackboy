@@ -3,6 +3,7 @@ import { requestMessages, incomingMessage } from '../../../actions/message_actio
 import ChatRoom from './chatroom.jsx';
 
 const mSTP = state => ({
+  channel: state.entities.user[state.session.id].current_channel,
   messages: Object.values(state.entities.messages),
 })
 

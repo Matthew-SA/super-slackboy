@@ -20,3 +20,11 @@ export const logout = () => (
     url: '/api/session'
   })
 );
+
+export const changeCurrentChannel = newChannelId => (
+  $.ajax({
+    method: 'PATCH',
+    url: '/api/user',
+    data: { newChannelId }
+  })
+);
