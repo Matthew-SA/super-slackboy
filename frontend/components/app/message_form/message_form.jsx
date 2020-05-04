@@ -17,7 +17,7 @@ class MessageForm extends React.Component {
     if (e && e.keyCode == 13) {
       const token = Cookie.get("session_token");
       e.preventDefault();
-      App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body, user_id: this.props.currentUser.id, token });
+      App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body });
       this.setState({ body: "" });
       e.target.value = "";
     }

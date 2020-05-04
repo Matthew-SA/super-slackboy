@@ -4,11 +4,10 @@ class ChatChannel < ApplicationCable::Channel
     stream_from "chat_#{room}"
   end
   def speak(data)
-    user = current_user
-    return false if !user
+    return false if !current_user
 
     room = current_user.current_channel
-    message = Message.new(body: data['message'], user_id: data['user_id'], channel_id: room)
+    message = Message.new(body: data['message'], user_id: current_user.id, channel_id: room)
     if message.save
       ActionCable.server.broadcast(
         "chat_#{room}",
