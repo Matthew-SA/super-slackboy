@@ -50,7 +50,12 @@ Super SlackBoy is a light weight communication application where users can post 
 
 * Messages persist between session - All older messages are handled through standard routes and the database, and will render chat history upon page load.
 
+* Chat channels contain unique conversations - Channel logic is handled in the backend to keep conversations private and prevent abuse by the frontend user.
+
+* Persistant UI elements - User's menu state and current chat room are consistent between sessions.
+
 ## Future Direction
-* Persistant user UI elements
-* Multiple channels
 * Direct messaging
+* advanced channel options (set title, topic, etc.)
+* advanced UI options (set profile attributes including profile photo, dark mode, etc!)
+
