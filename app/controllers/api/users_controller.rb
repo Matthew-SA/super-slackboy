@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.username = (@user.email).split('@').first
-
+    @user.username.capitalize!
     if @user.save_with_ui
       Membership.create(user_id: @user.id, channel_id: 1)
       Membership.create(user_id: @user.id, channel_id: 2)
