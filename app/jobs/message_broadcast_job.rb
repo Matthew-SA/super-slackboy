@@ -3,19 +3,16 @@ class MessageBroadcastJob < ApplicationJob
 
   def perform(message)
     ActionCable.server.broadcast(
-        "chat_#{message.channel_id}",
-        JSON.parse(
-          ApplicationController.render(template: 'api/messages/show', locals: { message: message })
-        )
+        "chat_#{message.channel_id}", render_message(message)
       )
   end
 
   private
 
-  # def render_message(message)
-  #   JSON.parse(
-  #     ApplicationController.render(template: 'api/messages/show', locals: { message: message })
-  #   )
-  # end
+  def render_message(message)
+    JSON.parse(
+      ApplicationController.render(template: 'api/messages/show', locals: { message: message })
+    )
+  end
 
 end
