@@ -1,8 +1,8 @@
 class Api::MessagesController < ApplicationController
 
   def index
-    channel = current_user.current_channel
-    @messages = Message.all.includes(:user).where(channel: channel)
+    channels = current_user.channels.ids
+    @messages = Message.all.where(channel_id: channels)
     render '/api/messages/index'
   end
 

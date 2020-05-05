@@ -27,7 +27,8 @@ class ChatRoom extends React.Component {
                 author: data.author,
                 body: data.body,
                 id: data.id,
-                time: data.time
+                time: data.time,
+                channel_id: data.channel_id,
               };
               this.props.incomingMessage(message)
               break;
@@ -39,24 +40,26 @@ class ChatRoom extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.channel != prevProps.channel) this.refreshConnection();
+    // if (this.props.channel != prevProps.channel) this.refreshConnection();
     if (this.props.messages.length) this.bottom.current.scrollIntoView();
   }
 
   render() {
     let messages = this.props.messages
+    let lastAuthorId = null;
     const messageList = messages.map((message, idx) => {
-      let lastAuthorID = messages[idx - 1] ? messages[idx - 1].author.id : null;
-      let authorID = message.author.id;
-
-      if (lastAuthorID === authorID) {
-        return (
-          <SmallChatItem message={message} key={idx}/>
-        );
-      } else {
-        return (
-          <LargeChatItem message={message} key={idx}/>
-        );
+      if (message.channel_id === this.props.channel) {
+        if (lastAuthorId === message.author.id) {
+          lastAuthorId = message.author.id
+          return (
+            <SmallChatItem message={message} key={idx} />
+          );
+        } else {
+          lastAuthorId = message.author.id
+          return (
+            <LargeChatItem message={message} key={idx} />
+          );
+        }
       }
     });
 
