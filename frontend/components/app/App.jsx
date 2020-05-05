@@ -6,15 +6,31 @@ import Sidebar from './sidebar/sidebar_container.jsx'
 import Chatroom from './chatroom/chatroom_container'
 import MessageForm from './message_form/message_form_container'
 
-const App = () => (
-  <div className="app">
-    <TopNav />
-    <Profile/>
-    <ViewHeader />
-    <Sidebar/>
-    <Chatroom/>
-    <MessageForm/>
-  </div>
-);
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+
+  }
+
+  render(){
+    return(
+      <div className="app">
+          <TopNav />
+          <Profile/>
+          <ViewHeader />
+          <Sidebar/>
+          <Chatroom/>
+          <MessageForm/>
+        </div>
+    )
+  }    
+}
+
+// const App = () => (
+  
+// );
 
 export default App;

@@ -15,6 +15,7 @@ class ChatRoom extends React.Component {
   }
 
   refreshConnection() {
+    // console.log(App)
     App.cable.disconnect()
     this.props.requestMessages()
     App.room = App.cable.subscriptions.create(

@@ -7,6 +7,7 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
+    console.log(App.cable)
     this.props.requestUi()
     this.props.requestChannels()
   }
