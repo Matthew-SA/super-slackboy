@@ -2,11 +2,8 @@ class ChatChannel < ApplicationCable::Channel
   def subscribed
     channels = current_user.channels
     channels.each do |channel|
-      puts channel.id
       stream_from "chat_#{channel.id}"
     end
-    # room = current_user.current_channel
-    # stream_from "chat_#{room}"
   end
   def speak(data)
     user = User.find_by(id: current_user.id)
