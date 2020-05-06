@@ -23,6 +23,11 @@ export const clearErrors = () => ({
   type: CLEAR_ERRORS,
 })
 
+export const setCurrentChannel = channelId => ({
+  type: SET_CURRENT_CHANNEL,
+  channelId
+})
+
 export const signup = user => dispatch => (
   APIUtil.signup(user).then(user => (
     dispatch(receiveCurrentUser(user))
@@ -44,9 +49,3 @@ export const logout = () => dispatch => (
     dispatch(logoutCurrentUser())
   ))
 );
-
-export const changeCurrentChannel = newChannelId => dispatch => (
-  APIUtil.changeCurrentChannel(newChannelId).then(user =>
-    dispatch(receiveCurrentUser(user))
-  )
-)

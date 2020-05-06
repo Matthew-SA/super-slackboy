@@ -9,6 +9,7 @@ import MessageForm from './message_form/message_form_container'
 class Application extends React.Component {
   constructor(props) {
     super(props)
+
   }
 
   componentDidMount() {
@@ -39,13 +40,25 @@ class Application extends React.Component {
   }
 
   render(){
+    let channels = this.props.membershipList
+    
+    let latestTime = null;
+    let currentMembership = 0;
+
+    channels.map(channel => {
+      if (latestTime === null || latestTime < channel.last_accessed) {
+        latestTime = channel.last_accessed
+        currentMembership = channel.id
+      }
+    })
+
     return(
       <div className="app">
           <TopNav />
           <Profile/>
-          <ViewHeader />
-          <Sidebar/>
-          <Chatroom/>
+          <ViewHeader currentMembership={currentMembership} />
+          <Sidebar currentMembership={currentMembership} />
+          <Chatroom currentMembership={currentMembership} />
           <MessageForm/>
         </div>
     )

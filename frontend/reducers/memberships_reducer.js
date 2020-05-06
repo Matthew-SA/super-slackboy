@@ -9,7 +9,9 @@ const membershipsReducer = (oldState = {}, action) => {
   const nextState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_MEMBERSHIPS:
-      return action.memberships
+      let memberships = action.memberships
+      // memberships["current"] = "hello there"
+      return memberships
     case RECEIVE_MEMBERSHIP:
       nextState[action.membership.id] = action.membership;
       return nextState

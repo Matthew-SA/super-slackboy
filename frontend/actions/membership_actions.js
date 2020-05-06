@@ -22,3 +22,8 @@ export const requestMembership = membershipId => dispatch => (
   MembershipAPIUtil.fetchMembership(membershipId)
     .then(membership => dispatch(receiveMembership(membership)))
 )
+
+export const updateMembership = membershipId => dispatch => (
+  MembershipAPIUtil.updateMembership(membershipId)
+    .then(membership => dispatch(receiveMembership(membership)))
+)

@@ -7,7 +7,9 @@ class ViewHeader extends React.Component {
 
   
   render() {
-    const currentChannelName = this.props.currentChannel ? this.props.currentChannel.name : ""
+    let id = this.props.currentMembership;
+    const currentChannelName = this.props.currentMembership ? this.props.channels[id].name : ""
+
     return (
       <div className="viewHeader-container">
         <div className="left-header">

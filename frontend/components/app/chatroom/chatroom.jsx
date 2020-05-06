@@ -21,7 +21,7 @@ class ChatRoom extends React.Component {
     let messages = this.props.messages
     let lastAuthorId = null;
     const messageList = messages.map((message, idx) => {
-      if (message.channel_id === this.props.channel) {
+      if (message.channel_id === this.props.currentMembership) {
         if (lastAuthorId === message.author.id) {
           lastAuthorId = message.author.id
           return (

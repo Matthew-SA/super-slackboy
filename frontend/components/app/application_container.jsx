@@ -5,7 +5,7 @@ import { requestUi } from '../../actions/ui_actions'
 import Application from './application';
 
 const mSTP = state => ({
-
+  membershipList: Object.values(state.entities.memberships),
 })
 
 const mDTP = dispatch => ({

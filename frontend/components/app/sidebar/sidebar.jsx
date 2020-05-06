@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import Moment from 'react-moment'
 
 class Sidebar extends React.Component {
   constructor(props){
@@ -12,14 +13,13 @@ class Sidebar extends React.Component {
 
   getMembershipList() {
     let channels = this.props.membershipList
-
     const membershipList = channels.map((channel, idx) => {
-      let sidebarClass = this.props.currentChannel === channel.id ? "sidebar-selected" : "sidebar-item"
+      let sidebarClass = this.props.currentMembership === channel.id ? "sidebar-selected" : "sidebar-item"
       return (
         <li 
           className={sidebarClass} 
           id={`chan-${channel.id}`}
-          onClick={() => this.props.changeCurrentChannel(channel.id)} 
+          onClick={() => this.props.updateMembership(channel.id)} 
           key={idx}>
             # {channel.name}
         </li>
