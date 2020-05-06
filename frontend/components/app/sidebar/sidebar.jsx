@@ -8,6 +8,7 @@ class Sidebar extends React.Component {
 
   componentDidMount() {
     this.props.requestUi()
+    this.props.requestMemberships()
     this.props.requestChannels()
   }
 
