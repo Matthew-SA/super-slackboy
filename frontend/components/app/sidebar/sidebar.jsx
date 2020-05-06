@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Sidebar extends React.Component {
@@ -7,15 +7,13 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestUi()
-    this.props.requestMemberships()
-    this.props.requestChannels()
+
   }
 
-  getChannelList() {
-    let channels = this.props.channelList
+  getMembershipList() {
+    let channels = this.props.membershipList
 
-    const channelList = channels.map((channel, idx) => {
+    const membershipList = channels.map((channel, idx) => {
       let sidebarClass = this.props.currentChannel === channel.id ? "sidebar-selected" : "sidebar-item"
       return (
         <li 
@@ -30,7 +28,7 @@ class Sidebar extends React.Component {
 
     return(
       <ul className="sidebar-ul">
-        {channelList}
+        {membershipList}
       </ul>
     )
   }
@@ -50,14 +48,18 @@ class Sidebar extends React.Component {
       <div className="sidebar" >
         <div className="sidebar-menu-item">
           <div className="sidebar-header-container">
-            <p className="channel-header" onClick={() => this.props.toggleUi("show_channels")}><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Channels</p>
+            <p className="channel-header" onClick={() => this.props.toggleUi("show_channels")}>
+              <FontAwesomeIcon className="caret-down" icon="caret-down"/>&nbsp;&nbsp;Channels
+            </p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
-          {this.props.showChannels ? this.getChannelList() : "" }
+          {this.props.showChannels ? this.getMembershipList() : "" }
         </div>
         <div className="sidebar-menu-item">
           <div className="sidebar-header-container">
-            <p className="channel-header" onClick={() => this.props.toggleUi("show_direct_messages")}><FontAwesomeIcon className="caret-down" icon="caret-down" />&nbsp;&nbsp;Direct Messages</p>
+            <p className="channel-header" onClick={() => this.props.toggleUi("show_direct_messages")}>
+              <FontAwesomeIcon className="caret-down" icon="caret-down"/>&nbsp;&nbsp;Direct Messages
+            </p>
             <div className="plus-button"><FontAwesomeIcon icon="plus" /> </div>
           </div>
           {this.props.showDirectMessages ? this.getDirectMessageList() : "" }

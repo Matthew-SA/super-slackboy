@@ -12,6 +12,8 @@ class Application extends React.Component {
   }
 
   componentDidMount() {
+    this.props.requestUi()
+    this.props.requestMemberships()
     this.props.requestMessages()
     App.cable.disconnect()
     App.room = App.cable.subscriptions.create(
