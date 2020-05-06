@@ -8,8 +8,7 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-  requestMessages: () => dispatch(requestMessages()),
-  incomingMessage: (message) => dispatch(incomingMessage(message))
+
 });
 
 export default connect(mSTP, mDTP)(ChatRoom);

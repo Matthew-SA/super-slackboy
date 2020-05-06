@@ -7,7 +7,6 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
-    console.log(App.cable)
     this.props.requestUi()
     this.props.requestChannels()
   }
@@ -20,8 +19,10 @@ class Sidebar extends React.Component {
       return (
         <li 
           className={sidebarClass} 
+          id={`chan-${channel.id}`}
           onClick={() => this.props.changeCurrentChannel(channel.id)} 
-          key={idx}># {channel.name}
+          key={idx}>
+            # {channel.name}
         </li>
       )
     })

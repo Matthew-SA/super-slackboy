@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import App from "./app/App"
+import Application from "./app/application_container"
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import {
   HashRouter,
@@ -16,7 +16,7 @@ export default ({ store }) => (
     <Provider store={store}>
       <HashRouter>
         <Switch>
-          <ProtectedRoute path= "/app" component={App}/>
+          <ProtectedRoute path= "/app" component={Application}/>
           <AuthRoute path="/" component={Home} />
         </Switch>
       </HashRouter>
