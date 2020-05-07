@@ -31,6 +31,8 @@ class Application extends React.Component {
                 channel_id: data.channel_id,
               };
               this.props.incomingMessage(message)
+              let element = document.getElementById(`chan-${message.channel_id}`)
+              if (element) element.classList.add("sidebar-highlight")
               break;
           }
         },
