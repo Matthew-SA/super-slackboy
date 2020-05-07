@@ -3,7 +3,7 @@ import ViewHeader from './viewheader';
 
 const mapStateToProps = ({ entities: {user, memberships}}) => {
   return {
-    channels: memberships
+    memberships
   };
 };
 

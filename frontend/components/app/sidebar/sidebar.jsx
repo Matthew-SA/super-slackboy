@@ -12,16 +12,18 @@ class Sidebar extends React.Component {
   }
 
   getMembershipList() {
-    let channels = this.props.membershipList
-    const membershipList = channels.map((channel, idx) => {
-      let sidebarClass = this.props.currentMembership === channel.id ? "sidebar-selected" : "sidebar-item"
+    let memberships = this.props.membershipList
+    const membershipList = memberships.map((membership, idx) => {
+      let sidebarClass = this.props.currentMembership.channel_id === membership.channel_id ? "sidebar-selected" : "sidebar-item"
       return (
         <li 
           className={sidebarClass} 
-          id={`chan-${channel.id}`}
-          onClick={() => this.props.updateMembership(channel.id)} 
+          id={`chan-${membership.channel_id}`}
+          onClick={() => {
+            this.props.updateMembership(membership.id)
+          }} 
           key={idx}>
-            # {channel.name}
+            # {membership.name}
         </li>
       )
     })

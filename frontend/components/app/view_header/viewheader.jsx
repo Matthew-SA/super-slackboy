@@ -7,13 +7,13 @@ class ViewHeader extends React.Component {
 
   
   render() {
-    let id = this.props.currentMembership;
-    const currentChannelName = this.props.currentMembership ? this.props.channels[id].name : ""
+    let id = this.props.currentMembership.channel_id;
+    const currentMembershipName = this.props.currentMembership ? this.props.memberships[id].name : ""
 
     return (
       <div className="viewHeader-container">
         <div className="left-header">
-          <h2># {currentChannelName}</h2>
+          <h2># {currentMembershipName}</h2>
         </div>
         <div className="right-header">
 

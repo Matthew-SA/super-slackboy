@@ -9,11 +9,9 @@ const membershipsReducer = (oldState = {}, action) => {
   const nextState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_MEMBERSHIPS:
-      let memberships = action.memberships
-      // memberships["current"] = "hello there"
-      return memberships
+      return action.memberships
     case RECEIVE_MEMBERSHIP:
-      nextState[action.membership.id] = action.membership;
+      nextState[action.membership.channel_id] = action.membership;
       return nextState
     // case REMOVE_MESSAGE:
     //   delete nextState[action.messageId]

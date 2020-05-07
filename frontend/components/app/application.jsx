@@ -40,17 +40,18 @@ class Application extends React.Component {
   }
 
   render(){
-    let channels = this.props.membershipList
-    
+    let memberships = this.props.membershipList
     let latestTime = null;
     let currentMembership = 0;
 
-    channels.map(channel => {
-      if (latestTime === null || latestTime < channel.last_accessed) {
-        latestTime = channel.last_accessed
-        currentMembership = channel.id
+    memberships.map(membership => {
+      if (latestTime === null || latestTime < membership.last_accessed) {
+        latestTime = membership.last_accessed
+        currentMembership = membership
       }
     })
+
+    // console.log(currentMembership)
 
     return(
       <div className="app">

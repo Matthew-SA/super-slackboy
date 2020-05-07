@@ -10,18 +10,30 @@ class ChatRoom extends React.Component {
   }
   
   componentDidMount() {
-    
+
   }
 
   componentDidUpdate() {
     if (this.props.messages.length) this.bottom.current.scrollIntoView();
   }
 
-  render() {
+  buildMessageList() {
+    if (this.props.memberships <= 0) return;
+    let memberships = this.props.memberships
     let messages = this.props.messages
     let lastAuthorId = null;
+    let counts = {}
+
     const messageList = messages.map((message, idx) => {
-      if (message.channel_id === this.props.currentMembership) {
+      // if (message.time < memberships[message.channel_id - 1].last_accessed) {
+      //   let element = document.getElementById(`chan-${message.channel_id}`)
+      //   console.log(message.channel_id)
+      //   console.log(element)
+      //   // element.classList.add("sidebar-highlight")
+      // }
+
+      // // counts[message.channel_id] ? counts[message.channel_id] += 1 : counts[message.channel_id] = 1
+      if (message.channel_id === this.props.currentMembership.channel_id) {
         if (lastAuthorId === message.author.id) {
           lastAuthorId = message.author.id
           return (
@@ -35,11 +47,14 @@ class ChatRoom extends React.Component {
         }
       }
     });
+    return messageList
+  }
 
+  render() {
     return (
       <div className="chatroom-container">
         <div className="message-list">
-          {messageList}
+          {this.buildMessageList()}
           <div ref={this.bottom} />
         </div>
       </div>
