@@ -9,7 +9,6 @@ import MessageForm from './message_form/message_form_container'
 class Application extends React.Component {
   constructor(props) {
     super(props)
-
   }
 
   componentDidMount() {
