@@ -12,10 +12,10 @@ ApplicationRecord.transaction do
   User.create(username: 'Guest', email: 'guest@guest.com', password: 'guest12345', current_channel: 1)
   Ui.create(user_id: 1)
 
-  Channel.create(name: 'General', topic: 'Talk about anything!', description: 'General Chat!')
-  Channel.create(name: 'Demo Channel 1', topic: 'such channel', description: 'demo purposes only!')
-  Channel.create(name: 'Demo Channel 2', topic: 'much chat', description: 'demo purposes only!')
-  Channel.create(name: 'Demo Channel 3', topic: 'much chat', description: 'demo purposes only!')
+  Channel.create(name: 'General', topic: 'Talk about anything!', description: 'General Chat!', last_message_posted: DateTime.now)
+  Channel.create(name: 'Demo Channel 1', topic: 'such channel', description: 'demo purposes only!', last_message_posted: DateTime.now)
+  Channel.create(name: 'Demo Channel 2', topic: 'much chat', description: 'demo purposes only!', last_message_posted: DateTime.now)
+  Channel.create(name: 'Demo Channel 3', topic: 'much chat', description: 'demo purposes only!', last_message_posted: DateTime.now)
   
   Membership.create(user_id: 1, channel_id: 4)
   Membership.create(user_id: 1, channel_id: 3)
