@@ -8,7 +8,7 @@ class Sidebar extends React.Component {
   }
 
   componentDidMount() {
-
+    this.props.requestMemberships()
   }
 
   getMembershipList() {

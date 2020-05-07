@@ -10,7 +10,7 @@ class ChatRoom extends React.Component {
   }
   
   componentDidMount() {
-
+    this.props.requestMessages()
   }
 
   componentDidUpdate() {
@@ -21,18 +21,8 @@ class ChatRoom extends React.Component {
     if (this.props.memberships <= 0) return;
     let messages = this.props.messages
     let lastAuthorId = null;
-    // let counts = {}
 
     const messageList = messages.map((message, idx) => {
-      // if (message.time < memberships[message.channel_id - 1].last_accessed) {
-      //   let element = document.getElementById(`chan-${message.channel_id}`)
-      //   console.log(message.channel_id)
-      //   console.log(element)
-      //   // element.classList.add("sidebar-highlight")
-      // }
-
-      console.log(this.props.memberships[1].last_accessed)
-      // // counts[message.channel_id] ? counts[message.channel_id] += 1 : counts[message.channel_id] = 1
       if (message.channel_id === this.props.currentMembership.channel_id) {
         if (lastAuthorId === message.author.id) {
           lastAuthorId = message.author.id
