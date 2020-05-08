@@ -4,10 +4,10 @@ class Api::UsersController < ApplicationController
     @user.username = (@user.email).split('@').first
     # if (@user) @user.username.capitalize!
     if @user.save_with_ui
-      Membership.create(user_id: @user.id, channel_id: 4, last_accessed: DateTime.now)
-      Membership.create(user_id: @user.id, channel_id: 3, last_accessed: DateTime.now)
-      Membership.create(user_id: @user.id, channel_id: 2, last_accessed: DateTime.now)
-      Membership.create(user_id: @user.id, channel_id: 1, last_accessed: DateTime.now)
+      Membership.create(user_id: @user.id, channel_id: 4, last_arrived: DateTime.now, last_departed: DateTime.now)
+      Membership.create(user_id: @user.id, channel_id: 3, last_arrived: DateTime.now, last_departed: DateTime.now)
+      Membership.create(user_id: @user.id, channel_id: 2, last_arrived: DateTime.now, last_departed: DateTime.now)
+      Membership.create(user_id: @user.id, channel_id: 1, last_arrived: DateTime.now, last_departed: DateTime.now)
       login(@user)
       render "api/user/show"
     else
@@ -15,16 +15,16 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def update
-    @user = current_user
-    channelId = params['newChannelId']
-    if @user.update(current_channel: channelId)
-      membership = Membership.where(channel_id: channelId, user_id: @user.id)
-      membership[0].last_accessed = DateTime.new
-      membership[0].save
-    end
-    render "api/user/show"
-  end
+  # def update
+  #   @user = current_user
+  #   channelId = params['newChannelId']
+  #   if @user.update(current_channel: channelId)
+  #     membership = Membership.where(channel_id: channelId, user_id: @user.id)
+  #     membership[0].last_arrived = DateTime.new
+  #     membership[0].save
+  #   end
+  #   render "api/user/show"
+  # end
 
   private
 

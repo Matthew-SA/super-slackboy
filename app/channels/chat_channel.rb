@@ -17,5 +17,9 @@ class ChatChannel < ApplicationCable::Channel
       channel_id: user.current_channel
     ) 
   end
-  def unsubscribed; end
+  def unsubscribed
+    membership = Membership.find_by(channel_id: current_user.current_channel, user_id: current_user.id)
+    membership.last_departed = DateTime.now
+    membership.save
+  end
 end

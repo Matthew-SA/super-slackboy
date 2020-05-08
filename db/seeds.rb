@@ -17,10 +17,10 @@ ApplicationRecord.transaction do
   Channel.create(name: 'Demo Channel 2', topic: 'much chat', description: 'demo purposes only!', last_message_posted: DateTime.now)
   Channel.create(name: 'Demo Channel 3', topic: 'much chat', description: 'demo purposes only!', last_message_posted: DateTime.now)
   
-  Membership.create(user_id: 1, channel_id: 4, last_accessed: DateTime.now)
-  Membership.create(user_id: 1, channel_id: 3, last_accessed: DateTime.now)
-  Membership.create(user_id: 1, channel_id: 2, last_accessed: DateTime.now)
-  Membership.create(user_id: 1, channel_id: 1, last_accessed: DateTime.now)
+  Membership.create(user_id: 1, channel_id: 4, last_arrived: DateTime.now, last_departed: DateTime.now)
+  Membership.create(user_id: 1, channel_id: 3, last_arrived: DateTime.now, last_departed: DateTime.now)
+  Membership.create(user_id: 1, channel_id: 2, last_arrived: DateTime.now, last_departed: DateTime.now)
+  Membership.create(user_id: 1, channel_id: 1, last_arrived: DateTime.now, last_departed: DateTime.now)
   
 end
 

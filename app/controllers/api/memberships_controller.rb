@@ -7,15 +7,15 @@ class Api::MembershipsController < ApplicationController
 
   def update
     oldmembership = Membership.find_by(channel_id: current_user.current_channel, user_id: current_user.id)
-    oldmembership.last_accessed = DateTime.now
+    oldmembership.last_departed = DateTime.now
     oldmembership.save
 
     @membership = Membership.find_by(id: params[:id], user_id: current_user.id)
-    @membership.last_accessed = DateTime.now
+    @membership.last_arrived = DateTime.now
     @membership.save
     
     current_user.current_channel = @membership.channel_id
-    @current_user.save
+    current_user.save
     render 'api/memberships/show'
   end
 end

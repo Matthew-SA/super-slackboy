@@ -21,10 +21,10 @@ export const logout = () => (
   })
 );
 
-export const changeCurrentChannel = newChannelId => (
-  $.ajax({
-    method: 'PATCH',
-    url: '/api/user',
-    data: { newChannelId }
-  })
-);
+// export const changeCurrentChannel = newChannelId => (
+//   $.ajax({
+//     method: 'PATCH',
+//     url: '/api/user',
+//     data: { newChannelId }
+//   })
+// );

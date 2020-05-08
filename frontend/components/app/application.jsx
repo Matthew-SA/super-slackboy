@@ -38,14 +38,18 @@ class Application extends React.Component {
     );
   }
 
+  componentWillUnmount() {
+    App.cable.disconnect()
+  }
+
   render(){
     let memberships = this.props.membershipList
     let latestTime = null;
     let currentMembership = 0;
 
     memberships.map(membership => {
-      if (latestTime === null || latestTime < membership.last_accessed) {
-        latestTime = membership.last_accessed
+      if (latestTime === null || latestTime < membership.last_arrived) {
+        latestTime = membership.last_arrived
         currentMembership = membership
       }
     })
