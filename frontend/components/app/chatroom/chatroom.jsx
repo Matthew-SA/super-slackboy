@@ -18,8 +18,8 @@ class ChatRoom extends React.Component {
   }
 
   buildMessageList() {
+    let messages = Object.values(this.props.messages)
     if (this.props.memberships <= 0) return;
-    let messages = this.props.messages
     let lastAuthorId = null;
 
     const messageList = messages.map((message, idx) => {
