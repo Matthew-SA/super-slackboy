@@ -11,7 +11,9 @@ const membershipsReducer = (oldState = {}, action) => {
     case RECEIVE_MEMBERSHIPS:
       return action.memberships
     case RECEIVE_MEMBERSHIP:
-      nextState[action.membership.channel_id] = action.membership;
+      console.log(action.membership)
+      nextState[action.membership.membership.channel_id] = action.membership.membership;
+      nextState[action.membership.oldmembership.channel_id] = action.membership.oldmembership;
       return nextState
     // case REMOVE_MESSAGE:
     //   delete nextState[action.messageId]
