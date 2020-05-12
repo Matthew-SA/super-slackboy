@@ -14,7 +14,7 @@ class DropDown extends React.Component {
         </div>
         <div className="profile-menu-items">
           <div className="profile-sign-out" onClick={() => this.props.logout()}>
-            Sign Out of <span className="bold">Super SlackBoy</span>
+            Sign out of <span className="bold">Super SlackBoy</span>
           </div>
         </div>
       </div>
