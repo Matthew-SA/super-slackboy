@@ -6,24 +6,6 @@ class Profile extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    // $('.profile').click(e => {
-    //   e.stopPropagation()
-    //   $('.profile-dropdown').toggleClass('hide')
-    // })
-
-    // $('.app').click(function (e) {
-    //   if (!$(e.target).closest('.profile-dropdown').length && !$(e.target).is('.profile-dropdown')) {
-    //     $('.profile-dropdown').addClass('hide')
-    //   }
-    // });
-
-    // $('.profile-sign-out').click((e) => {
-    //   e.stopPropagation();
-    //   this.props.logout();
-    // })
-  }
-
   render() {
     return (
       <div className="profile" onClick={() => this.props.openModal('drop-down')}>
