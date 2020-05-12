@@ -4,9 +4,7 @@ import sessionReducer from './session_reducer';
 import errorsReducer from './errors_reducer';
 import uiReducer from './ui_reducer';
 import modalReducer from './modal_reducer';
-import {
-  LOGOUT_CURRENT_USER,
-} from '../actions/session_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 export const appReducer = combineReducers({
   entities: entitiesReducer,

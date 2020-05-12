@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { logout } from '../../../../actions/session_actions'
 import DropDown from './drop_down.jsx';
-import { closeModal } from '../../../../actions/modal_actions'
 
 const mapStateToProps = ({ session, entities: { user } }) => {
   return {
@@ -11,7 +10,6 @@ const mapStateToProps = ({ session, entities: { user } }) => {
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
-  closeModal: () => closeModal(),
 });
 
 export default connect(
