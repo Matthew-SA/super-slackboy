@@ -1,21 +1,20 @@
 import { connect } from 'react-redux';
-import { logout } from '../../../actions/session_actions'
-import Profile from './profile';
-import { openModal } from '../../../actions/modal_actions'
+import { logout } from '../../../../actions/session_actions'
+import DropDown from './drop_down.jsx';
+import { closeModal } from '../../../../actions/modal_actions'
 
 const mapStateToProps = ({ session, entities: { user } }) => {
   return {
     currentUser: user[session.id]
-  };
+  }
 };
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
-  openModal: (modal) => dispatch(openModal(modal))
+  closeModal: () => closeModal(),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Profile);
-
+)(DropDown);

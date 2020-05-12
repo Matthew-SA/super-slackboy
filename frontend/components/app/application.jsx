@@ -5,6 +5,7 @@ import Profile from './profile/profile_container.jsx'
 import Sidebar from './sidebar/sidebar_container.jsx'
 import Chatroom from './chatroom/chatroom_container'
 import MessageForm from './message_form/message_form_container'
+import Modal from './modal/modal'
 
 class Application extends React.Component {
   constructor(props) {
@@ -56,12 +57,13 @@ class Application extends React.Component {
 
     return(
       <div className="app">
+          <Modal />
           <TopNav />
-          <Profile/>
+          <Profile />
           <ViewHeader currentMembership={currentMembership} />
           <Sidebar currentMembership={currentMembership} />
           <Chatroom currentMembership={currentMembership} />
-          <MessageForm/>
+          <MessageForm />
         </div>
     )
   }    
