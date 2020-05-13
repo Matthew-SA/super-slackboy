@@ -4,7 +4,7 @@ import { requestMessages } from '../../../actions/message_actions'
 
 
 const mSTP = state => ({
-  messages: (state.entities.messages),
+  messages: Object.values(state.entities.messages),
   memberships: Object.values(state.entities.memberships),
 })
 
