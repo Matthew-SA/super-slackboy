@@ -37,36 +37,14 @@
 }
 
 .profile-menu-header {
+  height: 72px;
   padding: 8px 24px 12px;
-}
-
-.profile-menu-items {
   box-sizing: border-box;
-  margin-top: 30px;
-  width: 100%;
-}
-
-.profile-menu-items div {
-  padding: 0px 24px 
-}
-
-.profile-menu-items div:hover {
-  background-color: #2C649E;
-  color: white;
-  cursor: pointer;
 }
 
 .profile-menu-header span {
   float: right;
   margin: 0;
-}
-
-.profile-sign-out {
-  line-height: 1.46663;
-}
-
-.profile-sign-out span {
-  font-weight: 900;
 }
 
 .chevron-down {

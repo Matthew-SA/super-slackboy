@@ -54,7 +54,7 @@ class Sidebar extends React.Component {
             <p className="channel-header" onClick={() => this.props.toggleUi("show_channels")}>
               <FontAwesomeIcon className="caret-down" icon="caret-down"/>&nbsp;&nbsp;Channels
             </p>
-            <div className="plus-button" onClick={() => this.props.openModal("create-channel")}><FontAwesomeIcon icon="plus" /></div>
+            <div className="plus-button" onClick={() => this.props.openModal("channel-dropdown")}><FontAwesomeIcon icon="plus" /></div>
           </div>
           {this.props.showChannels ? this.getMembershipList() : "" }
         </div>

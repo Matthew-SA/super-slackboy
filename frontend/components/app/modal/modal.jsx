@@ -1,7 +1,8 @@
 import React from 'react';
 import { closeModal } from '../../../actions/modal_actions';
 import { connect } from 'react-redux';
-import DropDown from '../profile/drop_down/drop_down_container'
+import ProfileDropdown from '../profile/profile_dropdown/profile_dropdown_container'
+import ChannelDropdown from '../sidebar/channel_dropdown/channel_dropdown_container'
 import ChannelForm from '../sidebar/channel_form/channel_form_container'
 import DirectMessageForm from '../sidebar/direct_message_form/direct_message_form_container'
 
@@ -9,11 +10,19 @@ function Modal({ modal, closeModal }) {
   if (!modal) return null;
 
   switch (modal) {
-    case 'drop-down':
+    case 'profile-dropdown':
       return (
-        <div className="drop-down-background" onClick={closeModal}>
-          <div className="drop-down-child" onClick={e => e.stopPropagation()}>
-            <DropDown />
+        <div className="dropdown-background" onClick={closeModal}>
+          <div className="dropdown-child" onClick={e => e.stopPropagation()}>
+            <ProfileDropdown />
+          </div>
+        </div>
+      );
+    case 'channel-dropdown':
+      return (
+        <div className="dropdown-background" onClick={closeModal}>
+          <div className="dropdown-child" onClick={e => e.stopPropagation()}>
+            <ChannelDropdown />
           </div>
         </div>
       );

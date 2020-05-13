@@ -8,7 +8,7 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div className="profile" onClick={() => this.props.openModal('drop-down')}>
+      <div className="profile" onClick={() => this.props.openModal('profile-dropdown')}>
         <h2>Super SlackBoy<FontAwesomeIcon className="chevron-down" icon="chevron-down" /></h2>
         <p><FontAwesomeIcon className="status-dot" icon="circle" /> {this.props.currentUser.username}</p>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class DropDown extends React.Component {
+class ProfileDropdown extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -12,14 +12,12 @@ class DropDown extends React.Component {
           <img src={window.profile_pic} className="profile-pic" />
           <h6>{this.props.currentUser.username}</h6>
         </div>
-        <div className="profile-menu-items">
-          <div className="profile-sign-out" onClick={() => this.props.logout()}>
+        <div className="dropdown-menu-item" onClick={() => this.props.logout()}>
             Sign out of <span className="bold">Super SlackBoy</span>
-          </div>
         </div>
       </div>
     )
   }
 }
 
-export default DropDown
+export default ProfileDropdown

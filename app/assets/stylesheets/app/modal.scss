@@ -1,10 +1,9 @@
-.drop-down-background {
+.dropdown-background {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  // background: rgba(0, 0, 0, 0.7);
   z-index: 10;
 }
 
@@ -13,13 +12,53 @@
   font-size: 8px;
 }
 
+.dropdown-menu-item {
+  font-size: 15px;
+  padding: 0px 24px;
+  height: 28px;
+  line-height: 28px;
+  font-weight: 400;
+    &:hover {
+    background-color: #2C649E;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.channel-dropdown {
+  position: absolute;
+  cursor: default;
+  box-sizing: border-box;
+  padding: 12px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 200px;
+  background-color: white;
+  top: 142px;
+  left: 221px;
+  z-index: 10;
+  color: black;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none;
+  box-shadow: 0 0 0 0px,0 4px 12px 0 rgba(0,0,0,.12);
+}
+
+.channel-dropdown-menu-item {
+  font-size: 15px;
+  padding: 0px 24px;
+  height: 28px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
 .profile-dropdown {
   position: absolute;
   cursor: default;
   box-sizing: border-box;
   padding: 12px 0;
   border: 1px solid #ddd;
-  // box-shadow: 0 0 0 1px var(--saf-0),0 4px 12px 0 rgba(0,0,0,.12);
   border-radius: 6px;
   width: 300px;
   background-color: white;
@@ -32,6 +71,12 @@
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none;
   box-shadow: 0 0 0 0px,0 4px 12px 0 rgba(0,0,0,.12);
+}
+
+.profile-menu-header {
+  height: 72px;
+  padding: 8px 24px 12px;
+  box-sizing: border-box;
 }
 
 .profile-pic {
