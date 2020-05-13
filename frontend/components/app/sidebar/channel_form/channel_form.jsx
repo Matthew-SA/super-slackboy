@@ -44,7 +44,7 @@ class ChannelForm extends React.Component {
             <input 
               className="channel-form-input"
               style={{ marginBottom: "0px" }}
-              type="password"
+              type="text"
               value={this.state.description}
               onChange={this.update('description')}
             />
