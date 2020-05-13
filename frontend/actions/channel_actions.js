@@ -22,3 +22,8 @@ export const requestChannel = channelId => dispatch => (
   ChannelAPIUtil.fetchChannel(channelId)
     .then(channel => dispatch(receiveChannel(channel)))
 )
+
+export const createChannel = channel => dispatch => (
+  ChannelAPIUtil.createChannel(channel)
+    .then(channel => dispatch(receiveChannel(channel)))
+)

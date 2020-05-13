@@ -34,6 +34,9 @@ body {
     height: 100%;
     overflow: auto;
     font-size: 15px;
+    font-size: 15px;
+    line-height: 1.46668;
+    font-weight: 400;
 }
 
 .app {
@@ -59,4 +62,10 @@ body {
 // * { 
 //   outline: 1px solid red;
 //   outline-offset: -1px;
+// }
+
+// .font-standard {
+//   font-size: 15px;
+//   line-height: 1.46668;
+//   font-weight: 400;
 // }

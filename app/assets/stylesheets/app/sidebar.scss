@@ -6,6 +6,7 @@
   position: relative;
   padding: 12px 0px 8px 0px;
   color: silver;
+  line-height: 1.3;
 }
 
 .sidebar-header-container {
@@ -16,7 +17,7 @@
 
 .sidebar-item {
   cursor: pointer;
-  font-weight: 1;
+  font-weight: 100;
   &:hover {
     background-color: #4C5663;
   }
