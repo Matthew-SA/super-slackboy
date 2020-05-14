@@ -13,8 +13,7 @@ class ChannelForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const channel = Object.assign({}, this.state);
-    console.log(channel)
-    // this.props.processForm(user);
+    this.props.createChannel(channel);
   }
 
   update(field) {
