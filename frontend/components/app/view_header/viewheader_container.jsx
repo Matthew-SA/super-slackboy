@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
-import ViewHeader from './viewheader';
+import ViewHeader from './viewheader.jsx';
 
-const mapStateToProps = ({ entities: {user, memberships}}) => {
-  return {
-    memberships
-  };
-};
+const mapStateToProps = state => ({
+  currentChannel: state.entities.memberships[state.session.currentChannel],
+})
 
 const mapDispatchToProps = dispatch => ({
 

@@ -5,19 +5,19 @@ class ViewHeader extends React.Component {
     super(props);
   }
 
-  
-  render() {
-    // let id = this.props.currentMembership.channel_id;
-    // const currentMembershipName = this.props.currentMembership ? this.props.memberships[id].name : ""
+  getChannelName() {
+    let name = this.props.currentChannel ? this.props.currentChannel.name : ""
+    return name
+  }
 
+  render() {    
     return (
       <div className="viewHeader-container">
         <div className="left-header">
-          {/* <h2># {currentMembershipName}</h2> */}
+          <h2># {this.getChannelName()}</h2>
         </div>
-        <div className="right-header">
-
-        </div>
+        {/* <div className="right-header">
+        </div> */}
       </div>
     );
   }

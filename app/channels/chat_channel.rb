@@ -4,11 +4,11 @@ class ChatChannel < ApplicationCable::Channel
     channels = current_user.channels
     channels.each do |channel|
       stream_from "chat_#{channel.id}"
+      # stream_from "chat_#{params[:room]}"
     end
   end
 
   def speak(data)
-    debugger
     user = User.find_by(id: current_user.id)
     channel = Channel.find_by(id: user.current_channel)
     channel.last_message_posted = DateTime.now

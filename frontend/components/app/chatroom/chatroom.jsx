@@ -11,6 +11,30 @@ class ChatRoom extends React.Component {
   
   componentDidMount() {
     this.props.requestMessages()
+    App.cable.disconnect()
+    App.room = App.cable.subscriptions.create(
+      { channel: "ChatChannel", room: `${this.props.currentChannelId}` },
+      {
+        received: data => {
+          switch (data.type) {
+            case "message":
+              const message = {
+                author: data.author,
+                body: data.body,
+                id: data.id,
+                time: data.time,
+                channel_id: data.channel_id,
+              };
+              console.log(message)
+              this.props.incomingMessage(message)
+              let element = document.getElementById(`chan-${message.channel_id}`)
+              if (element) element.classList.add("sidebar-highlight")
+              break;
+          }
+        },
+        speak: function (data) { return this.perform("speak", data) },
+      }
+    );
   }
 
   componentDidUpdate() {
@@ -22,7 +46,7 @@ class ChatRoom extends React.Component {
     let lastAuthorId = null;
 
     const messageList = this.props.messages.map((message, idx) => {
-      if (message.channel_id === this.props.currentMembership.channel_id) {
+      if (message.channel_id === this.props.currentChannelId) {
         if (lastAuthorId === message.author.id) {
           lastAuthorId = message.author.id
           return (

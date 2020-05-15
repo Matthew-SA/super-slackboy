@@ -1,6 +1,6 @@
 import React from "react";
 import TopNav from './topnav/topnav_container'
-import ViewHeader from './view_header/viewheader_container'
+import ViewHeader from './view_header/viewheader_container.jsx'
 import Profile from './profile/profile_container.jsx'
 import Sidebar from './sidebar/sidebar_container.jsx'
 import Chatroom from './chatroom/chatroom_container'
@@ -14,29 +14,29 @@ class Application extends React.Component {
 
   componentDidMount() {
     this.props.requestUi()
-    App.cable.disconnect()
-    App.room = App.cable.subscriptions.create(
-      { channel: "ChatChannel" },
-      {
-        received: data => {
-          switch (data.type) {
-            case "message":
-              const message = {
-                author: data.author,
-                body: data.body,
-                id: data.id,
-                time: data.time,
-                channel_id: data.channel_id,
-              };
-              this.props.incomingMessage(message)
-              let element = document.getElementById(`chan-${message.channel_id}`)
-              if (element) element.classList.add("sidebar-highlight")
-              break;
-          }
-        },
-        speak: function (data) { return this.perform("speak", data) },
-      }
-    );
+    // App.cable.disconnect()
+    // App.room = App.cable.subscriptions.create(
+    //   { channel: "ChatChannel" },
+    //   {
+    //     received: data => {
+    //       switch (data.type) {
+    //         case "message":
+    //           const message = {
+    //             author: data.author,
+    //             body: data.body,
+    //             id: data.id,
+    //             time: data.time,
+    //             channel_id: data.channel_id,
+    //           };
+    //           this.props.incomingMessage(message)
+    //           let element = document.getElementById(`chan-${message.channel_id}`)
+    //           if (element) element.classList.add("sidebar-highlight")
+    //           break;
+    //       }
+    //     },
+    //     speak: function (data) { return this.perform("speak", data) },
+    //   }
+    // );
   }
 
   componentWillUnmount() {
@@ -60,8 +60,8 @@ class Application extends React.Component {
           <Modal />
           <TopNav />
           <Profile />
-          <ViewHeader currentMembership={currentMembership} />
-          <Sidebar currentMembership={currentMembership} />
+          <ViewHeader />
+          <Sidebar />
           <Chatroom currentMembership={currentMembership} />
           <MessageForm />
         </div>

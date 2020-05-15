@@ -14,7 +14,7 @@ class Sidebar extends React.Component {
   getMembershipList() {
     let memberships = this.props.membershipList
     const membershipList = memberships.map((membership, idx) => {
-      let selected = this.props.currentMembership.channel_id === membership.channel_id ? "sidebar-selected" : "sidebar-item"
+      let selected = this.props.currentChannel.channel_id === membership.channel_id ? "sidebar-selected" : "sidebar-item"
       let unreadMessages = membership.unread_messages ? " sidebar-highlight" : ""
       return (
         <li 

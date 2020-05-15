@@ -6,8 +6,9 @@ import { openModal } from '../../../actions/modal_actions'
 
 
 
-const mapStateToProps = ({ ui, entities }) => {
+const mapStateToProps = ({ ui, entities, session }) => {
   return {
+    currentChannel: entities.memberships[session.currentChannel],
     showChannels: ui.show_channels,
     showDirectMessages: ui.show_direct_messages,
     membershipList: Object.values(entities.memberships),
