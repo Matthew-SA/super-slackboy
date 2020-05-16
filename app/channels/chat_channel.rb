@@ -5,7 +5,24 @@ class ChatChannel < ApplicationCable::Channel
     channels.each do |channel|
       stream_from "chat_#{channel.id}"
     end
-    # stream_from "chat_#{params[:room]}"
+  end
+
+  def start_listening(data)
+    room = data['room']
+    stream_from "chat_#{room}"
+  end
+
+  def begin_listening
+    room = current_user.current_room
+    stream_from "chat_#{room}"
+  end
+
+  def refresh_streams
+    stop_all_streams
+    channels = current_user.channels
+    channels.each do |channel|
+      stream_from "chat_#{channel.id}"
+    end
   end
 
   def speak(data)

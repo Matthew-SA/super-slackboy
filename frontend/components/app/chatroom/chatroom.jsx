@@ -36,13 +36,18 @@ class ChatRoom extends React.Component {
           }
         },
         speak: function (data) { return this.perform("speak", data) },
+        beginListening: function () { return this.perform("begin_listening")},
+        startListening: function (data) { return this.perform("start_listening", data)},
+        refreshStreams: function () { return this.perform("refresh_streams")}
       }
     );
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.messages.length) this.bottom.current.scrollIntoView();
-    if (prevProps.currentChannelId !== this.props.currentChannelId) this.subscribe()
+    if (prevProps.currentChannelId !== this.props.currentChannelId) App.room.startListening({ room: this.props.currentChannelId})
+    // if (prevProps.currentChannelId !== this.props.currentChannelId) this.subscribe()
+    // if (prevProps.currentChannelId !== this.props.currentChannelId) App.room.refreshStreams()
   }
 
   buildMessageList() {
@@ -68,8 +73,6 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    if (App.room) console.log(App)
-
     return (
       <div className="chatroom-container">
         <div className="message-list">
