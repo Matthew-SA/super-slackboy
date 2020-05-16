@@ -8,6 +8,15 @@ li {
   overflow-y: auto;
 }
 
+.test {
+  grid-area: main / chatbox / 5;
+  background-color: silver;
+  height: 100%;
+  width: 100%;
+  // z-index: 100;
+  overflow-y: scroll;
+}
+
 .primary-message-form {
   grid-area: chatbox;
   // background-color: black;

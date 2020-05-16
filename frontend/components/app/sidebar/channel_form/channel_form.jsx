@@ -16,6 +16,11 @@ class ChannelForm extends React.Component {
     this.props.createChannel(channel)
   }
 
+  updateNoSpace(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value.replace(/\s/g, '').toLowerCase()
+    });
+  }
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -36,7 +41,7 @@ class ChannelForm extends React.Component {
               style={{ marginBottom: "20px" }}
               type="text"
               value={this.state.name}
-              onChange={this.update('name')}
+              onChange={this.updateNoSpace('name')}
               placeholder="# e.g. plan-budget"
             />
             <div style={{ marginBottom: "7px" }}>Description <span style={{ fontWeight: "100", color: "#616061" }}>(optional)</span></div>

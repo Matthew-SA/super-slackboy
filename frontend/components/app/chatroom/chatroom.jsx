@@ -72,6 +72,7 @@ class ChatRoom extends React.Component {
   }
 
   render() {
+    // TODO: repurpose chatroom to be a channel browser.  "test" class in main currently works!
     return (
       <div className="chatroom-container">
         <div className="message-list">

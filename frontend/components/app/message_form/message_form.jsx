@@ -24,6 +24,11 @@ class MessageForm extends React.Component {
   }
 
   render() {
+    if (false) {
+      return(
+        <div className="test"></div>
+      )
+    } else {
     return (
       <div className="primary-message-form" >
         <form onKeyDown={this.handleSubmit}>
@@ -37,6 +42,7 @@ class MessageForm extends React.Component {
       </div>
     );
   }
+}
 }
 
 export default MessageForm;
