@@ -1,23 +1,12 @@
 class ChatChannel < ApplicationCable::Channel
 
   def subscribed
-    # channels = current_user.channels
-    # channels.each do |channel|
-    #   stream_from "chat_#{channel.id}"
-    stream_from "chat_#{params[:room]}"
-    # end
+    channels = current_user.channels
+    channels.each do |channel|
+      stream_from "chat_#{channel.id}"
+    end
+    # stream_from "chat_#{params[:room]}"
   end
-
-  # def add_channel(data)
-  #   puts "heeeeeey"
-  #   puts "heeeeeey"
-  #   # puts channel
-  #   puts "heeeeeey"
-  #   puts "heeeeeey"
-  #   # stream_from "chat_5"  
-  #   # stream_from "chat_#{channel}"  
-  #   # stream_for Room.find(room_data['room_id'])
-  # end
 
   def speak(data)
     user = User.find_by(id: current_user.id)

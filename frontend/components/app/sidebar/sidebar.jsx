@@ -9,39 +9,7 @@ class Sidebar extends React.Component {
 
   componentDidMount() {
     this.props.requestMemberships()
-    // console.log(this.props)
   }
-
-  // subscribe() {
-  //   App.cable.disconnect()
-  //   console.log(this.props.currentChannel)
-  //   this.props.membershipKeys.forEach(key => {
-  //     App.room = App.cable.subscriptions.create(
-  //     { channel: "ChatChannel", room: `${key}` },
-  //     {
-  //       received: data => {
-  //         switch (data.type) {
-  //           case "message":
-  //             const message = {
-  //               author: data.author,
-  //               body: data.body,
-  //               id: data.id,
-  //               time: data.time,
-  //               channel_id: data.channel_id,
-  //             };
-  //             this.props.incomingMessage(message)
-  //             let element = document.getElementById(`chan-${message.channel_id}`)
-  //             if (element) element.classList.add("sidebar-highlight")
-  //             break;
-  //         }
-  //       },
-  //       speak: function (data) { return this.perform("speak", data) },
-  //     }
-  //     );
-  //   })
-    
-  // }
-
 
   getMembershipList() {
     let memberships = this.props.membershipList

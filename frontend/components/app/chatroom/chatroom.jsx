@@ -17,7 +17,7 @@ class ChatRoom extends React.Component {
   subscribe() {
     App.cable.disconnect()
     App.room = App.cable.subscriptions.create(
-      { channel: "ChatChannel", room: `${this.props.currentChannelId}` },
+      { channel: "ChatChannel" },
       {
         received: data => {
           switch (data.type) {
@@ -68,7 +68,7 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    // if (App.room) console.log(App.room.speak)
+    if (App.room) console.log(App)
 
     return (
       <div className="chatroom-container">

@@ -27,22 +27,28 @@ Super SlackBoy is a light weight communication application where users can post 
 * Instant Messaging - Action Cable web sockets provide messaging updates without having to manually refresh the page.  When a user joins the chat page, a user subscription is created to the chat channel.  Anytime a user posts a new message, the chat channel will update all current clients with the new message.
 
 ```javascript
-  componentDidMount() {
-    this.props.requestMessages()
+  subscribe() {
+    App.cable.disconnect()
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },
       {
         received: data => {
           switch (data.type) {
             case "message":
-              const message = { author: data.author, body: data.body, id: data.id, user_id: data.user_id };
+              const message = {
+                author: data.author,
+                body: data.body,
+                id: data.id,
+                time: data.time,
+                channel_id: data.channel_id,
+              };
               this.props.incomingMessage(message)
+              let element = document.getElementById(`chan-${message.channel_id}`)
+              if (element) element.classList.add("sidebar-highlight")
               break;
           }
         },
-
         speak: function (data) { return this.perform("speak", data) },
-
       }
     );
   }
