@@ -44,14 +44,13 @@ class ChatRoom extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    let newId = this.props.currentChannelId
     if (this.props.messages.length) this.bottom.current.scrollIntoView();
-    if (prevProps.currentChannelId !== this.props.currentChannelId) App.room.startListening({ room: this.props.currentChannelId})
-    // if (prevProps.currentChannelId !== this.props.currentChannelId) this.subscribe()
-    // if (prevProps.currentChannelId !== this.props.currentChannelId) App.room.refreshStreams()
+    if (!prevProps.memberships[newId]) App.room.startListening({ room: newId})
   }
 
   buildMessageList() {
-    if (this.props.memberships <= 0) return;
+
     let lastAuthorId = null;
 
     const messageList = this.props.messages.map((message, idx) => {

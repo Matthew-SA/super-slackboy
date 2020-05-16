@@ -6,7 +6,7 @@ import { requestMessages, incomingMessage } from '../../../actions/message_actio
 const mSTP = ({entities, session}) => ({
   currentChannelId: session.currentChannel,
   messages: Object.values(entities.messages),
-  memberships: Object.values(entities.memberships),
+  memberships: entities.memberships,
 })
 
 const mDTP = dispatch => ({
