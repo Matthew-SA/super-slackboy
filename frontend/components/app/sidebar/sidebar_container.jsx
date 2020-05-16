@@ -3,6 +3,7 @@ import Siderbar from './sidebar';
 import { toggleUiElement } from '../../../actions/ui_actions'
 import { requestMemberships, updateMembership } from '../../../actions/membership_actions'
 import { openModal } from '../../../actions/modal_actions'
+import { incomingMessage } from '../../../actions/message_actions'
 
 
 

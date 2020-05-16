@@ -14,29 +14,7 @@ class Application extends React.Component {
 
   componentDidMount() {
     this.props.requestUi()
-    // App.cable.disconnect()
-    // App.room = App.cable.subscriptions.create(
-    //   { channel: "ChatChannel" },
-    //   {
-    //     received: data => {
-    //       switch (data.type) {
-    //         case "message":
-    //           const message = {
-    //             author: data.author,
-    //             body: data.body,
-    //             id: data.id,
-    //             time: data.time,
-    //             channel_id: data.channel_id,
-    //           };
-    //           this.props.incomingMessage(message)
-    //           let element = document.getElementById(`chan-${message.channel_id}`)
-    //           if (element) element.classList.add("sidebar-highlight")
-    //           break;
-    //       }
-    //     },
-    //     speak: function (data) { return this.perform("speak", data) },
-    //   }
-    // );
+    // this.props.requestMemberships()
   }
 
   componentWillUnmount() {
@@ -44,17 +22,6 @@ class Application extends React.Component {
   }
 
   render(){
-    let memberships = this.props.membershipList
-    let latestTime = null;
-    let currentMembership = 0;
-
-    memberships.map(membership => {
-      if (latestTime === null || latestTime < membership.last_arrived) {
-        latestTime = membership.last_arrived
-        currentMembership = membership
-      }
-    })
-
     return(
       <div className="app">
           <Modal />
@@ -62,7 +29,7 @@ class Application extends React.Component {
           <Profile />
           <ViewHeader />
           <Sidebar />
-          <Chatroom currentMembership={currentMembership} />
+          <Chatroom />
           <MessageForm />
         </div>
     )

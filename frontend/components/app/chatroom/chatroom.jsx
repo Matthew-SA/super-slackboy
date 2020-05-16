@@ -11,6 +11,10 @@ class ChatRoom extends React.Component {
   
   componentDidMount() {
     this.props.requestMessages()
+    this.subscribe()
+  }
+
+  subscribe() {
     App.cable.disconnect()
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel", room: `${this.props.currentChannelId}` },
@@ -25,7 +29,6 @@ class ChatRoom extends React.Component {
                 time: data.time,
                 channel_id: data.channel_id,
               };
-              console.log(message)
               this.props.incomingMessage(message)
               let element = document.getElementById(`chan-${message.channel_id}`)
               if (element) element.classList.add("sidebar-highlight")
@@ -37,8 +40,9 @@ class ChatRoom extends React.Component {
     );
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     if (this.props.messages.length) this.bottom.current.scrollIntoView();
+    if (prevProps.currentChannelId !== this.props.currentChannelId) this.subscribe()
   }
 
   buildMessageList() {
@@ -64,6 +68,8 @@ class ChatRoom extends React.Component {
   }
 
   render() {
+    // if (App.room) console.log(App.room.speak)
+
     return (
       <div className="chatroom-container">
         <div className="message-list">
