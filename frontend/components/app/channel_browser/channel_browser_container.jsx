@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ChannelBrowser from './channel_browser.jsx';
-import receiveChannels from '../../../actions/channel_actions'
+import { receiveChannels } from '../../../actions/channel_actions'
 
 
 
@@ -10,7 +10,7 @@ const mSTP = ({ entities, session }) => ({
 })
 
 const mDTP = dispatch => ({
-  receiveChannels: (channels => dispatch(receiveChannels(channels)))
+  receiveChannels: () => dispatch(receiveChannels())
 });
 
 export default connect(mSTP, mDTP)(ChannelBrowser);

@@ -3,6 +3,7 @@ import ChannelForm from './channel_form';
 import { createChannel } from '../../../../actions/channel_actions'
 
 
+
 const mapStateToProps = state => ({
   currentUser: state.entities.user
 })

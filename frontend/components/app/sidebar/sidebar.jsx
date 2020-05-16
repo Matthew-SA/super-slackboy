@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import Moment from 'react-moment'
+import * as Util from '../../../util/util';
 
 class Sidebar extends React.Component {
   constructor(props){
@@ -12,7 +12,7 @@ class Sidebar extends React.Component {
   }
 
   getMembershipList() {
-    let memberships = this.props.membershipList
+    let memberships = this.props.memberships.sort(Util.compareValues('name', 'asc'))
     const membershipList = memberships.map((membership, idx) => {
       let selected = this.props.currentChannel.channel_id === membership.channel_id ? "sidebar-selected" : "sidebar-item"
       let unreadMessages = membership.unread_messages ? " sidebar-highlight" : ""
@@ -47,7 +47,8 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    // this.subscribe();
+    console.log('render!')
+
     return (
       <div className="sidebar" >
         <div className="sidebar-menu-item">
@@ -66,7 +67,7 @@ class Sidebar extends React.Component {
             </p>
             <div className="plus-button" onClick={() => this.props.openModal("create-direct-message")}><FontAwesomeIcon icon="plus" /></div>
           </div>
-          {this.props.showDirectMessages ? this.getDirectMessageList() : "" }
+          {/* {this.props.showDirectMessages ? this.getDirectMessageList() : "" } */}
         </div>
       </div>
     );

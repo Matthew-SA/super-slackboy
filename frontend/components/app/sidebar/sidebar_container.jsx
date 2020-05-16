@@ -3,8 +3,6 @@ import Siderbar from './sidebar';
 import { toggleUiElement } from '../../../actions/ui_actions'
 import { requestMemberships, updateMembership } from '../../../actions/membership_actions'
 import { openModal } from '../../../actions/modal_actions'
-import { incomingMessage } from '../../../actions/message_actions'
-
 
 
 const mapStateToProps = ({ ui, entities, session }) => {
@@ -12,7 +10,7 @@ const mapStateToProps = ({ ui, entities, session }) => {
     currentChannel: entities.memberships[session.currentChannel],
     showChannels: ui.show_channels,
     showDirectMessages: ui.show_direct_messages,
-    membershipList: Object.values(entities.memberships),
+    memberships: Object.values(entities.memberships),
   };
 };
 
