@@ -47,8 +47,6 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    console.log('render!')
-
     return (
       <div className="sidebar" >
         <div className="sidebar-menu-item">
