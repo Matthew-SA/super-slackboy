@@ -37,8 +37,7 @@
   },
   "scripts": {
     "start": "webpack --mode=development --watch",
-    "postinstall": "webpack",
-    "lint": "eslint"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -52,7 +51,7 @@
   },
   "homepage": "https://github.com/Matthew-SA/FullStack-Slack-Clone#readme",
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
