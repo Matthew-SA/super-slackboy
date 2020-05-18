@@ -8,55 +8,55 @@ import { requestMemberships, updateMembership } from '../../../actions/membershi
 import { openModal } from '../../../actions/modal_actions';
 
 function Sidebar() {
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(requestMemberships())
-  // }, []);
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(requestMemberships())
+  }, []);
 
-  // const currentChannel = useSelector(
-  //   state => state.entities.memberships[state.session.currentChannel]
-  // )
-  // const channelMemberships = useSelector(
-  //   state => (state.entities.memberships
-  // ), shallowEqual)
-  // const showChannels = useSelector(state => state.ui.show_channels )
-  // const showDirectMessages = useSelector(state => state.ui.show_direct_messages )
+  const currentChannel = useSelector(
+    state => state.entities.memberships[state.session.currentChannel]
+  )
+  const channelMemberships = useSelector(
+    state => (state.entities.memberships
+  ), shallowEqual)
+  const showChannels = useSelector(state => state.ui.show_channels )
+  const showDirectMessages = useSelector(state => state.ui.show_direct_messages )
 
-  // const getDirectMessageList = () => {
-  //   return(
-  //     <ul className="sidebar-ul">
-  //       <li className="sidebar-item"># Demo item 1</li>
-  //       <li className="sidebar-item"># Demo item 2</li>
-  //       <li className="sidebar-item"># Demo item 3</li>
-  //     </ul>
-  //   )
-  // }
+  const getDirectMessageList = () => {
+    return(
+      <ul className="sidebar-ul">
+        <li className="sidebar-item"># Demo item 1</li>
+        <li className="sidebar-item"># Demo item 2</li>
+        <li className="sidebar-item"># Demo item 3</li>
+      </ul>
+    )
+  }
 
-  // const getMembershipList = () => {
-  //   let membershipsArray = Object.values(channelMemberships);
-  //   let memberships = membershipsArray.sort(Util.compareValues('name', 'asc'))
-  //   const membershipList = memberships.map((membership, idx) => {
-  //     let selected = currentChannel.channel_id === membership.channel_id ? "sidebar-selected" : "sidebar-item"
-  //     let unreadMessages = membership.unread_messages ? " sidebar-highlight" : ""
-  //     return (
-  //       <li 
-  //         className={`${selected}${unreadMessages}`} 
-  //         id={`chan-${membership.channel_id}`}
-  //         onClick={() => {
-  //           () => dispatch(updateMembership(membership.id))
-  //         }} 
-  //         key={idx}>
-  //           # {membership.name}
-  //       </li>
-  //     )
-  //   })
+  const getMembershipList = () => {
+    let membershipsArray = Object.values(channelMemberships);
+    let memberships = membershipsArray.sort(Util.compareValues('name', 'asc'))
+    const membershipList = memberships.map((membership, idx) => {
+      let selected = currentChannel.channel_id === membership.channel_id ? "sidebar-selected" : "sidebar-item"
+      let unreadMessages = membership.unread_messages ? " sidebar-highlight" : ""
+      return (
+        <li 
+          className={`${selected}${unreadMessages}`} 
+          id={`chan-${membership.channel_id}`}
+          onClick={() => {
+            () => dispatch(updateMembership(membership.id))
+          }} 
+          key={idx}>
+            # {membership.name}
+        </li>
+      )
+    })
   
-  //   return(
-  //     <ul className="sidebar-ul">
-  //       {membershipList}
-  //     </ul>
-  //   )
-  // }
+    return(
+      <ul className="sidebar-ul">
+        {membershipList}
+      </ul>
+    )
+  }
 
   return (
     <div className="sidebar" >
@@ -67,7 +67,7 @@ function Sidebar() {
           </p>
           <div className="plus-button" onClick={() => dispatch(openModal("channel-dropdown"))}><FontAwesomeIcon icon="plus" /></div>
         </div>
-        {/* {showChannels ? getMembershipList() : "" } */}
+        {showChannels ? getMembershipList() : "" }
       </div>
       <div className="sidebar-menu-item">
         <div className="sidebar-header-container">
@@ -76,7 +76,7 @@ function Sidebar() {
           </p>
           <div className="plus-button" onClick={() => dispatch(openModal("create-direct-message"))}><FontAwesomeIcon icon="plus" /></div>
         </div>
-        {/* {showDirectMessages ? getDirectMessageList() : "" } */}
+        {showDirectMessages ? getDirectMessageList() : "" }
       </div>
     </div>
   );

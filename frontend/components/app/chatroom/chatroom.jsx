@@ -36,17 +36,17 @@ class ChatRoom extends React.Component {
           }
         },
         speak: function (data) { return this.perform("speak", data) },
-        beginListening: function () { return this.perform("begin_listening")},
+        // beginListening: function () { return this.perform("begin_listening")},
         startListening: function (data) { return this.perform("start_listening", data)},
-        refreshStreams: function () { return this.perform("refresh_streams")}
+        // refreshStreams: function () { return this.perform("refresh_streams")}
       }
     );
   }
 
   componentDidUpdate(prevProps) {
-    let newId = this.props.currentChannelId
-    if (this.props.messages.length) this.bottom.current.scrollIntoView();
-    if (!prevProps.memberships[newId]) App.room.startListening({ room: newId})
+    // let newId = this.props.currentChannelId
+    // if (this.props.messages.length) this.bottom.current.scrollIntoView();
+    // if (!prevProps.memberships[newId]) App.room.startListening({ room: newId})
   }
 
   buildMessageList() {
