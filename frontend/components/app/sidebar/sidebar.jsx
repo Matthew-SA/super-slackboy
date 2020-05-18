@@ -58,12 +58,20 @@ function Sidebar() {
     )
   }
 
+  const isShown = (uiElement) => (
+    uiElement ? "caret-down" : "caret-down caret-rotate"
+  )
+
   return (
     <div className="sidebar" >
       <div className="sidebar-menu-item">
+
+      </div>
+
+      <div className="sidebar-menu-item">
         <div className="sidebar-header-container">
           <p className="channel-header" onClick={() => dispatch(toggleUiElement("show_channels"))}>
-            <FontAwesomeIcon className="caret-down" icon="caret-down"/>&nbsp;&nbsp;Channels
+            <FontAwesomeIcon className={isShown(showChannels)} icon="caret-down"/>&nbsp;&nbsp;Channels
           </p>
           <div className="plus-button" onClick={() => dispatch(openModal("channel-dropdown"))}><FontAwesomeIcon icon="plus" /></div>
         </div>
@@ -72,7 +80,7 @@ function Sidebar() {
       <div className="sidebar-menu-item">
         <div className="sidebar-header-container">
           <p className="channel-header" onClick={() => dispatch(toggleUiElement("show_direct_messages"))}>
-            <FontAwesomeIcon className="caret-down" icon="caret-down"/>&nbsp;&nbsp;Direct Messages
+            <FontAwesomeIcon className={isShown(showDirectMessages)} icon="caret-down"/>&nbsp;&nbsp;Direct Messages
           </p>
           <div className="plus-button" onClick={() => dispatch(openModal("create-direct-message"))}><FontAwesomeIcon icon="plus" /></div>
         </div>
