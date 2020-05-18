@@ -7,6 +7,7 @@ function ProfileDropdown() {
   const currentUserName = useSelector(
     (state) => state.entities.user[state.session.id].username
   );
+  console.log(currentUserName)
   const dispatch = useDispatch();
 
   return (
