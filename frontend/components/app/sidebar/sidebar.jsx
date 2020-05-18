@@ -43,7 +43,7 @@ function Sidebar() {
           className={`${selected}${unreadMessages}`} 
           id={`chan-${membership.channel_id}`}
           onClick={() => {
-            () => dispatch(updateMembership(membership.id))
+            dispatch(updateMembership(membership.id))
           }} 
           key={idx}>
             # {membership.name}

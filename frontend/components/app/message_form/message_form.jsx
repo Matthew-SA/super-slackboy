@@ -8,7 +8,6 @@ function MessageForm() {
       e.preventDefault();
       App.room.speak({ message: messageBody });
       setMessageBody('');
-      console.log("hit!")
     }
   }
 

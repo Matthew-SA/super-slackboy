@@ -3,7 +3,7 @@ import TopNav from './topnav/topnav_container'
 import ViewHeader from './view_header/viewheader_container.jsx'
 import Profile from './profile/profile'
 import Sidebar from './sidebar/sidebar'
-import Chatroom from './chatroom/chatroom_container'
+import Chatroom from './chatroom/chatroom'
 import MessageForm from './message_form/message_form'
 import Modal from './modal/modal'
 

@@ -12,18 +12,18 @@ class ChatChannel < ApplicationCable::Channel
     stream_from "chat_#{room}"
   end
 
-  def begin_listening
-    room = current_user.current_room
-    stream_from "chat_#{room}"
-  end
+  # def begin_listening
+  #   room = current_user.current_room
+  #   stream_from "chat_#{room}"
+  # end
 
-  def refresh_streams
-    stop_all_streams
-    channels = current_user.channels
-    channels.each do |channel|
-      stream_from "chat_#{channel.id}"
-    end
-  end
+  # def refresh_streams
+  #   stop_all_streams
+  #   @channels = current_user.channels
+  #   @channels.each do |channel|
+  #     stream_from "chat_#{channel.id}"
+  #   end
+  # end
 
   def speak(data)
     user = User.find_by(id: current_user.id)
