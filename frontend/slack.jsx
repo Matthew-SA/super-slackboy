@@ -19,12 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         user: { [window.currentUser.id]: window.currentUser }
       }
     };
-    // const preloadedState = {
-    //   session: { id: window.currentUser.id },
-    //   entities: {
-    //     user: { [window.currentUser.id]: window.currentUser }
-    //   }
-    // };
     store = configureStore(preloadedState);
     delete window.currentUser;
   } else {

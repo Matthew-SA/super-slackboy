@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import Application from "./app/application_container"
+import Application from "./app/application"
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import {
   HashRouter,

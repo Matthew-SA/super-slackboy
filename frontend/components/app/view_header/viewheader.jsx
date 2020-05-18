@@ -1,26 +1,24 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 
-class ViewHeader extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+function ViewHeader() {
+  const currentChannel = useSelector(
+    state => state.entities.memberships[state.session.currentChannel])
 
-  getChannelName() {
-    let name = this.props.currentChannel ? this.props.currentChannel.name : ""
+  const getChannelName = () => {
+    let name = currentChannel ? currentChannel.name : ""
     return name
   }
 
-  render() {    
-    return (
-      <div className="viewHeader-container">
-        <div className="left-header">
-          <h2># {this.getChannelName()}</h2>
-        </div>
-        {/* <div className="right-header">
-        </div> */}
+  return (
+    <div className="viewHeader-container">
+      <div className="left-header">
+        <h2># {getChannelName()}</h2>
       </div>
-    );
-  }
+      {/* <div className="right-header">
+        </div> */}
+    </div>
+  );
 }
 
 export default ViewHeader;
