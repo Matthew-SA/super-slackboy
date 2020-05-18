@@ -5,7 +5,7 @@ import { closeModal } from '../../../actions/modal_actions';
 import ProfileDropdown from '../profile/profile_dropdown'
 import ChannelDropdown from '../sidebar/channel_dropdown'
 import ChannelForm from '../sidebar/channel_form'
-import DirectMessageForm from '../sidebar/direct_message_form/direct_message_form_container'
+import DirectMessageForm from '../sidebar/direct_message_form'
 
 function Modal() {
   const modal = useSelector(state => state.modal)
