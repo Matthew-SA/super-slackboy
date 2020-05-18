@@ -1,12 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-class DirectMessageForm extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+function DirectMessageForm() {
 
-  render() {
-    return(
+
+  return(
       <div className="create-channel-container">
         <h1 className="modal-header">Direct Messages</h1>
         <div className="modal-body">
@@ -14,7 +11,6 @@ class DirectMessageForm extends React.Component {
         </div>
       </div>
     )
-  }
 }
 
-export default DirectMessageForm
+export default DirectMessageForm;

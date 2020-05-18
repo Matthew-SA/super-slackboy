@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
-import { logout } from "../../../../actions/session_actions";
+import { logout } from "../../../actions/session_actions";
 
 function ProfileDropdown() {
   const currentUserName = useSelector(

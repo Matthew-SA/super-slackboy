@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createChannel } from '../../../../actions/channel_actions'
+import { createChannel } from '../../../actions/channel_actions'
 
 
 function ChannelForm() {
