@@ -1,5 +1,5 @@
 import React from "react";
-import TopNav from './topnav/topnav_container'
+import TopNav from './topnav/topnav'
 import ViewHeader from './view_header/viewheader_container.jsx'
 import Profile from './profile/profile'
 import Sidebar from './sidebar/sidebar'
