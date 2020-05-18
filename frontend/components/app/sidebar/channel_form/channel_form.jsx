@@ -3,15 +3,14 @@ import { useDispatch } from 'react-redux';
 import { createChannel } from '../../../../actions/channel_actions'
 
 
-function ChannelForm(props) {
+function ChannelForm() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const channel = {name, description}
-    dispatch(createChannel(channel))
+    dispatch(createChannel({ name, description }));
   }
 
   return (
@@ -33,7 +32,7 @@ function ChannelForm(props) {
             style={{ marginBottom: "20px" }}
             type="text"
             value={name}
-            onChange={(e) =>setName(e.target.value.replace(/\s/g, "").toLowerCase())}
+            onChange={(e) => setName(e.target.value.replace(/\s/g, "").toLowerCase())}
             placeholder="# e.g. plan-budget"
           />
           <div style={{ marginBottom: "7px" }}>
