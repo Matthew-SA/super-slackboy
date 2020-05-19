@@ -47,8 +47,6 @@ function ChatWindow(){
     return messageList
   }
 
-  //   // TODO: repurpose chatroom to be a channel browser.  "test" class in main currently works!
-
   return (
     <div className="chat-window">
       <div className="chat-log">

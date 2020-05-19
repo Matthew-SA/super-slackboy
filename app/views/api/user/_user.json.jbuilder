@@ -1,1 +1,1 @@
-json.extract! user, :id, :username, :current_channel
+json.extract! user, :id, :username, :current_channel, :focus

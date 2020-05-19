@@ -7,3 +7,5 @@ json.oldmembership do
   json.extract! @oldmembership, :id, :channel_id, :last_departed
   json.extract! @oldmembership.channel, :name
 end
+
+json.focus @focus

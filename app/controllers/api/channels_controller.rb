@@ -13,10 +13,12 @@ class Api::ChannelsController < ApplicationController
 
     @membership = Membership.create(user_id: current_user.id, channel_id: @channel.id, last_arrived: timestamp, last_departed: timestamp)
 
+    @focus = @channel.id.to_s
+
     @user = current_user
     @user.current_channel = @channel.id
+    @user.focus = @focus
     @user.save
-    
     render 'api/channels/show'
   end
 

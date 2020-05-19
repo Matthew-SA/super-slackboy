@@ -15,9 +15,12 @@ class Api::MembershipsController < ApplicationController
     @membership.last_arrived = time
     @membership.save
     
+    @focus = @membership.channel_id.to_s
     # @channel = Channel.find_by(id:)
     current_user.current_channel = @membership.channel_id
+    current_user.focus = @focus
     current_user.save
+
     render 'api/memberships/show'
   end
 end
