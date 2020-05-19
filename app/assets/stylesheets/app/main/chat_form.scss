@@ -1,0 +1,24 @@
+.chat-form-container {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 109px;
+  padding: 0px 20px;
+}
+
+.chat-form-container textarea {
+  height: 85px;
+  width: 100%;
+  left: 20px;
+  right: 0;
+  border-radius: 4px;
+  border-color: #8D8D8E;
+  box-sizing: border-box;
+  resize: none;
+  display: flex;
+  flex-wrap: wrap;
+  word-break: break-all;
+  padding: 10px 0px 48px 43px
+}
+

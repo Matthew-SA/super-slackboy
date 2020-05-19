@@ -4,14 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import * as Util from '../../../util/util';
 import { toggleUiElement } from '../../../actions/ui_actions';
-import { requestMemberships, updateMembership } from '../../../actions/membership_actions';
+import { updateMembership } from '../../../actions/membership_actions';
 import { openModal } from '../../../actions/modal_actions';
 
 function Sidebar() {
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(requestMemberships())
-  }, []);
 
   const currentChannel = useSelector(
     state => state.entities.memberships[state.session.currentChannel]
@@ -22,25 +19,26 @@ function Sidebar() {
   const showChannels = useSelector(state => state.ui.show_channels )
   const showDirectMessages = useSelector(state => state.ui.show_direct_messages )
 
-  const getDirectMessageList = () => {
-    return(
-      <ul className="sidebar-ul">
-        <li className="sidebar-item"># Demo item 1</li>
-        <li className="sidebar-item"># Demo item 2</li>
-        <li className="sidebar-item"># Demo item 3</li>
-      </ul>
-    )
-  }
 
   const getMembershipList = () => {
     let membershipsArray = Object.values(channelMemberships);
     let memberships = membershipsArray.sort(Util.compareValues('name', 'asc'))
+
+    const processMembershipClass = (membership) => {
+      let response = "";
+      if (currentChannel.channel_id === membership.channel_id) {
+        response += "sidebar-selected"
+      } else {
+        response += "sidebar-item"
+      }
+      if (membership.unreadMessages) response += " sidebar-highlight"
+      return response
+    }
+
     const membershipList = memberships.map((membership, idx) => {
-      let selected = currentChannel.channel_id === membership.channel_id ? "sidebar-selected" : "sidebar-item"
-      let unreadMessages = membership.unread_messages ? " sidebar-highlight" : ""
       return (
         <li 
-          className={`${selected}${unreadMessages}`} 
+          className={processMembershipClass(membership)} 
           id={`chan-${membership.channel_id}`}
           onClick={() => {
             dispatch(updateMembership(membership.id))
@@ -58,15 +56,34 @@ function Sidebar() {
     )
   }
 
+  const getDirectMessageList = () => {
+    return (
+      <ul className="sidebar-ul">
+        <li className="sidebar-item"># Demo item 1</li>
+        <li className="sidebar-item"># Demo item 2</li>
+        <li className="sidebar-item"># Demo item 3</li>
+      </ul>
+    )
+  }
+
   const isShown = (uiElement) => (
     uiElement ? "caret-down" : "caret-down caret-rotate"
   )
 
   return (
     <div className="sidebar" >
-      <div className="sidebar-menu-item">
-
+      <div className="sidebar-menu-item sidebar-item">
+        <div className="sidebar-header-container" onClick={() => dispatch(toggleUiElement("channel_browser"))}>
+          <p className="channel-header" >
+            <FontAwesomeIcon 
+              style={{ fontSize: "13px" }} 
+              icon="search" 
+            />&nbsp;Channel browser
+          </p>
+        </div>
       </div>
+
+        <div className="sidebar-divider"></div>
 
       <div className="sidebar-menu-item">
         <div className="sidebar-header-container">

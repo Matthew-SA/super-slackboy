@@ -34,7 +34,7 @@
   border-radius: 6px;
   width: 200px;
   background-color: white;
-  top: 142px;
+  top: 192px;
   left: 221px;
   z-index: 10;
   color: black;
@@ -73,9 +73,14 @@
   box-shadow: 0 0 0 0px,0 4px 12px 0 rgba(0,0,0,.12);
 }
 
+.profile-divider {
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(221,221,221,1);
+  margin-bottom: 10px;
+}
+
 .profile-menu-header {
-  height: 72px;
-  padding: 8px 24px 12px;
+  height: 52px;
   box-sizing: border-box;
   // border-bottom: 1px solid #868686;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function MessageForm() {
+function ChatForm() {
   const [messageBody, setMessageBody] = useState('')
 
   const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ function MessageForm() {
   }
 
     return (
-      <div className="primary-message-form" >
+      <div className="chat-form-container" >
         <form onKeyDown={handleSubmit}>
           <textarea
             wrap="hard"
@@ -26,5 +26,5 @@ function MessageForm() {
 
 }
 
-export default MessageForm;
+export default ChatForm;
 

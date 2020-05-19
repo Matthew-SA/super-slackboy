@@ -43,17 +43,32 @@ body {
   height: 100%;
   width: 100%;
   display: grid;
+  grid-template-rows: 38px 64px auto;
   grid-template-columns: 260px auto;
-  grid-template-rows: 38px 64px auto 109px;
   grid-template-areas: 
     "topnav topnav"
     "profile-box viewHeader"
-    "sidebar main"
-    "sidebar chatbox";
+    "sidebar main";
+    // "sidebar chatbox";
   position: fixed;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
+// .app {
+//   height: 100%;
+//   width: 100%;
+//   display: grid;
+//   grid-template-columns: 260px auto;
+//   grid-template-rows: 38px 64px auto 109px;
+//   grid-template-areas: 
+//     "topnav topnav"
+//     "profile-box viewHeader"
+//     "sidebar main"
+//     "sidebar chatbox";
+//   position: fixed;
+//   overflow-wrap: break-word;
+//   word-wrap: break-word;
+// }
 
 .hide {
   display: none;

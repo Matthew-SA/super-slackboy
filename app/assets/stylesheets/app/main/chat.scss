@@ -1,0 +1,9 @@
+@import "./chat_window.scss";
+@import "./chat_form.scss";
+@import "./chat_item.scss";
+
+.chat-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}

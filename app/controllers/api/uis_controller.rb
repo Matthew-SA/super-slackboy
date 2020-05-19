@@ -10,6 +10,12 @@ class Api::UisController < ApplicationController
       @ui.toggle(:show_channels).save
     elsif params['uiElement'] == 'show_direct_messages'
       @ui.toggle(:show_direct_messages).save
+    elsif params['uiElement'] == 'channel_browser'
+      @ui.active_menu_item = 'channel_browser'
+      @ui.save
+    elsif params['uiElement'] == 'null'
+      @ui.active_menu_item = nil
+      @ui.save
     end
     render '/api/ui/show'
   end

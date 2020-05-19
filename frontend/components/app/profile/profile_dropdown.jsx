@@ -15,6 +15,9 @@ function ProfileDropdown() {
         <img src={window.profile_pic} className="profile-pic" />
         <h6>{currentUserName}</h6>
       </div>
+
+      <div className="profile-divider"></div>
+
       <div className="dropdown-menu-item" onClick={() => dispatch(logout())}>
           Sign out of <span className="bold">Super SlackBoy</span>
       </div>
