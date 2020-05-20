@@ -14,17 +14,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # def update
-  #   @user = current_user
-  #   channelId = params['newChannelId']
-  #   if @user.update(current_channel: channelId)
-  #     membership = Membership.where(channel_id: channelId, user_id: @user.id)
-  #     membership[0].last_arrived = DateTime.new
-  #     membership[0].save
-  #   end
-  #   render "api/user/show"
-  # end
-
   private
 
   def user_params
