@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import TopNav from './topnav/topnav';
 import ViewHeader from './view_header/viewheader';
 import Profile from './profile/profile';
@@ -14,6 +14,9 @@ import { requestMessages, incomingMessage } from '../../actions/message_actions'
 
 function Application() {
   const dispatch = useDispatch();
+  const isInitialMount = useRef(true);
+  const currentChannelId = useSelector(state => state.session.focus);
+  const channelKeys = useSelector(state => Object.keys(state.entities.memberships));
 
   useEffect(() => {
     dispatch(requestUi())
@@ -49,6 +52,15 @@ function Application() {
     }
 
   }, []);
+
+  useEffect(() => {
+    if (!channelKeys.length) return;
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      App.room.startListening({ room: currentChannelId });
+    }
+  }, [channelKeys.length]);
 
   return (
     <div className="app">

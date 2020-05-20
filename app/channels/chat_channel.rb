@@ -27,15 +27,15 @@ class ChatChannel < ApplicationCable::Channel
 
   def speak(data)
     return false if data['message'].length <= 0
-    user = User.find_by(id: current_user.id)
-    return false if !user
-    channel = Channel.find_by(id: user.focus)
-    channel.last_message_posted = DateTime.now
-    channel.save
+    @user = User.find_by(id: current_user.id)
+    return false if !@user
+    @channel = Channel.find_by(id: @user.focus)
+    @channel.last_message_posted = DateTime.now
+    @channel.save
     Message.create!(
       body: data['message'], 
-      user_id: user.id, 
-      channel_id: user.focus
+      user_id: @user.id, 
+      channel_id: @user.focus
     ) 
   end
 

@@ -24,4 +24,14 @@ class Api::MembershipsController < ApplicationController
 
     render 'api/memberships/show'
   end
+
+  def create
+    @membership = Membership.new(user_id: current_user.id, channel_id: params[:channelId], last_read: DateTime.now)
+    if @membership.save
+      @focus = params[:channelId]
+      current_user.focus = @focus
+      current_user.save
+      render 'api/memberships/show'
+    end
+  end
 end

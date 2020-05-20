@@ -14,7 +14,7 @@ function ViewHeader() {
     case "channel_browser":
       return (
         <div className="viewHeader-container">
-          <div className="left-header">
+          <div className="left-header" >
             <h2>Channel Browser</h2>
           </div>
           {/* <div className="right-header">

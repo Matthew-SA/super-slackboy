@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import ChannelBrowserItem from './channel_browser_item'
-import { requestChannels } from '../../../../actions/channel_actions'
+import { useSelector, useDispatch } from 'react-redux';
+import ChannelBrowserItem from './channel_browser_item';
+import { requestChannels } from '../../../../actions/channel_actions';
 
 function ChannelBrowser() {
   const channels = useSelector(state => state.entities.channels)
@@ -16,14 +16,14 @@ function ChannelBrowser() {
   const buildChannelList = () => {
     const channelList = channelsArray.map((channel, idx) => {
       if (idx === channelsArray.length - 1) return
-      return <ChannelBrowserItem channel={channel} key={idx} />
+      return <ChannelBrowserItem channel={channel} key={idx}/>
     })
 
     return channelList
   }
 
   return (
-    <div className='channel-browser-container'>
+    <div className='channel-browser-container' >
      {buildChannelList()}
     </div>
   );

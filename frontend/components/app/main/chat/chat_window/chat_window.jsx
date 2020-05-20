@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { useSelector } from 'react-redux'
 import "moment-timezone"
 import LargeChatItem from "./large_chat_item"
@@ -7,23 +7,12 @@ import SmallChatItem from "./small_chat_item"
 
 function ChatWindow(){
   const bottom = useRef();
-  const isInitialMount = useRef(true);
   const currentChannelId = useSelector(state => state.session.focus);
   const messages = useSelector(state => state.entities.messages);
-  const channelKeys = useSelector(state => Object.keys(state.entities.memberships));
 
   useLayoutEffect(() => {
     if (messages) bottom.current.scrollIntoView();
   });
-
-  useEffect(() => {
-    if (!channelKeys.length) return;
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      App.room.startListening({ room: currentChannelId });
-    }
-  }, [channelKeys.length]);
 
   const buildMessageList = () => {
     let messagesArray = Object.values(messages)

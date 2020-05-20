@@ -27,3 +27,8 @@ export const updateMembership = (membershipId) => (dispatch) =>
   MembershipAPIUtil.updateMembership(membershipId).then((membership) =>
     dispatch(receiveMembership(membership))
   );
+
+export const createMembership = (channelId) => (dispatch) =>
+  MembershipAPIUtil.createMembership(channelId).then((membership) =>
+    dispatch(receiveMembership(membership))
+  );
