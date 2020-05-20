@@ -16,7 +16,7 @@ function ChannelBrowser() {
   const buildChannelList = () => {
     const channelList = channelsArray.map((channel, idx) => {
       if (idx === channelsArray.length - 1) return
-      return <ChannelBrowserItem channel={channel} key={idx}/>
+      return <ChannelBrowserItem channel={channel} key={idx} onClick={() => console.log('hello')}/>
     })
 
     return channelList

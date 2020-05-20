@@ -16,7 +16,7 @@ class Api::MembershipsController < ApplicationController
     end
 
     @membership = Membership.find_by(id: params[:id], user_id: current_user.id)
-    
+    # debugger
     @focus = @membership.channel_id.to_s
 
     current_user.focus = @focus
