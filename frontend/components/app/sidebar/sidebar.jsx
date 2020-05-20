@@ -28,7 +28,7 @@ function Sidebar() {
 
     const applySidebarClasses = (membership) => {
       let response = isSelected(membership.channel_id)
-      if (membership.unreadMessages) response += " sidebar-highlight"
+      if (membership.unread_messages) response += " sidebar-highlight"
       return response
     }
 

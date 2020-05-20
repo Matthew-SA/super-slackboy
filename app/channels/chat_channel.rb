@@ -27,22 +27,22 @@ class ChatChannel < ApplicationCable::Channel
 
   def speak(data)
     return false if data['message'].length <= 0
-    @user = User.find_by(id: current_user.id)
-    return false if !@user
-    @channel = Channel.find_by(id: @user.focus)
-    @channel.last_message_posted = DateTime.now
-    @channel.save
-    Message.create!(
-      body: data['message'], 
-      user_id: @user.id, 
-      channel_id: @user.focus
-    ) 
+    @user = User.find(current_user.id)
+    if @user
+      @channel = Channel.find(@user.focus)
+      @channel.update(last_message_posted: DateTime.now)
+      Message.create!(
+        body: data['message'], 
+        user_id: @user.id, 
+        channel_id: @user.focus
+      )
+    end
   end
 
   def unsubscribed
-    membership = Membership.find_by(channel_id: current_user.focus, user_id: current_user.id)
-    membership.last_read = DateTime.now
-    membership.save
+    @user = User.find(current_user.id)
+    @membership = Membership.find_by(channel_id: @user.focus, user_id: @user.id)
+    @membership.update(last_read: DateTime.now)
   end
   
 end
