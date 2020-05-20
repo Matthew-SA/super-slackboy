@@ -22,7 +22,7 @@
 @import "./app/profile.scss";
 @import "./app/topnav.scss";
 @import "./app/sidebar.scss";
-@import "./app/main.scss";
+@import "./app/main/main.scss";
 @import "./app/modal.scss";
 
 html {
@@ -54,21 +54,6 @@ body {
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
-// .app {
-//   height: 100%;
-//   width: 100%;
-//   display: grid;
-//   grid-template-columns: 260px auto;
-//   grid-template-rows: 38px 64px auto 109px;
-//   grid-template-areas: 
-//     "topnav topnav"
-//     "profile-box viewHeader"
-//     "sidebar main"
-//     "sidebar chatbox";
-//   position: fixed;
-//   overflow-wrap: break-word;
-//   word-wrap: break-word;
-// }
 
 .hide {
   display: none;

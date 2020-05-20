@@ -1,0 +1,18 @@
+.channel-browser-item {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  // margin: 16px, 12px;
+  border-bottom: 1px solid rgba(221,221,221,1);
+  &:hover {
+    background-color: #F7F7F7;
+    cursor:pointer;
+  }
+}
+
+.channel-browser-item-body {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 45px;
+}

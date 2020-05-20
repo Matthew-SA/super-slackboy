@@ -1,0 +1,11 @@
+@import "./channel_browser_item.scss";
+
+.channel-browser-container {
+  position: absolute;
+  top: 104px;
+  right: 0px;
+  left: 260px;
+  bottom: 0px;
+  padding: 0 20px;
+  overflow-y: scroll;
+}
