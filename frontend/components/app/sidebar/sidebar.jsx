@@ -56,9 +56,9 @@ function Sidebar() {
   const getDirectMessageList = () => {
     return (
       <ul className="sidebar-ul">
-        <li className="sidebar-item"># Demo item 1</li>
+        {/* <li className="sidebar-item"># Demo item 1</li>
         <li className="sidebar-item"># Demo item 2</li>
-        <li className="sidebar-item"># Demo item 3</li>
+        <li className="sidebar-item"># Demo item 3</li> */}
       </ul>
     )
   }
