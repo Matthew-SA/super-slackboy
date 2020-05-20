@@ -1,6 +1,9 @@
 class Api::ChannelsController < ApplicationController
   def index
     @channels = Channel.all
+    @user = current_user
+    @user.focus = "channel_browser"
+    @user.save
     render 'api/channels/index'
   end
 

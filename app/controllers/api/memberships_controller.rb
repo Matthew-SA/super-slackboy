@@ -9,9 +9,11 @@ class Api::MembershipsController < ApplicationController
 
     @old_focus = current_user.focus.to_i
 
-    @oldmembership = Membership.find_by(channel_id: @old_focus, user_id: current_user.id)
-    @oldmembership.last_read = @timestamp
-    @oldmembership.save
+    if @old_focus != 0
+      @oldmembership = Membership.find_by(channel_id: @old_focus, user_id: current_user.id)
+      @oldmembership.last_read = @timestamp
+      @oldmembership.save
+    end
 
     @membership = Membership.find_by(id: params[:id], user_id: current_user.id)
     
