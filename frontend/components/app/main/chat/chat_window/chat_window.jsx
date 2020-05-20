@@ -8,7 +8,7 @@ import SmallChatItem from "./small_chat_item"
 function ChatWindow(){
   const bottom = useRef();
   const isInitialMount = useRef(true);
-  const currentChannelId = useSelector(state => state.session.currentChannel);
+  const currentChannelId = useSelector(state => state.session.focus);
   const messages = useSelector(state => state.entities.messages);
   const channelKeys = useSelector(state => Object.keys(state.entities.memberships));
 

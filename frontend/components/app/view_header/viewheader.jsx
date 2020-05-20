@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 function ViewHeader() {
   const currentChannel = useSelector(
-    state => state.entities.memberships[state.session.currentChannel])
+    state => state.entities.memberships[state.session.focus])
 
   const getChannelName = () => {
     let name = currentChannel ? currentChannel.name : ""

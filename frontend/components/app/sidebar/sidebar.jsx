@@ -10,15 +10,12 @@ import { openModal } from '../../../actions/modal_actions';
 function Sidebar() {
   const dispatch = useDispatch()
 
-  const currentChannel = useSelector(
-    state => state.entities.memberships[state.session.currentChannel]
-  )
+  const focus = useSelector(state => state.session.focus)
   const channelMemberships = useSelector(
     state => (state.entities.memberships
   ), shallowEqual)
   const showChannels = useSelector(state => state.ui.show_channels )
   const showDirectMessages = useSelector(state => state.ui.show_direct_messages )
-
 
   const getMembershipList = () => {
     let membershipsArray = Object.values(channelMemberships);
@@ -26,7 +23,7 @@ function Sidebar() {
 
     const processMembershipClass = (membership) => {
       let response = "";
-      if (currentChannel.channel_id === membership.channel_id) {
+      if (focus === membership.channel_id) {
         response += "sidebar-selected"
       } else {
         response += "sidebar-item"

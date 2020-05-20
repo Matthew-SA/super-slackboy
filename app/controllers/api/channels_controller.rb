@@ -16,7 +16,6 @@ class Api::ChannelsController < ApplicationController
     @focus = @channel.id.to_s
 
     @user = current_user
-    @user.current_channel = @channel.id
     @user.focus = @focus
     @user.save
     render 'api/channels/show'
