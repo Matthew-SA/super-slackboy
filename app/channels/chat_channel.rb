@@ -26,11 +26,12 @@ class ChatChannel < ApplicationCable::Channel
   # end
 
   def speak(data)
+    return false if data['message'].length <= 0
     user = User.find_by(id: current_user.id)
+    return false if !user
     channel = Channel.find_by(id: user.focus)
     channel.last_message_posted = DateTime.now
     channel.save
-    return false if !user
     Message.create!(
       body: data['message'], 
       user_id: user.id, 
@@ -40,7 +41,7 @@ class ChatChannel < ApplicationCable::Channel
 
   def unsubscribed
     membership = Membership.find_by(channel_id: current_user.focus, user_id: current_user.id)
-    membership.last_departed = DateTime.now
+    membership.last_read = DateTime.now
     membership.save
   end
   

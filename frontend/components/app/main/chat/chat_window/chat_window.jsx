@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { useSelector } from 'react-redux'
 import "moment-timezone"
 import LargeChatItem from "./large_chat_item"
@@ -12,7 +12,7 @@ function ChatWindow(){
   const messages = useSelector(state => state.entities.messages);
   const channelKeys = useSelector(state => Object.keys(state.entities.memberships));
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (messages) bottom.current.scrollIntoView();
   });
 
@@ -30,7 +30,7 @@ function ChatWindow(){
     let lastAuthorId = null;
 
     const messageList = messagesArray.map((message, idx) => {
-      if (message.channel_id === currentChannelId) {
+      if (message.channel_id == currentChannelId) {
         if (lastAuthorId === message.author.id) {
           lastAuthorId = message.author.id
           return (

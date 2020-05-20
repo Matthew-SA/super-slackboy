@@ -5,17 +5,15 @@ class Api::MembershipsController < ApplicationController
   end
 
   def update
-    time = DateTime.now
+    @timestamp = DateTime.now
 
     @old_focus = current_user.focus.to_i
 
     @oldmembership = Membership.find_by(channel_id: @old_focus, user_id: current_user.id)
-    @oldmembership.last_departed = time
+    @oldmembership.last_read = @timestamp
     @oldmembership.save
 
     @membership = Membership.find_by(id: params[:id], user_id: current_user.id)
-    @membership.last_arrived = time
-    @membership.save
     
     @focus = @membership.channel_id.to_s
 

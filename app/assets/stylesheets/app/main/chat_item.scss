@@ -1,6 +1,7 @@
 .chat-item {
   display: flex;
-  padding: 8px 20px;
+  padding: 6px 20px;
+  min-height: 22px;
 }
 
 .chat-avatar {
@@ -15,6 +16,14 @@
   padding: 4px 20px 4px 20px;
   min-height: 18px;
 }
+
+.chat-header {
+  margin-top: -2px;
+}
+
+// .chat-body {
+//   margin-top: -2px;
+// }
 
 .chat-item:hover {
   background-color: #F7F7F7;
@@ -55,5 +64,6 @@
 
 .gutter-timestamp {
   display: none;
+  line-height: 1.46668;
   font-size: 12px;
   color: grey;}

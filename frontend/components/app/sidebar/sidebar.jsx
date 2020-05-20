@@ -23,7 +23,7 @@ function Sidebar() {
 
     const processMembershipClass = (membership) => {
       let response = "";
-      if (focus === membership.channel_id) {
+      if (focus == membership.channel_id) {
         response += "sidebar-selected"
       } else {
         response += "sidebar-item"

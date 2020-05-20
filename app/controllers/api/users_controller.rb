@@ -3,10 +3,10 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     @user.username = (@user.email).split('@').first.capitalize
     if @user.save_with_ui
-      Membership.create(user_id: @user.id, channel_id: 4, last_arrived: DateTime.now, last_departed: DateTime.now)
-      Membership.create(user_id: @user.id, channel_id: 3, last_arrived: DateTime.now, last_departed: DateTime.now)
-      Membership.create(user_id: @user.id, channel_id: 2, last_arrived: DateTime.now, last_departed: DateTime.now)
-      Membership.create(user_id: @user.id, channel_id: 1, last_arrived: DateTime.now, last_departed: DateTime.now)
+      Membership.create(user_id: @user.id, channel_id: 4, last_read: DateTime.now)
+      Membership.create(user_id: @user.id, channel_id: 3, last_read: DateTime.now)
+      Membership.create(user_id: @user.id, channel_id: 2, last_read: DateTime.now)
+      Membership.create(user_id: @user.id, channel_id: 1, last_read: DateTime.now)
       login(@user)
       render "api/user/show"
     else

@@ -4,7 +4,7 @@ function ChatForm() {
   const [messageBody, setMessageBody] = useState('')
 
   const handleSubmit = (e) => {
-    if (e && e.keyCode == 13) {
+    if (e.keyCode == 13) {
       e.preventDefault();
       App.room.speak({ message: messageBody });
       setMessageBody('');

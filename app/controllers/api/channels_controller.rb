@@ -5,13 +5,13 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
-    timestamp = DateTime.now
+    @timestamp = DateTime.now
 
     @channel = Channel.new(channel_params)
-    @channel.last_message_posted = timestamp
+    @channel.last_message_posted = @timestamp
     @channel.save
 
-    @membership = Membership.create(user_id: current_user.id, channel_id: @channel.id, last_arrived: timestamp, last_departed: timestamp)
+    @membership = Membership.create(user_id: current_user.id, channel_id: @channel.id, last_read: @timestamp)
 
     @focus = @channel.id.to_s
 
