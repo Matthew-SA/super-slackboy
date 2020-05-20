@@ -59,6 +59,7 @@ function Application() {
       isInitialMount.current = false;
     } else {
       App.room.startListening({ room: currentChannelId });
+      dispatch(requestMessages())
     }
   }, [channelKeys.length]);
 
