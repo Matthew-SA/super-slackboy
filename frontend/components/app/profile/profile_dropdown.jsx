@@ -5,7 +5,7 @@ import { logout } from "../../../actions/session_actions";
 
 function ProfileDropdown() {
   const currentUserName = useSelector(
-    (state) => state.entities.user[state.session.id].username
+    (state) => state.entities.users[state.session.id].username
   );
   const dispatch = useDispatch();
 

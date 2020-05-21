@@ -6,7 +6,7 @@ import { openModal } from "../../../actions/modal_actions";
 
 const Profile = () => {
   const currentUserName = useSelector(
-    (state) => state.entities.user[state.session.id].username
+    (state) => state.entities.users[state.session.id].username
   );
 
   const dispatch = useDispatch()
