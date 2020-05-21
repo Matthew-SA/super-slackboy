@@ -1,0 +1,41 @@
+.rightbar-header {
+  grid-area: rightbarHeader;
+  border-bottom: 1px solid #E2E2E2;
+  border-left: 1px solid #E2E2E2;
+  padding: 0 12px 0 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightbar-title {
+  box-sizing: border-box;
+  font-size: 15px;
+  line-height: 1.33334;
+  font-weight: 900;
+  display: inline-flex;
+  max-width: 100%;
+  align-items: baseline;
+}
+
+.rightbar-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(29, 28, 29, 0.7)
+}
+
+.rightbar-x {
+  height: 36px;
+  width: 36px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 2.6;
+  border-radius: 4px;
+  color: rgba(29, 28, 29, 0.7);
+  &:hover {
+    color: black;
+    cursor: pointer;
+    background-color: #F7F7F7;
+  }
+}

@@ -6,6 +6,8 @@ import Profile from './profile/profile';
 import Sidebar from './sidebar/sidebar';
 import Main from './main/main';
 import Modal from './modal/modal';
+import Rightbar from './rightbar/rightbar';
+import RightbarHeader from './rightbar_header/rightbar_header';
 
 import { requestUi } from '../../actions/ui_actions';
 import { requestMemberships } from '../../actions/membership_actions'
@@ -15,8 +17,9 @@ import { requestMessages, incomingMessage } from '../../actions/message_actions'
 function Application() {
   const dispatch = useDispatch();
   const isInitialMount = useRef(true);
-  const currentChannelId = useSelector(state => state.session.focus);
+  const focus = useSelector(state => state.session.focus);
   const channelKeys = useSelector(state => Object.keys(state.entities.memberships));
+  const rightbar = useSelector(state => state.ui.persistentUi.rightbar);
 
   useEffect(() => {
     dispatch(requestUi())
@@ -58,19 +61,34 @@ function Application() {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      App.room.startListening({ room: currentChannelId });
+      App.room.startListening({ room: focus });
       dispatch(requestMessages())
     }
   }, [channelKeys.length]);
 
+
+  const isRightbar = () => rightbar && !isNaN(focus)
+
+  const applyAppClass = () => isRightbar() ? "app2" : "app"
+  
+  const buildRightbarHeader = () => {
+    if (isRightbar()) return <RightbarHeader />
+  }
+
+  const buildRightbar = () => {
+    if (isRightbar()) return <Rightbar />
+  }
+
   return (
-    <div className="app">
+    <div className={applyAppClass()}>
       <Modal />
       <TopNav />
       <Profile />
       <ViewHeader />
       <Sidebar />
       <Main />
+      {buildRightbarHeader()}
+      {buildRightbar()}
     </div>
   )
 };

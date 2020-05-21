@@ -15,8 +15,8 @@ function Sidebar() {
   const channelMemberships = useSelector(
     state => (state.entities.memberships
   ), shallowEqual)
-  const showChannels = useSelector(state => state.ui.show_channels )
-  const showDirectMessages = useSelector(state => state.ui.show_direct_messages )
+  const showChannels = useSelector(state => state.ui.persistentUi.show_channels )
+  const showDirectMessages = useSelector(state => state.ui.persistentUi.show_direct_messages )
 
   const isSelected = (option) => {
     return focus == option ? "sidebar-selected" : "sidebar-item"

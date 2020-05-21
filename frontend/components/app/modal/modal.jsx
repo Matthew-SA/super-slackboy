@@ -8,7 +8,7 @@ import ChannelForm from '../sidebar/channel_form'
 import DirectMessageForm from '../sidebar/direct_message_form'
 
 function Modal() {
-  const modal = useSelector(state => state.modal)
+  const modal = useSelector(state => state.ui.modal)
   const dispatch = useDispatch()
 
   if (!modal) return null;

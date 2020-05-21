@@ -1,16 +1,12 @@
-import {
-  RECEIVE_UI
-} from '../actions/ui_actions';
+import { combineReducers } from 'redux';
+import persistentUiReducer from './persistent_ui_reducer';
+import modalReducer from './modal_reducer';
+import rightbarReducer from './rightbar_reducer';
 
-const uiReducer = (oldState ={}, action) => {
-  Object.freeze(oldState);
-  const nextState = Object.assign({}, oldState);
-  switch(action.type) {
-    case RECEIVE_UI:
-      return action.ui
-    default:
-      return oldState;
-  }
-}
+const uiReducer = combineReducers({
+  persistentUi: persistentUiReducer,
+  modal: modalReducer,
+  // rightbar: rightbarReducer,
+});
 
-export default uiReducer
+export default uiReducer;

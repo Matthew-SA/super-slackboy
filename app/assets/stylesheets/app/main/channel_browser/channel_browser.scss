@@ -1,11 +1,12 @@
 @import "./channel_browser_item.scss";
 
 .channel-browser-container {
+  grid-area: main;
   position: absolute;
-  top: 104px;
+  top: 0px;
   right: 0px;
-  left: 260px;
+  left: 0px;
   bottom: 0px;
   padding: 0 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }

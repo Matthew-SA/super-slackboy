@@ -8,10 +8,10 @@ import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 export const appReducer = combineReducers({
   entities: entitiesReducer,
+  ui: uiReducer,
   session: sessionReducer,
   errors: errorsReducer,
-  ui: uiReducer,
-  modal: modalReducer,
+  // modal: modalReducer,
 });
 
 const rootReducer = (state, action) => {

@@ -1,18 +1,56 @@
 .viewHeader-container {
   grid-area: viewHeader;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #E2E2E2;
+  padding: 0 16px 0 20px;
+}
+
+.info-button {
+  height: 36px;
+  width: 36px;
+  text-align: center;
+  line-height: 2.6;
+  background-color: #F7F7F7;
+  border-radius: 4px;
+  color: rgba(29, 28, 29, 0.7);
+  &:hover {
+    color: black;
+    cursor: pointer;
+    background-color: #E2E2E2;
+  }
 }
 
 .left-header {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  padding: 12px 8px 8px 20px
 }
 
-.left-header h2 {
-  font-size: 14px;
+.view-header-title {
+  font-size: 15px;
   line-height: 1.33334;
   font-weight: 900;
   display: inline-flex;
   max-width: 100%;
   align-items: baseline;
+}
+
+.view-header-subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(29, 28, 29, 0.7)
+}
+
+.view-header-divider {
+  display: inline;
+  width: 3.27px;
+  height: 13px;
+  margin: 0 6px;
+  border-right: 1px solid #E2E2E2;
+}
+
+.view-header-topic {
+  display: inline;
 }

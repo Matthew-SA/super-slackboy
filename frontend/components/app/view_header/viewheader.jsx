@@ -1,24 +1,29 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { toggleUiElement } from '../../../actions/ui_actions'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function ViewHeader() {
+  const dispatch = useDispatch();
   const focus = useSelector(state => state.session.focus)
   const currentChannel = useSelector(state => state.entities.memberships[focus])
-
   const getChannelName = () => {
-    let name = currentChannel ? currentChannel.name : ""
-    return name
+    return currentChannel ? currentChannel.name : ""
+  }
+
+  const getTopic = () => {
+    return currentChannel ? currentChannel.topic : ""
   }
 
   switch (focus) {
     case "channel_browser":
       return (
         <div className="viewHeader-container">
-          <div className="left-header" >
+          <div className="left-header">
             <h2>Channel Browser</h2>
+            <FontAwesomeIcon icon={["far", "user"]} />
           </div>
-          {/* <div className="right-header">
-        </div> */}
         </div>
       );
   
@@ -26,10 +31,23 @@ function ViewHeader() {
       return (
         <div className="viewHeader-container">
           <div className="left-header">
-            <h2># {getChannelName()}</h2>
+            <div className="view-header-title"># {getChannelName()}</div>
+            <div className="view-header-subtitle">
+              <FontAwesomeIcon
+                style={{ fontSize: "12px" }}
+                icon={["far", "user"]}
+              />
+              &nbsp;--
+              <div className="view-header-divider"></div>
+              <div className="view-header-topic">{getTopic()} </div>
+            </div>
           </div>
-          {/* <div className="right-header">
-        </div> */}
+          <div
+            className="info-button"
+            onClick={() => dispatch(toggleUiElement("rightbar"))}
+          >
+            <FontAwesomeIcon style={{ fontSize: "18px" }} icon="info-circle" />
+          </div>
         </div>
       );
   }

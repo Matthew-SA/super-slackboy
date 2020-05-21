@@ -1,0 +1,31 @@
+.rightbar {
+  grid-area: rightbar;
+  border-left: 1px solid #E2E2E2;
+}
+
+.channel-actions {
+  height: 98px;
+  border-bottom: 1px solid #E2E2E2;
+}
+
+.rightbar-item {
+  border-bottom: 1px solid #E2E2E2;
+}
+
+.rightbar-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  padding: 12px;
+  margin: 4px;
+  box-sizing: border-box;
+  font-weight: 600;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.rightbar-chevron {
+  transform: rotate(-90deg)
+}

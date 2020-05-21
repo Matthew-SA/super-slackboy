@@ -1,6 +1,6 @@
 json.membership do
   json.extract! @membership, :id, :channel_id, :last_read
-  json.extract! @membership.channel, :name
+  json.extract! @membership.channel, :name, :topic, :description
 end
 
 if @oldmembership 
