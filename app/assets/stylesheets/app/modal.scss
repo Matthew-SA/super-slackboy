@@ -124,15 +124,16 @@
 }
 
 .modal-header {
-  line-height: 0;
-  font-size: 22px;
-  align-items: center;
   display: flex;
+  justify-content: space-between;
   min-height: 70px;
   padding: 20px 28px;
-  width: 100%;
   box-sizing: border-box;
-  margin: 0;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 900;
 }
 
 .modal-body {
