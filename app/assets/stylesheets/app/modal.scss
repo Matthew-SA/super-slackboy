@@ -115,9 +115,20 @@
 }
 
 .create-channel-container {
+  position: relative;
   background-color: white;
   width: 520px;
   height: 515px;
+  z-index: 16;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.create-dm-container {
+  position: relative;
+  background-color: white;
+  width: 600px;
+  height: 700px;
   z-index: 16;
   box-sizing: border-box;
   border-radius: 8px;
@@ -137,10 +148,17 @@
 }
 
 .modal-body {
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
   box-sizing: border-box;
-  padding-left: 28px;
-  padding-right: 28px;
+  top: 76px;
+  left: 28px;
+  right: 28px;
+  bottom: 33px;
+  // padding-left: 28px;
+  // padding-right: 28px;
+  overflow-y: scroll;
 }
 
 .channel-form-input {
@@ -171,4 +189,16 @@
   font-family: inherit;
   height: 36px;
   width: 80px;
+}
+
+.dm-user-item {
+  box-sizing: border-box;
+  min-height: 70px;
+  padding: 12px;
+  margin-right: 14px;
+  border-top: 1px solid #E2E2E2;
+  &:hover {
+    background-color: #F7F7F7;
+    cursor: pointer;
+  }
 }

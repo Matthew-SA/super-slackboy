@@ -5,7 +5,7 @@ export const fetchUi = () => (
   })
 )
 
-export const toggleUiElement = uiElement => (
+export const updateUi = uiElement => (
   $.ajax({
     url: `/api/ui`,
     method: `PATCH`,

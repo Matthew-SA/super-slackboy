@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleUiElement } from '../../../actions/ui_actions'
+import { updateUi } from '../../../actions/ui_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -19,7 +19,7 @@ function RightbarHeader() {
         <div className="rightbar-title">Details</div>
         <div className="rightbar-subtitle"># {getChannelName()}</div>
       </div>
-      <div className="rightbar-x" onClick={() => dispatch(toggleUiElement('rightbar'))}>
+      <div className="rightbar-x" onClick={() => dispatch(updateUi('rightbar'))}>
         <FontAwesomeIcon
           style={{ fontSize: "18px" }}
           icon="times"

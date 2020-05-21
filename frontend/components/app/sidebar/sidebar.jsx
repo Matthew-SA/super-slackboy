@@ -3,7 +3,7 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import * as Util from '../../../util/util';
-import { toggleUiElement } from '../../../actions/ui_actions';
+import { updateUi } from '../../../actions/ui_actions';
 import { updateMembership } from '../../../actions/membership_actions';
 import { requestChannels } from '../../../actions/channel_actions';
 import { openModal } from '../../../actions/modal_actions';
@@ -84,7 +84,7 @@ function Sidebar() {
 
       <div className="">
         <div className="sidebar-header-container">
-          <p className="channel-header" onClick={() => dispatch(toggleUiElement("show_channels"))}>
+          <p className="channel-header" onClick={() => dispatch(updateUi("show_channels"))}>
             <FontAwesomeIcon className={isShown(showChannels)} icon="caret-down"/>&nbsp;&nbsp;Channels
           </p>
           <div className="plus-button" onClick={() => dispatch(openModal("channel-dropdown"))}><FontAwesomeIcon icon="plus" /></div>
@@ -93,7 +93,7 @@ function Sidebar() {
       </div>
       <div className="">
         <div className="sidebar-header-container">
-          <p className="channel-header" onClick={() => dispatch(toggleUiElement("show_direct_messages"))}>
+          <p className="channel-header" onClick={() => dispatch(updateUi("show_direct_messages"))}>
             <FontAwesomeIcon className={isShown(showDirectMessages)} icon="caret-down"/>&nbsp;&nbsp;Direct Messages
           </p>
           <div className="plus-button" onClick={() => dispatch(openModal("create-direct-message"))}><FontAwesomeIcon icon="plus" /></div>

@@ -11,6 +11,6 @@ export const requestUi = () => dispatch => (
   UiAPIUtil.fetchUi().then(ui => dispatch(receiveUi(ui)))
 )
 
-export const toggleUiElement = uiElement => dispatch => (
-  UiAPIUtil.toggleUiElement(uiElement).then(ui => dispatch(receiveUi(ui)))
+export const updateUi = uiElement => dispatch => (
+  UiAPIUtil.updateUi(uiElement).then(ui => dispatch(receiveUi(ui)))
 )

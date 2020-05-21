@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { toggleUiElement } from '../../../actions/ui_actions'
+import { updateUi } from '../../../actions/ui_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -43,7 +43,7 @@ function ViewHeader() {
           </div>
           <div
             className="info-button"
-            onClick={() => dispatch(toggleUiElement("rightbar"))}
+            onClick={() => dispatch(updateUi("rightbar"))}
           >
             <FontAwesomeIcon style={{ fontSize: "18px" }} icon="info-circle" />
           </div>
