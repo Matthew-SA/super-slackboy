@@ -21,8 +21,7 @@ function ViewHeader() {
       return (
         <div className="viewHeader-container">
           <div className="left-header">
-            <h2>Channel Browser</h2>
-            <FontAwesomeIcon icon={["far", "user"]} />
+            <div className="view-header-title">Channel Browser</div>
           </div>
         </div>
       );
