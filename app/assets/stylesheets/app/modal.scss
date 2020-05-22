@@ -192,6 +192,8 @@
 }
 
 .dm-user-item {
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
   min-height: 70px;
   padding: 12px;
