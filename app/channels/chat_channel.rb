@@ -1,36 +1,22 @@
 class ChatChannel < ApplicationCable::Channel
 
   def subscribed
-    channels = current_user.channels
-    channels.each do |channel|
-      stream_from "chat_#{channel.id}"
+    @channels = current_user.channels
+    @channels.each do |channel|
+      stream_for channel
     end
   end
 
   def start_listening(data)
-    room = data['room']
-    stream_from "chat_#{room}"
+    @user = User.find(current_user.id)
+    @channel = Channel.find(@user.focus)
+    stream_for @channel
   end
-
-  # def begin_listening
-  #   room = current_user.current_room
-  #   stream_from "chat_#{room}"
-  # end
-
-  # def refresh_streams
-  #   stop_all_streams
-  #   @channels = current_user.channels
-  #   @channels.each do |channel|
-  #     stream_from "chat_#{channel.id}"
-  #   end
-  # end
 
   def speak(data)
     return false if data['message'].length <= 0
     @user = User.find(current_user.id)
     if @user
-      @channel = Channel.find(@user.focus)
-      @channel.update(last_message_posted: DateTime.now)
       Message.create!(
         body: data['message'], 
         user_id: @user.id, 

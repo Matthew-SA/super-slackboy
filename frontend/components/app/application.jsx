@@ -61,7 +61,7 @@ function Application() {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      App.room.startListening({ room: focus });
+      App.room.startListening();
       dispatch(requestMessages())
     }
   }, [channelKeys.length]);

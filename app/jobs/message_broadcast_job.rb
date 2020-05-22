@@ -2,9 +2,12 @@ class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    ActionCable.server.broadcast(
-        "chat_#{message.channel_id}", render_message(message)
-      )
+    @channel = Channel.find(message.channel_id)
+    @channel.update(last_message_posted: DateTime.now)
+    ChatChannel.broadcast_to(@channel, render_message(message))
+    # ActionCable.server.broadcast(
+    #   "chat_#{message.channel_id}", render_message(message)
+    # )
   end
 
   private
