@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     session[:session_token] = user.session_token
-    cookies[:session_token] = user.session_token
-    cookies[:user_id] = user.id
+    # cookies[:session_token] = user.session_token
+    # cookies[:user_id] = user.id
   end
 
   def logout
