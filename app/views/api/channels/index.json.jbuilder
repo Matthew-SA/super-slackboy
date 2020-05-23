@@ -4,5 +4,3 @@
   end
 end
 
-json.focus "channel_browser"
-

@@ -20,3 +20,11 @@ export const logout = () => (
     url: '/api/session'
   })
 );
+
+export const updateCurrentUser = focus => (
+  $.ajax({
+    url: `/api/session`,
+    method: `PATCH`,
+    data: { focus },
+  })
+)

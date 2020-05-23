@@ -22,9 +22,6 @@ const sessionReducer = (state = _nullUser, action) => {
     case RECEIVE_CHANNEL:
       nextState.focus = action.channel.focus
       return nextState;
-    case RECEIVE_CHANNELS:
-      nextState.focus = action.channels.focus
-      return nextState;
     case LOGOUT_CURRENT_USER:
       return _nullUser;
     default:

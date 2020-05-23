@@ -1,5 +1,5 @@
 @memberships.each do |membership|
-  json.set! membership.channel_id do
+  json.set! membership.id do
     json.partial! 'api/memberships/membership', membership: membership
   end
 end

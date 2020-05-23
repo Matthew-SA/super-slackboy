@@ -1,1 +1,1 @@
-json.extract! membership, :last_read
+json.extract! membership, :id, :channel_id, :last_read

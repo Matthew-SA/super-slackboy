@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { createMembership, updateMembership } from '../../../../actions/membership_actions'
+import { createMembership } from '../../../../actions/membership_actions'
 
 const ChannelBrowserItem = ({ channel }) => {
   const dispatch = useDispatch()

@@ -4,22 +4,73 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import * as Util from '../../../util/util';
 import { updateUi } from '../../../actions/ui_actions';
-import { updateMembership } from '../../../actions/membership_actions';
-import { requestChannels } from '../../../actions/channel_actions';
+// import { updateMembership } from '../../../actions/membership_actions';
+import { updateCurrentUser } from '../../../actions/session_actions'
 import { openModal } from '../../../actions/modal_actions';
 
 function Sidebar() {
   const dispatch = useDispatch()
 
   const focus = useSelector(state => state.session.focus)
-  const channelMemberships = useSelector(
-    state => (state.entities.memberships
-  ), shallowEqual)
-  const showChannels = useSelector(state => state.ui.persistentUi.show_channels )
-  const showDirectMessages = useSelector(state => state.ui.persistentUi.show_direct_messages )
+  const channels = useSelector(state => state.entities.channels)
+  const memberships = useSelector(state => (state.entities.memberships))
+  const showChannels = useSelector(state => state.ui.persistentUi.show_channels)
+  const showDirectMessages = useSelector(state => state.ui.persistentUi.show_direct_messages)
 
-  const isSelected = (option) => {
-    return focus == option ? "sidebar-selected" : "sidebar-item"
+  const isSelected = (option) => (
+    focus == option ? "sidebar-selected" : "sidebar-item"
+  )
+
+  const userChannels = [];
+  const userDirectMessages = [];
+
+  const divideChannelsAndDirectMessages = () => {
+    if (Object.keys(channels).length === 0) return
+    if (Object.keys(memberships).length === 0) return
+
+    Object.values(memberships).forEach((membership) => {
+      let chanId = membership.channel_id
+      if (channels[chanId].direct_message) {
+        userDirectMessages.push(channels[chanId])
+      } else {
+        userChannels.push(channels[chanId])
+      }
+      // console.log(channels[chanId])
+    })
+  }
+
+  divideChannelsAndDirectMessages();
+  const sortedUserChannels = userChannels.sort(Util.compareValues('name', 'asc'))
+  const sortedDirectMessages = userDirectMessages.sort(Util.compareValues('name', 'asc'))
+
+
+  const buildList = (array) => {
+
+    const applySidebarClasses = (channel) => {
+      let response = isSelected(channel.id)
+      // if (channel.unread_messages) response += " sidebar-highlight"
+      return response
+    }
+
+    const list = array.map((channel, idx) => {
+      return (
+        <li 
+          className={applySidebarClasses(channel)} 
+          id={`chan-${channel.id}`}
+          onClick={() => {
+            dispatch(updateCurrentUser(channel.id))
+          }} 
+          key={idx}>
+            # {channel.name}
+        </li>
+      )
+    })
+
+    return(
+      <ul className="sidebar-ul">
+        {list}
+      </ul>
+    )
   }
 
   const getMembershipList = () => {
@@ -53,16 +104,6 @@ function Sidebar() {
     )
   }
 
-  const getDirectMessageList = () => {
-    return (
-      <ul className="sidebar-ul">
-        <li className="sidebar-item"># Demo item 1</li>
-        <li className="sidebar-item"># Demo item 2</li>
-        <li className="sidebar-item"># Demo item 3</li>
-      </ul>
-    )
-  }
-
   const isShown = (uiElement) => (
     uiElement ? "caret-down" : "caret-down caret-rotate"
   )
@@ -70,7 +111,7 @@ function Sidebar() {
   return (
     <div className="sidebar" >
       <div className={isSelected("channel_browser")}>
-        <div className="sidebar-header-container" onClick={() => dispatch(requestChannels('browser'))}>
+        <div className="sidebar-header-container" onClick={() => dispatch(updateCurrentUser('channel_browser'))}>
           <p className="channel-header" >
             <FontAwesomeIcon 
               style={{ fontSize: "13px" }} 
@@ -89,7 +130,7 @@ function Sidebar() {
           </p>
           <div className="plus-button" onClick={() => dispatch(openModal("channel-dropdown"))}><FontAwesomeIcon icon="plus" /></div>
         </div>
-        {showChannels ? getMembershipList() : "" }
+        {showChannels ? buildList(sortedUserChannels) : "" }
       </div>
       <div className="">
         <div className="sidebar-header-container">
@@ -98,7 +139,7 @@ function Sidebar() {
           </p>
           <div className="plus-button" onClick={() => dispatch(openModal("create-direct-message"))}><FontAwesomeIcon icon="plus" /></div>
         </div>
-        {showDirectMessages ? getDirectMessageList() : "" }
+        {showDirectMessages ? buildList(sortedDirectMessages) : "" }
       </div>
     </div>
   );

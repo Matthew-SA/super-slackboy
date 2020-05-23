@@ -10,12 +10,12 @@ function ChannelBrowser() {
   const channelsArray = Object.values(channels)
 
   useEffect(() => {
-    if (channelsArray.length === 0) dispatch(requestChannels('browser'))
+    dispatch(requestChannels('browser'))
   },[])
 
   const buildChannelList = () => {
     const channelList = channelsArray.map((channel, idx) => {
-      if (idx === channelsArray.length - 1) return
+      if (idx === channelsArray.length) return
       return <ChannelBrowserItem channel={channel} key={idx} onClick={() => console.log('hello')}/>
     })
 
