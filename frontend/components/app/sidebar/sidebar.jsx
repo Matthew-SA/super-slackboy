@@ -70,7 +70,7 @@ function Sidebar() {
   return (
     <div className="sidebar" >
       <div className={isSelected("channel_browser")}>
-        <div className="sidebar-header-container" onClick={() => dispatch(requestChannels())}>
+        <div className="sidebar-header-container" onClick={() => dispatch(requestChannels('browser'))}>
           <p className="channel-header" >
             <FontAwesomeIcon 
               style={{ fontSize: "13px" }} 

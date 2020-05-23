@@ -12,7 +12,7 @@ function ChannelDropDown() {
     <div className="channel-dropdown">
       <div 
         className="dropdown-menu-item"
-        onClick = {() => dispatch(requestChannels())}
+        onClick = {() => dispatch(requestChannels('browser'))}
       >
         Browse channels
     </div>

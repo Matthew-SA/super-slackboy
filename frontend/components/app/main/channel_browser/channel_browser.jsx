@@ -10,7 +10,7 @@ function ChannelBrowser() {
   const channelsArray = Object.values(channels)
 
   useEffect(() => {
-    if (channelsArray.length === 0) dispatch(requestChannels())
+    if (channelsArray.length === 0) dispatch(requestChannels('browser'))
   },[])
 
   const buildChannelList = () => {

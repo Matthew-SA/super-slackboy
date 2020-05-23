@@ -1,7 +1,11 @@
 class Api::ChannelsController < ApplicationController
   def index
-    @channels = Channel.all
-    current_user.update(focus: "channel_browser")
+    if params['type'] == 'browser'
+      @channels = Channel.all
+      current_user.update(focus: "channel_browser")
+    elsif params['type'] == 'init'
+      @channels = current_user.channels
+    end
     render 'api/channels/index'
   end
 

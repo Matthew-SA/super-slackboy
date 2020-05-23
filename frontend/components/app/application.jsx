@@ -10,8 +10,9 @@ import Rightbar from './rightbar/rightbar';
 import RightbarHeader from './rightbar_header/rightbar_header';
 
 import { requestUi } from '../../actions/ui_actions';
-import { requestMemberships } from '../../actions/membership_actions'
-import { requestMessages, incomingMessage } from '../../actions/message_actions'
+import { requestChannels } from '../../actions/channel_actions';
+import { requestMemberships } from '../../actions/membership_actions';
+import { requestMessages, incomingMessage } from '../../actions/message_actions';
 
 
 function Application() {
@@ -23,6 +24,7 @@ function Application() {
 
   useEffect(() => {
     dispatch(requestUi())
+    dispatch(requestChannels('init'))
     dispatch(requestMemberships())
     dispatch(requestMessages())
 
