@@ -11,7 +11,28 @@ class Api::ChannelsController < ApplicationController
     @channel.last_message_posted = @timestamp
 
     if @channel.save
-      @membership = Membership.create(user_id: current_user.id, channel_id: @channel.id, last_read: @timestamp)
+
+      @membership = Membership.create(
+        user_id: current_user.id, 
+        channel_id: @channel.id, 
+        last_read: @timestamp
+      )
+
+      # if @channel.direct_message
+      #   @other_membership = Membership.create(
+      #     user_id: params[other.id], # Make sure this param is okay!
+      #     channel_id: @channel.id, 
+      #     last_read: @timestamp
+      #   ) 
+      #   # broadcast this membership to target id.
+      # end
+    #   ChatChannel.broadcast_to("current_user_#{current_user.id}", JSON.parse(
+    #   ApplicationController.render(
+    #     template: 'api/channels/show', 
+    #     locals: { channel: @channel }
+    #   )
+    # ))
+
       @focus = @channel.id.to_s
       current_user.update(focus: @focus)
       render 'api/channels/show'

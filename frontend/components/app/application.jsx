@@ -43,6 +43,9 @@ function Application() {
               let element = document.getElementById(`chan-${message.channel_id}`)
               if (element) element.classList.add("sidebar-highlight")
               break;
+            case "channel":
+              console.log(data)
+              break;
           }
         },
         speak: function (data) { return this.perform("speak", data) },

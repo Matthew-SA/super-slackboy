@@ -5,6 +5,8 @@ class ChatChannel < ApplicationCable::Channel
     @channels.each do |channel|
       stream_for channel
     end
+    stream_from "current_user_#{current_user.id}"
+    # stream_for current_user
   end
 
   def start_listening(data)
