@@ -35,7 +35,6 @@ function Sidebar() {
       } else {
         userChannels.push(channels[chanId])
       }
-      // console.log(channels[chanId])
     })
   }
 
@@ -73,36 +72,36 @@ function Sidebar() {
     )
   }
 
-  const getMembershipList = () => {
-    let membershipsArray = Object.values(channelMemberships);
-    let memberships = membershipsArray.sort(Util.compareValues('name', 'asc'))
+  // const getMembershipList = () => {
+  //   let membershipsArray = Object.values(channelMemberships);
+  //   let memberships = membershipsArray.sort(Util.compareValues('name', 'asc'))
 
-    const applySidebarClasses = (membership) => {
-      let response = isSelected(membership.channel_id)
-      if (membership.unread_messages) response += " sidebar-highlight"
-      return response
-    }
+  //   const applySidebarClasses = (membership) => {
+  //     let response = isSelected(membership.channel_id)
+  //     if (membership.unread_messages) response += " sidebar-highlight"
+  //     return response
+  //   }
 
-    const membershipList = memberships.map((membership, idx) => {
-      return (
-        <li 
-          className={applySidebarClasses(membership)} 
-          id={`chan-${membership.channel_id}`}
-          onClick={() => {
-            dispatch(updateMembership(membership.id))
-          }} 
-          key={idx}>
-            # {membership.name}
-        </li>
-      )
-    })
+  //   const membershipList = memberships.map((membership, idx) => {
+  //     return (
+  //       <li 
+  //         className={applySidebarClasses(membership)} 
+  //         id={`chan-${membership.channel_id}`}
+  //         onClick={() => {
+  //           dispatch(updateMembership(membership.id))
+  //         }} 
+  //         key={idx}>
+  //           # {membership.name}
+  //       </li>
+  //     )
+  //   })
   
-    return(
-      <ul className="sidebar-ul">
-        {membershipList}
-      </ul>
-    )
-  }
+  //   return(
+  //     <ul className="sidebar-ul">
+  //       {membershipList}
+  //     </ul>
+  //   )
+  // }
 
   const isShown = (uiElement) => (
     uiElement ? "caret-down" : "caret-down caret-rotate"

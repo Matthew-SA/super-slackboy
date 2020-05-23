@@ -19,7 +19,7 @@ function Application() {
   const dispatch = useDispatch();
   const isInitialMount = useRef(true);
   const focus = useSelector(state => state.session.focus);
-  const channelKeys = useSelector(state => Object.keys(state.entities.memberships));
+  const membershipKeys = useSelector(state => Object.keys(state.entities.memberships));
   const rightbar = useSelector(state => state.ui.persistentUi.rightbar);
 
   useEffect(() => {
@@ -61,15 +61,15 @@ function Application() {
 
   }, []);
 
-  useEffect(() => {
-    if (!channelKeys.length) return;
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      App.room.startListening();
-      dispatch(requestMessages())
-    }
-  }, [channelKeys.length]);
+  // useEffect(() => {
+  //   if (!membershipKeys.length) return;
+  //   if (isInitialMount.current) {
+  //     isInitialMount.current = false;
+  //   } else {
+  //     App.room.startListening();
+  //     dispatch(requestMessages())
+  //   }
+  // }, [membershipKeys.length]);
 
 
   const isRightbar = () => rightbar && !isNaN(focus)

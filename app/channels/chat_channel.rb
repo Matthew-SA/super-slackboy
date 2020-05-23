@@ -10,8 +10,7 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def start_listening(data)
-    @user = User.find(current_user.id)
-    @channel = Channel.find(@user.focus)
+    @channel = Channel.find(data['room'])
     stream_for @channel
   end
 

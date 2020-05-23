@@ -12,7 +12,7 @@ function ChannelForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createChannel({ name, description }));
+    dispatch(createChannel({ name, description }))
   }
 
   return (

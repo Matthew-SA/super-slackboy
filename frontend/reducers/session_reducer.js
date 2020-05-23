@@ -17,10 +17,11 @@ const sessionReducer = (state = _nullUser, action) => {
       let focus = action.currentUser.focus
       return { id: action.currentUser.id, focus: focus };
     case RECEIVE_MEMBERSHIP:
-      nextState.focus = action.membership.focus
+      App.room.startListening({ room: action.membership.channel_id });
       return nextState;
     case RECEIVE_CHANNEL:
-      nextState.focus = action.channel.focus
+      nextState.focus = action.channel.focus;
+      App.room.startListening({ room: action.channel.focus });
       return nextState;
     case LOGOUT_CURRENT_USER:
       return _nullUser;

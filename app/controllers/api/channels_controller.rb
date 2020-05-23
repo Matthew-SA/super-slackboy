@@ -1,7 +1,7 @@
 class Api::ChannelsController < ApplicationController
   def index
     if params['type'] == 'browser'
-      @channels = Channel.all
+      @channels = Channel.where(direct_message: false)
     elsif params['type'] == 'init'
       @channels = current_user.channels
     end
@@ -35,7 +35,6 @@ class Api::ChannelsController < ApplicationController
     #     locals: { channel: @channel }
     #   )
     # ))
-
       @focus = @channel.id.to_s
       current_user.update(focus: @focus)
       render 'api/channels/show'
