@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { requestMessages } from '../../../../../actions/message_actions'
 import "moment-timezone"
 import LargeChatItem from "./large_chat_item"
 import SmallChatItem from "./small_chat_item"
@@ -7,8 +8,13 @@ import SmallChatItem from "./small_chat_item"
 
 function ChatWindow(){
   const bottom = useRef();
-  const currentChannelId = useSelector(state => state.session.focus);
+  const focus = useSelector(state => state.session.focus);
   const messages = useSelector(state => state.entities.messages);
+  const dispatch = useDispatch()
+
+  useLayoutEffect(() => {
+    dispatch(requestMessages(focus))
+  },[focus])
 
   useLayoutEffect(() => {
     if (messages) bottom.current.scrollIntoView();
@@ -19,7 +25,7 @@ function ChatWindow(){
     let lastAuthorId = null;
 
     const messageList = messagesArray.map((message, idx) => {
-      if (message.channel_id == currentChannelId) {
+      if (message.channel_id == focus) {
         if (lastAuthorId === message.author.id) {
           lastAuthorId = message.author.id
           return (

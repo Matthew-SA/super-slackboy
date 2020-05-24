@@ -19,9 +19,6 @@ const membershipsReducer = (oldState = {}, action) => {
     case RECEIVE_CHANNEL:
       nextState[action.channel.membership.id] = action.channel.membership;
       return nextState
-    // case REMOVE_MESSAGE:
-    //   delete nextState[action.messageId]
-    //   return nextState;
 
     default:
       return oldState;

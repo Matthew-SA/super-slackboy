@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { requestChannels } from "../../../actions/channel_actions"
+// import { requestChannels } from "../../../actions/channel_actions"
 import { openModal } from "../../../actions/modal_actions";
-
+import { updateCurrentUser } from '../../../actions/session_actions'
 
 function ChannelDropDown() {
   const dispatch = useDispatch()
@@ -12,7 +12,7 @@ function ChannelDropDown() {
     <div className="channel-dropdown">
       <div 
         className="dropdown-menu-item"
-        onClick = {() => dispatch(requestChannels('browser'))}
+        onClick = {() => dispatch(updateCurrentUser('channel_browser'))}
       >
         Browse channels
     </div>

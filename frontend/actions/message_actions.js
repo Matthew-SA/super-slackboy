@@ -19,8 +19,8 @@ const receiveMessage = message => ({
 //   messageId
 // })
 
-export const requestMessages = () => dispatch => (
-  MessageAPIUtil.fetchMessages().then(messages => dispatch(receiveMessages(messages)))
+export const requestMessages = (type) => dispatch => (
+  MessageAPIUtil.fetchMessages(type).then(messages => dispatch(receiveMessages(messages)))
 )
 
 export const requestMessage = messageId => dispatch => (

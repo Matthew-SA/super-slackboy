@@ -12,10 +12,11 @@ import RightbarHeader from './rightbar_header/rightbar_header';
 import { requestUi } from '../../actions/ui_actions';
 import { requestChannels } from '../../actions/channel_actions';
 import { requestMemberships } from '../../actions/membership_actions';
-import { requestMessages, incomingMessage } from '../../actions/message_actions';
+import { incomingMessage } from '../../actions/message_actions';
 
 
 function Application() {
+  const ref = useRef();
   const dispatch = useDispatch();
   const isInitialMount = useRef(true);
   const focus = useSelector(state => state.session.focus);
@@ -26,7 +27,6 @@ function Application() {
     dispatch(requestUi())
     dispatch(requestChannels('init'))
     dispatch(requestMemberships())
-    dispatch(requestMessages())
 
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },
@@ -61,16 +61,20 @@ function Application() {
 
   }, []);
 
-  // useEffect(() => {
-  //   if (!membershipKeys.length) return;
-  //   if (isInitialMount.current) {
-  //     isInitialMount.current = false;
-  //   } else {
-  //     App.room.startListening();
-  //     dispatch(requestMessages())
-  //   }
-  // }, [membershipKeys.length]);
+  useEffect(() => {
+    if (!membershipKeys.length) return;
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      // App.room.startListening();
+      // console.log('current:', membershipKeys.length)
+      // console.log('previous:', ref.current)
+    }
+  }, [membershipKeys.length]);
 
+  useEffect(()=> {
+    ref.current = membershipKeys.length
+  })
 
   const isRightbar = () => rightbar && !isNaN(focus)
 

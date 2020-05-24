@@ -1,6 +1,6 @@
 class Api::MembershipsController < ApplicationController
   def index
-    @memberships = current_user.memberships
+    @memberships = current_user.memberships.includes(:channel)
     render 'api/memberships/index'
   end
 

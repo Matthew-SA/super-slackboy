@@ -25,5 +25,8 @@ export const requestChannels = (type) => dispatch => (
 
 export const createChannel = channel => dispatch => (
   ChannelAPIUtil.createChannel(channel)
-    .then(channel => dispatch(receiveChannel(channel)))
+    .then(channel => { 
+      App.room.startListening({room: channel.channel.id});
+      dispatch(receiveChannel(channel))
+    })
 )

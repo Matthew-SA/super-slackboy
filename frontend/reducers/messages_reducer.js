@@ -10,7 +10,7 @@ const messagesReducer = (oldState = {}, action) => {
   const nextState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_MESSAGES:
-      return action.messages
+      return Object.assign(nextState, action.messages)
     case RECEIVE_MESSAGE:
       nextState[action.message.id] = action.message;
       return nextState

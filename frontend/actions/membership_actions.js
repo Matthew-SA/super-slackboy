@@ -29,6 +29,7 @@ export const updateMembership = (membershipId) => (dispatch) =>
   );
 
 export const createMembership = (channelId) => (dispatch) =>
-  MembershipAPIUtil.createMembership(channelId).then((membership) =>
+  MembershipAPIUtil.createMembership(channelId).then((membership) => {
+    App.room.startListening({room: membership.channel_id});
     dispatch(receiveMembership(membership))
-  );
+  });

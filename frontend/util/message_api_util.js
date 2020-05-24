@@ -1,7 +1,8 @@
-export const fetchMessages = () => (
+export const fetchMessages = (type) => (
   $.ajax({
     url: `/api/messages`,
     method: `GET`,
+    data: { type }
   })
 )
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createMembership } from '../../../../actions/membership_actions'
 import { updateCurrentUser } from '../../../../actions/session_actions'

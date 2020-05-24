@@ -13,3 +13,27 @@ end
 #     json.unread_messages membership.channel.last_message_posted > membership.last_read 
 #   end
 # end
+
+# {
+#   id,
+#   channel_id,
+#   last_read
+# }[]
+
+
+# {
+#   membership: {
+#     id,
+#     channel_id,
+#     last_read
+#   },
+#     channel: {
+#       id,
+#       name
+#       description,
+#       topic
+#     }[]
+# }
+
+# {memberships: [],
+# channels: []}
