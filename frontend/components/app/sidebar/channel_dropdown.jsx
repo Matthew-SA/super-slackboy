@@ -1,7 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
-// import { requestChannels } from "../../../actions/channel_actions"
 import { openModal } from "../../../actions/modal_actions";
 import { updateCurrentUser } from '../../../actions/session_actions'
 
