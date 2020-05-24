@@ -16,9 +16,9 @@ const membershipsReducer = (oldState = {}, action) => {
       // nextState[action.membership.membership.channel_id] = action.membership.membership;
       // if (action.membership.oldmembership) nextState[action.membership.oldmembership.channel_id] = action.membership.oldmembership;
       return nextState
-    case RECEIVE_CHANNEL:
-      nextState[action.channel.membership.id] = action.channel.membership;
-      return nextState
+    // case RECEIVE_CHANNEL:
+    //   nextState[action.channel.membership.id] = action.channel.membership;
+    //   return nextState
 
     default:
       return oldState;

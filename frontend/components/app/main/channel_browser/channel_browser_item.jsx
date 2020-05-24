@@ -1,14 +1,12 @@
 import React, { useLayoutEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createMembership } from '../../../../actions/membership_actions'
-import { updateCurrentUser } from '../../../../actions/session_actions'
 
 const ChannelBrowserItem = ({ channel }) => {
   const dispatch = useDispatch()
   const memberships = useSelector(state => Object.values(state.entities.memberships))
 
   const handleClick = (channelId) => {
-    dispatch(updateCurrentUser(channelId))
     for (let membership of memberships) {
       if (membership.channel_id === channelId) return
     }

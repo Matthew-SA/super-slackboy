@@ -1,4 +1,15 @@
-json.partial! 'api/memberships/membership', membership: @membership
+json.membership do
+  json.partial! 'api/memberships/membership', membership: @membership
+end
+
+json.focus @focus
+
+
+
+
+
+
+
 
 # json.membership do
 #   json.extract! @membership, :id, :channel_id, :last_read

@@ -1,11 +1,14 @@
 class Api::ChannelsController < ApplicationController
   def index
-    if params['type'] == 'browser'
-      @channels = Channel.where(direct_message: false)
-    elsif params['type'] == 'init'
-      @channels = current_user.channels
-    end
+    @channels = Channel.where(direct_message: false)
+    @focus = 'channel_browser'
+    current_user.update(focus: @focus)
     render 'api/channels/index'
+  end
+
+  def show
+    current_user.update(focus: params[:id])
+    @channel = Channel.find(params[:id])
   end
 
   def create
@@ -40,6 +43,7 @@ class Api::ChannelsController < ApplicationController
       render 'api/channels/show'
     end
   end
+
 
   private
   def channel_params

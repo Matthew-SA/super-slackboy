@@ -7,6 +7,7 @@ import { updateUi } from '../../../actions/ui_actions';
 // import { updateMembership } from '../../../actions/membership_actions';
 import { updateCurrentUser } from '../../../actions/session_actions'
 import { openModal } from '../../../actions/modal_actions';
+import { requestChannel, requestChannels } from '../../../actions/channel_actions';
 
 function Sidebar() {
   const dispatch = useDispatch()
@@ -57,7 +58,7 @@ function Sidebar() {
           className={applySidebarClasses(channel)} 
           id={`chan-${channel.id}`}
           onClick={() => {
-            dispatch(updateCurrentUser(channel.id))
+            dispatch(requestChannel(channel.id))
           }} 
           key={idx}>
             # {channel.name}
@@ -110,7 +111,7 @@ function Sidebar() {
   return (
     <div className="sidebar" >
       <div className={isSelected("channel_browser")}>
-        <div className="sidebar-header-container" onClick={() => dispatch(updateCurrentUser('channel_browser'))}>
+        <div className="sidebar-header-container" onClick={() => dispatch(requestChannels())}>
           <p className="channel-header" >
             <FontAwesomeIcon 
               style={{ fontSize: "13px" }} 

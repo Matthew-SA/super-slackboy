@@ -1,6 +1,8 @@
 class Api::MembershipsController < ApplicationController
   def index
     @memberships = current_user.memberships.includes(:channel)
+    # @memberships = current_user.memberships.includes(:channel)
+    @channels = current_user.channels
     render 'api/memberships/index'
   end
 
@@ -20,7 +22,9 @@ class Api::MembershipsController < ApplicationController
   end
 
   def create
-    @membership = Membership.new(user_id: current_user.id, channel_id: params[:channelId], last_read: DateTime.now)
+    @focus = params[:channelId]
+    @membership = Membership.new(user_id: current_user.id, channel_id: @focus, last_read: DateTime.now)
+    current_user.update(focus: @focus)
     if @membership.save
       render 'api/memberships/show'
     end

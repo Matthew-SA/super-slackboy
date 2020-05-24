@@ -29,7 +29,9 @@ class ChatChannel < ApplicationCable::Channel
   def unsubscribed
     @user = User.find(current_user.id)
     @membership = Membership.find_by(channel_id: @user.focus, user_id: @user.id)
-    @membership.update(last_read: DateTime.now)
+    if @membership
+      @membership.update(last_read: DateTime.now)
+    end
   end
   
 end

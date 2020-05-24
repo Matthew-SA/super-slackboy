@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TopNav from './topnav/topnav';
 import ViewHeader from './view_header/viewheader';
@@ -10,23 +10,24 @@ import Rightbar from './rightbar/rightbar';
 import RightbarHeader from './rightbar_header/rightbar_header';
 
 import { requestUi } from '../../actions/ui_actions';
-import { requestChannels } from '../../actions/channel_actions';
 import { requestMemberships } from '../../actions/membership_actions';
 import { incomingMessage } from '../../actions/message_actions';
+import { requestChannel } from '../../actions/channel_actions';
 
 
 function Application() {
-  const ref = useRef();
   const dispatch = useDispatch();
-  const isInitialMount = useRef(true);
   const focus = useSelector(state => state.session.focus);
   const membershipKeys = useSelector(state => Object.keys(state.entities.memberships));
   const rightbar = useSelector(state => state.ui.persistentUi.rightbar);
 
   useEffect(() => {
     dispatch(requestUi())
-    dispatch(requestChannels('init'))
     dispatch(requestMemberships())
+    if (!isNaN(focus)) {
+      dispatch(requestChannel(focus))
+    }
+
 
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },
@@ -60,21 +61,6 @@ function Application() {
     }
 
   }, []);
-
-  useEffect(() => {
-    if (!membershipKeys.length) return;
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      // App.room.startListening();
-      // console.log('current:', membershipKeys.length)
-      // console.log('previous:', ref.current)
-    }
-  }, [membershipKeys.length]);
-
-  useEffect(()=> {
-    ref.current = membershipKeys.length
-  })
 
   const isRightbar = () => rightbar && !isNaN(focus)
 
