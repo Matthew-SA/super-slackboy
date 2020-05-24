@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function RightbarHeader() {
   const dispatch = useDispatch()
   const focus = useSelector(state => state.session.focus)
-  const currentChannel = useSelector(state => state.entities.memberships[focus])
+  const currentChannel = useSelector(state => state.entities.channels[focus])
   const getChannelName = () => {
     let name = currentChannel ? currentChannel.name : ""
     return name
