@@ -12,6 +12,10 @@ function ViewHeader() {
     return currentChannel ? currentChannel.name : ""
   }
 
+  const getUserCount = () => {
+    return currentChannel ? currentChannel.userIds.length : ""
+  }
+
   const getTopic = () => {
     return currentChannel ? currentChannel.topic : ""
   }
@@ -36,7 +40,7 @@ function ViewHeader() {
                 style={{ fontSize: "12px" }}
                 icon={["far", "user"]}
               />
-              &nbsp;--
+              &nbsp;{getUserCount()}
               <div className="view-header-divider"></div>
               <div className="view-header-topic">{getTopic()} </div>
             </div>

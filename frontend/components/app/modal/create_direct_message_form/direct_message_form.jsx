@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeModal } from '../../../actions/modal_actions';
-import { requestUsers } from '../../../actions/user_actions';
+import { closeModal } from '../../../../actions/modal_actions';
+import { requestUsers } from '../../../../actions/user_actions';
 import DirectMessageUserItem from './direct_message_user_item'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

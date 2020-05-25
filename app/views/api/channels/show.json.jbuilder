@@ -1,6 +1,7 @@
 json.channel do
   json.partial! '/api/channels/channel', channel: @channel
   json.messageIds @channel.messages.pluck(:id)
+  json.userIds @channel.users.pluck(:id)
 end
 
 json.messages do
