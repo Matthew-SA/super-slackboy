@@ -31,7 +31,6 @@ export const requestMembership = (membershipId) => (dispatch) =>
 
 export const createMembership = (channelId) => (dispatch) =>
   MembershipAPIUtil.createMembership(channelId).then((membership) => {
-    console.log(membership)
-    // App.room.startListening({room: membership.membership.channel_id});
+    App.room.startListening({room: membership.membership.channel_id});
     dispatch(receiveMembership(membership))
   });
