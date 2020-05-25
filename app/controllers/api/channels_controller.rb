@@ -25,7 +25,7 @@ class Api::ChannelsController < ApplicationController
       )
       @focus = @channel.id.to_s
       current_user.update(focus: @focus)
-      render 'api/channels/show'
+      render :show
     end
   end
 

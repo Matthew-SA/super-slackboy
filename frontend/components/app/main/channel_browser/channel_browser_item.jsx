@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createMembership } from '../../../../actions/membership_actions'
 import { requestChannel } from '../../../../actions/channel_actions';
@@ -8,13 +8,13 @@ const ChannelBrowserItem = ({ channel }) => {
   const memberships = useSelector(state => Object.values(state.entities.memberships))
 
   const handleClick = (channelId) => {
+    dispatch(requestChannel(channelId))
+    dispatch(updateMembership)
     for (let membership of memberships) {
       if (membership.channel_id === channelId) {
-        dispatch(requestChannel(channelId))
         return;
       } 
     }
-    dispatch(requestChannel(channelId))
     dispatch(createMembership(channelId))
   }
 

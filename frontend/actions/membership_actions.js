@@ -9,7 +9,7 @@ const receiveMemberships = ({ memberships, channels }) => ({
   channels,
 });
 
-const receiveMembership = ({ membership }) => ({
+const receiveMembership = (membership) => ({
   type: RECEIVE_MEMBERSHIP,
   membership,
 });
@@ -24,13 +24,13 @@ export const requestMembership = (membershipId) => (dispatch) =>
     dispatch(receiveMembership(membership))
   );
 
-// export const updateMembership = (membershipId) => (dispatch) =>
-//   MembershipAPIUtil.updateMembership(membershipId).then((membership) =>
-//     dispatch(receiveMembership(membership))
-//   );
+export const updateMembership = (membershipId) => (dispatch) =>
+  MembershipAPIUtil.updateMembership(membershipId).then((membership) =>
+    dispatch(receiveMembership(membership))
+  );
 
 export const createMembership = (channelId) => (dispatch) =>
   MembershipAPIUtil.createMembership(channelId).then((membership) => {
-    App.room.startListening({room: membership.membership.channel_id});
+    App.room.startListening({room: membership.channel_id});
     dispatch(receiveMembership(membership))
   });
