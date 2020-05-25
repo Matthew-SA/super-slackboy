@@ -15,14 +15,9 @@ const messagesReducer = (oldState = {}, action) => {
       return Object.assign({}, oldState, action.messages)
     case RECEIVE_MEMBERSHIP:
       return Object.assign({}, oldState, action.messages)
-    // case RECEIVE_MESSAGES:
-    //   return Object.assign(nextState, action.messages)
     case RECEIVE_MESSAGE:
       nextState[action.message.id] = action.message;
       return nextState
-    // case REMOVE_MESSAGE:
-    //   delete nextState[action.messageId]
-    //   return nextState;
 
     default:
       return oldState;

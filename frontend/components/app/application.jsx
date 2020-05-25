@@ -12,16 +12,21 @@ import RightbarHeader from './rightbar_header/rightbar_header';
 import { requestUi } from '../../actions/ui_actions';
 import { requestMemberships } from '../../actions/membership_actions';
 import { incomingMessage } from '../../actions/message_actions';
-
+import { requestChannel } from '../../actions/channel_actions';
 
 function Application() {
   const dispatch = useDispatch();
   const focus = useSelector(state => state.session.focus);
+
   const rightbar = useSelector(state => state.ui.persistentUi.rightbar);
 
   useEffect(() => {
     dispatch(requestUi())
     dispatch(requestMemberships())
+    if (!isNaN(focus)) {
+      dispatch(requestChannel(focus))
+    }
+
 
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },

@@ -9,12 +9,9 @@ const receiveMemberships = ({ memberships, channels }) => ({
   channels,
 });
 
-const receiveMembership = ({ membership, channel, messages, focus }) => ({
+const receiveMembership = ({ membership }) => ({
   type: RECEIVE_MEMBERSHIP,
   membership,
-  channel,
-  messages,
-  focus,
 });
 
 export const requestMemberships = () => (dispatch) =>
@@ -23,8 +20,8 @@ export const requestMemberships = () => (dispatch) =>
   );
 
 export const requestMembership = (membershipId) => (dispatch) =>
-  MembershipAPIUtil.fetchMembership(membershipId).then((payload) =>
-    dispatch(receiveMembership(payload))
+  MembershipAPIUtil.fetchMembership(membershipId).then((membership) =>
+    dispatch(receiveMembership(membership))
   );
 
 // export const updateMembership = (membershipId) => (dispatch) =>
@@ -33,7 +30,8 @@ export const requestMembership = (membershipId) => (dispatch) =>
 //   );
 
 export const createMembership = (channelId) => (dispatch) =>
-  MembershipAPIUtil.createMembership(channelId).then((payload) => {
-    App.room.startListening({room: membership.membership.channel_id});
-    dispatch(receiveMembership(payload))
+  MembershipAPIUtil.createMembership(channelId).then((membership) => {
+    console.log(membership)
+    // App.room.startListening({room: membership.membership.channel_id});
+    dispatch(receiveMembership(membership))
   });

@@ -13,7 +13,6 @@ const membershipsReducer = (oldState = {}, action) => {
     case RECEIVE_MEMBERSHIP:
       nextState[action.membership.id] = action.membership
       return nextState
-
     default:
       return oldState;
   }

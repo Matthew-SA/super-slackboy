@@ -9,12 +9,11 @@ const ChannelBrowserItem = ({ channel }) => {
 
   const handleClick = (channelId) => {
     for (let membership of memberships) {
-      if (membership.channel_id === channelId) {
-        dispatch(requestChannel(channelId))
-        return;
+      if (membership.channel_id !== channelId) {
+        dispatch(createMembership(channelId))
       } 
     }
-    dispatch(createMembership(channelId))
+    dispatch(requestChannel(channelId))
   }
 
   return(

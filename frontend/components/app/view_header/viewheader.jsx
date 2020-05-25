@@ -19,7 +19,7 @@ function ViewHeader() {
   const getTopic = () => {
     return currentChannel ? currentChannel.topic : ""
   }
-
+  
   switch (focus) {
     case "channel_browser":
       return (
