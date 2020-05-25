@@ -2,25 +2,18 @@ json.membership do
   json.partial! 'api/memberships/membership', membership: @membership
 end
 
+json.channel do
+  json.partial! '/api/channels/channel', channel: @channel
+  json.messageIds @channel.messages.pluck(:id)
+  json.userIds @channel.users.pluck(:id)
+end
+
+json.messages do
+  @channel.messages.each do |message|
+    json.set! message.id do
+      json.partial! 'api/messages/message', message: message
+    end
+  end
+end
+
 json.focus @focus
-
-
-
-
-
-
-
-
-# json.membership do
-#   json.extract! @membership, :id, :channel_id, :last_read
-#   json.extract! @membership.channel, :name, :topic, :description
-# end
-
-# if @oldmembership 
-#   json.oldmembership do 
-#     json.extract! @oldmembership, :id, :channel_id, :last_read
-#     json.extract! @oldmembership.channel, :name
-#   end
-# end
-
-# json.focus @focus

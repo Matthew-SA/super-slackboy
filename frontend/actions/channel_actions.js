@@ -18,18 +18,18 @@ const receiveChannel = ({ channel, messages, focus }) => ({
 
 export const requestChannels = () => dispatch => (
   ChannelAPIUtil.fetchChannels()
-    .then(channels => dispatch(receiveChannels(channels)))
+    .then(payload => dispatch(receiveChannels(payload)))
 )
 
 export const requestChannel = channelId => dispatch => (
   ChannelAPIUtil.fetchChannel(channelId)
-    .then(channel => dispatch(receiveChannel(channel)))
+    .then(payload => dispatch(receiveChannel(payload)))
 )
 
 export const createChannel = channel => dispatch => (
   ChannelAPIUtil.createChannel(channel)
-    .then(channel => { 
-      App.room.startListening({room: channel.channel.id});
-      dispatch(receiveChannel(channel))
+    .then(payload => { 
+      App.room.startListening({room: payload.channel.id});
+      dispatch(receiveChannel(payload))
     })
 )

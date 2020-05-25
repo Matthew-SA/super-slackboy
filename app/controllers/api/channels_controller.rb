@@ -1,29 +1,43 @@
 class Api::ChannelsController < ApplicationController
-  def index
+  def index ### OKAY
     @channels = Channel.where(direct_message: false)
     @focus = 'channel_browser'
     current_user.update(focus: @focus)
-    render 'api/channels/index'
+    render :index
   end
 
-  def show
-    current_user.update(focus: params[:id])
+  def show # ??? needed?  show a channel WITHOUT membership
     @channel = Channel.find(params[:id])
+    current_user.update(focus: params[:id])
+    render :show
   end
 
-  def create
+  def create # ??? create NEW channel and membership.  show new channel on completion
     @timestamp = DateTime.now
     @channel = Channel.new(channel_params)
     @channel.last_message_posted = @timestamp
 
     if @channel.save
-
       @membership = Membership.create(
         user_id: current_user.id, 
         channel_id: @channel.id, 
         last_read: @timestamp
       )
+      @focus = @channel.id.to_s
+      current_user.update(focus: @focus)
+      render 'api/memberships/show'
+    end
+  end
 
+
+  private
+  def channel_params
+    params.require(:channel).permit(:name, :description)
+  end
+end
+
+
+# old
       # if @channel.direct_message
       #   @other_membership = Membership.create(
       #     user_id: params[other.id], # Make sure this param is okay!
@@ -38,15 +52,3 @@ class Api::ChannelsController < ApplicationController
     #     locals: { channel: @channel }
     #   )
     # ))
-      @focus = @channel.id.to_s
-      current_user.update(focus: @focus)
-      render 'api/channels/show'
-    end
-  end
-
-
-  private
-  def channel_params
-    params.require(:channel).permit(:name, :description)
-  end
-end

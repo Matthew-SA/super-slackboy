@@ -11,40 +11,7 @@ json.channels do
     json.set! channel.id do
       json.partial! 'api/channels/channel', channel: channel
       json.messageIds []
+      json.userIds []
     end
   end
 end
-
-
-
-# @memberships.each do |membership|
-#   json.set! membership.channel_id do 
-#     json.extract! membership, :id, :channel_id, :last_read
-#     json.extract! membership.channel, :name, :topic, :description
-#     json.unread_messages membership.channel.last_message_posted > membership.last_read 
-#   end
-# end
-
-# {
-#   id,
-#   channel_id,
-#   last_read
-# }[]
-
-
-# {
-#   membership: {
-#     id,
-#     channel_id,
-#     last_read
-#   },
-#     channel: {
-#       id,
-#       name
-#       description,
-#       topic
-#     }[]
-# }
-
-# {memberships: [],
-# channels: []}

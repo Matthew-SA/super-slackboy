@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-// import { requestMessages } from '../../../../../actions/message_actions'
+
 import "moment-timezone"
 import LargeChatItem from "./large_chat_item"
 import SmallChatItem from "./small_chat_item"
@@ -11,10 +11,6 @@ function ChatWindow(){
   const focus = useSelector(state => state.session.focus);
   const messages = useSelector(state => state.entities.messages);
   const dispatch = useDispatch()
-
-  // useLayoutEffect(() => {
-  //   dispatch(requestMessages(focus))
-  // },[focus])
 
   useLayoutEffect(() => {
     if (messages) bottom.current.scrollIntoView();

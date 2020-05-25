@@ -1,32 +1,33 @@
 class Api::MembershipsController < ApplicationController
-  def index
+  def index # OKAY (gets memberships and channels on load) - possibly add focus channel info.
     @memberships = current_user.memberships.includes(:channel)
-    # @memberships = current_user.memberships.includes(:channel)
     @channels = current_user.channels
-    render 'api/memberships/index'
+    render :index
   end
-
-  def update
-    @timestamp = DateTime.now
-    @old_focus = current_user.focus.to_i
-
-    if @old_focus != 0
-      @oldmembership = Membership.find_by(channel_id: @old_focus, user_id: current_user.id)
-      @oldmembership.update(last_read: @timestamp)
-    end
-
-    @membership = Membership.find_by(id: params[:id], user_id: current_user.id)
-    @focus = @membership.channel_id.to_s
-    current_user.update(focus: @focus)
-    render 'api/memberships/show'
-  end
-
-  def create
+  
+  def create # ??? create membership to existing channel.  show new membership on completion
     @focus = params[:channelId]
     @membership = Membership.new(user_id: current_user.id, channel_id: @focus, last_read: DateTime.now)
-    current_user.update(focus: @focus)
     if @membership.save
-      render 'api/memberships/show'
+      @channel = @membership.channel
+      @messages = @channel.messages
+      current_user.update(focus: @focus)
+      render :show
     end
   end
+
+  # def show # ??? needed? show membership and channel and messages
+  #   @membership = Membership.find(params[:id])
+  #   @channel = @membership.channel
+  #   @messages = @channel.messages
+  #   @focus = @channel.id
+  #   current_user.update(focus: @focus)
+  #   render :show
+  # end
+
+  def update
+    @membership = Membership.find(params[:id])
+    render :show
+  end
+
 end

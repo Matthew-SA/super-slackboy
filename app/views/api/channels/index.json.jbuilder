@@ -3,6 +3,7 @@ json.channels do
     json.set! channel.id do
       json.partial! 'api/channels/channel', channel: channel
       json.messageIds []
+      json.userIds []
     end
   end
 end

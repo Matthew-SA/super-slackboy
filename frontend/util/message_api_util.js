@@ -13,13 +13,13 @@ export const fetchMessage = messageId => (
   })
 )
 
-export const createMessage = message => (
-  $.ajax({
-    url: `/api/messages/`,
-    method: `POST`,
-    data: { message },
-  })
-)
+// export const createMessage = message => (
+//   $.ajax({
+//     url: `/api/messages/`,
+//     method: `POST`,
+//     data: { message },
+//   })
+// )
 
 export const updateMessage = message => (
   $.ajax({
