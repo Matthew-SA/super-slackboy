@@ -19,7 +19,7 @@ function Rightbar() {
           </div>
           <div className="button-container" onClick={() => dispatch(destroyMembership(focus))}>
             <div className="circle-plus">
-              <FontAwesomeIcon style={{ fontSize: "18px" }} icon="times"/>
+              <FontAwesomeIcon style={{ fontSize: "18px" }} icon="minus"/>
             </div>
             leave
           </div>

@@ -5,19 +5,23 @@ import Root from "./components/Root"
 import { login } from './actions/session_actions'
 import { fetchMessages }from '../frontend/util/message_api_util'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus, faBriefcase, faSearch, faInfoCircle, faTimes} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus, faBriefcase, faSearch, faInfoCircle, faTimes, faMinus} from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faLinkedin, faAngellist, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
 library.add(faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus, 
   faBriefcase, faLinkedin, faAngellist, faGithubSquare, faSearch, faInfoCircle,
-  faTimes, faUser);
+  faTimes, faUser, faMinus);
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
     const preloadedState = {
-      session:  { id: window.currentUser.id, focus: window.currentUser.focus },
+      session:  { 
+        id: window.currentUser.id, 
+        focus: window.currentUser.focus,
+        currentMembership: window.currentUser.current_membership
+      },
       entities: {
         users: { [window.currentUser.id]: window.currentUser }
       }

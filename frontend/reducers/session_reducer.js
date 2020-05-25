@@ -14,14 +14,14 @@ const sessionReducer = (state = _nullUser, action) => {
   let nextState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      let focus = action.currentUser.focus
-      return { id: action.currentUser.id, focus: focus };
+      const { id, focus, current_membership } = action.currentUser
+      return { id: id, focus: focus, currentMembership: current_membership };
     case RECEIVE_CHANNELS:
       nextState.focus = action.focus
       return nextState;
-    case RECEIVE_MEMBERSHIP:
-      nextState.focus = action.focus
-      return nextState;
+    // case RECEIVE_MEMBERSHIP:
+    //   nextState.focus = action.focus
+    //   return nextState;
     case RECEIVE_CHANNEL:
       nextState.focus = action.focus
       return nextState;

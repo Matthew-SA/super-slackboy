@@ -1,6 +1,7 @@
 import {
   RECEIVE_MEMBERSHIPS,
-  RECEIVE_MEMBERSHIP
+  RECEIVE_MEMBERSHIP,
+  REMOVE_MEMBERSHIP
 } from '../actions/membership_actions';
 
 
@@ -9,10 +10,13 @@ const membershipsReducer = (oldState = {}, action) => {
   const nextState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_MEMBERSHIPS:
-      return action.memberships
+      return action.memberships;
     case RECEIVE_MEMBERSHIP:
-      nextState[action.membership.id] = action.membership
-      return nextState
+      nextState[action.membership.id] = action.membership;
+      return nextState;
+    case REMOVE_MEMBERSHIP:
+      delete nextState[action.membership.id];
+      return nextState;
     default:
       return oldState;
   }

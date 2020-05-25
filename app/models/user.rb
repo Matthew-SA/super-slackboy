@@ -17,6 +17,9 @@ class User < ApplicationRecord
       if self.save
         ui = Ui.new()
         ui.user_id = self.id
+        Membership.create(user_id: self.id, channel_id: 3, last_read: DateTime.now)
+        Membership.create(user_id: self.id, channel_id: 2, last_read: DateTime.now)
+        Membership.create(user_id: self.id, channel_id: 1, last_read: DateTime.now)
         if ui.save
           return true
         else 
@@ -24,7 +27,7 @@ class User < ApplicationRecord
         end
       end
     end
-      false
+    false
   end
 
   def self.find_by_credentials(email, password)
