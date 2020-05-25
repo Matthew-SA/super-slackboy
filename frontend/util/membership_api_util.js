@@ -28,3 +28,10 @@ export const createMembership = channelId => (
     data: {channelId},
   })
 )
+
+export const destroyMembership = (membershipId) => (
+  $.ajax({
+    url: `/api/memberships/${membershipId}`,
+    method: `DELETE`
+  })
+)

@@ -1,18 +1,18 @@
 class Api::ChannelsController < ApplicationController
-  def index ### OKAY
+  def index # view all public channels (for channel browser)
     @channels = Channel.where(direct_message: false)
     @focus = 'channel_browser'
     current_user.update(focus: @focus)
     render :index
   end
 
-  def show # ??? needed?  show a channel WITHOUT membership
+  def show # view a channel and its connected messages.
     @channel = Channel.find(params[:id])
     current_user.update(focus: params[:id])
     render :show
   end
 
-  def create # ??? create NEW channel and membership.  show new channel on completion
+  def create # create a new channel AND membership (needed for potential private channels or DMs.  Cannot have this function as part of create membership)
     @timestamp = DateTime.now
     @channel = Channel.new(channel_params)
     @channel.last_message_posted = @timestamp

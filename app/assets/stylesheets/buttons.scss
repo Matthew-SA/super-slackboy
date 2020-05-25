@@ -1,0 +1,38 @@
+.button-container {
+  text-align: center;
+  font-size: 13px;
+}
+
+.circle-plus {
+  font-size: 15px;
+  height: 40px;
+  width: 40px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 2.9;
+  border-radius: 25px;
+  color: rgba(29, 28, 29, 0.7);
+  background-color: #F7F7F7;
+  &:hover {
+    color: black;
+    cursor: pointer;
+    background-color: #E2E2E2;
+  }
+}
+
+.circle-x {
+  font-size: 15px;
+  height: 40px;
+  width: 40px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 2.9;
+  border-radius: 25px;
+  color: rgba(29, 28, 29, 0.7);
+  background-color: #F7F7F7;
+  &:hover {
+    color: black;
+    cursor: pointer;
+    background-color: #E2E2E2;
+  }
+}

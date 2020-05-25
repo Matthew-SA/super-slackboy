@@ -10,7 +10,6 @@ function ChatWindow(){
   const bottom = useRef();
   const focus = useSelector(state => state.session.focus);
   const messages = useSelector(state => state.entities.messages);
-  const dispatch = useDispatch()
 
   useLayoutEffect(() => {
     if (messages) bottom.current.scrollIntoView();

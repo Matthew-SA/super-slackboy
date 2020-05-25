@@ -1,19 +1,27 @@
 class Api::MembershipsController < ApplicationController
-  def index # OKAY (gets memberships and channels on load) - possibly add focus channel info.
+  def index # Get Memberships and connected channels on initial load
     @memberships = current_user.memberships.includes(:channel)
     @channels = current_user.channels
     render :index
   end
   
-  def create # ??? create membership to existing channel.  show new membership on completion
-    @membership = Membership.create!(user_id: current_user.id, channel_id: params[:channelId], last_read: DateTime.now)
-    render :show
+  def create # if channel is public, join user to channel
+    @channel = Channel.find(params[:channelId])
+    if !@channel.direct_message
+      @membership = Membership.create!(user_id: current_user.id, channel_id: params[:channelId], last_read: DateTime.now)
+      render :show
+    end
   end
 
 
-  def update
+  def update # updates when user last viewed a channel
     @membership = Membership.find(params[:id])
     @membership.update(last_read: DateTime.now)
+    render :show
+  end
+
+  def destroy # removes connect from user to a channel
+    @membership = Membership.find(params[:id]).destroy
     render :show
   end
 
