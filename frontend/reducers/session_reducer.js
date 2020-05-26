@@ -2,7 +2,7 @@ import {
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER,
 } from '../actions/session_actions';
-import { RECEIVE_MEMBERSHIP } from '../actions/membership_actions'
+import { RECEIVE_MEMBERSHIP, RECEIVE_MEMBERSHIPS } from '../actions/membership_actions'
 import { RECEIVE_CHANNEL, RECEIVE_CHANNELS } from '../actions/channel_actions'
 
 const _nullUser = Object.freeze({
@@ -19,9 +19,12 @@ const sessionReducer = (state = _nullUser, action) => {
     case RECEIVE_CHANNELS:
       nextState.focus = action.focus
       return nextState;
-    // case RECEIVE_MEMBERSHIP:
-    //   nextState.focus = action.focus
-    //   return nextState;
+    case RECEIVE_MEMBERSHIPS:
+      nextState.currentMembership = action.current_membership;
+      return nextState;
+    case RECEIVE_MEMBERSHIP:
+      nextState.currentMembership = action.current_membership
+      return nextState;
     case RECEIVE_CHANNEL:
       nextState.focus = action.focus
       return nextState;

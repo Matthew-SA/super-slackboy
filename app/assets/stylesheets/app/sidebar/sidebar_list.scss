@@ -1,0 +1,32 @@
+@import './sidebar_item.scss';
+
+.sidebar-list-container {
+  width: 100%;
+}
+
+.sidebar-header-container {
+  display: flex;
+  height: 36px;
+  padding: 0 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-header {
+  min-width: 180px;
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.caret-down {
+  transition: .1s linear;
+  transform-style: preserve-3d;
+}
+
+.caret-rotate {
+  transform: rotate(-90deg)
+}

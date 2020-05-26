@@ -4,15 +4,17 @@ export const RECEIVE_MEMBERSHIPS = "RECEIVE_MEMBERSHIPS";
 export const RECEIVE_MEMBERSHIP = "RECEIVE_MEMBERSHIP";
 export const REMOVE_MEMBERSHIP = "REMOVE_MEMBERSHIP"
 
-const receiveMemberships = ({ memberships, channels }) => ({
+const receiveMemberships = ({ memberships, channels, current_membership }) => ({
   type: RECEIVE_MEMBERSHIPS,
   memberships,
   channels,
+  current_membership,
 });
 
-const receiveMembership = (membership) => ({
+const receiveMembership = ({ membership, current_membership }) => ({
   type: RECEIVE_MEMBERSHIP,
   membership,
+  current_membership,
 });
 
 const removeMembership = (membership) => ({

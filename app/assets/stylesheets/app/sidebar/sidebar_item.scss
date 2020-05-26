@@ -1,0 +1,22 @@
+.sidebar-item {
+  display: block;
+  width: 100%;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  &:visited { text-decoration: none; color: silver}
+  &:hover { text-decoration: none; color: silver; background-color: #4C5663;}
+  &:focus { text-decoration: none; color: silver}
+  &:active { text-decoration: none; color: silver}
+  color: silver;
+}
+
+.sidebar-selected {
+  &:visited { text-decoration: none; color: white}
+  &:hover { text-decoration: none; color: white; background-color: #7098C4;}
+  &:focus { text-decoration: none; color: white}
+  &:active { text-decoration: none; color: white}
+  color: white;
+  background-color: #7098C4;
+}

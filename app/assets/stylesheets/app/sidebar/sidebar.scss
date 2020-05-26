@@ -1,0 +1,23 @@
+@import './sidebar_list.scss';
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #303E4D;
+  height: 100%;
+  position: relative;
+  padding-top: 12px;
+  color: silver;
+  line-height: 1.3;
+  user-select: none;
+  text-decoration: none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  -ms-user-select:none;
+}
+
+.sidebar-divider {
+  margin-top: 12px;
+  border-bottom: 1px solid rgb(69,81,95);
+  margin-bottom: 12px;
+}

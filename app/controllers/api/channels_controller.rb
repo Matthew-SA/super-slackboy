@@ -29,6 +29,11 @@ class Api::ChannelsController < ApplicationController
     end
   end
 
+  def destroy
+    @membership = Membership.find_by(user_id: current_user.id, channel_id: params[:id])
+    @Channel = Channel.find(params[:id])
+    @focus = current_user.memberships.last.channel_id
+  end
 
   private
   def channel_params

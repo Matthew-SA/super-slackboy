@@ -1,26 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { requestChannel } from '../../../actions/channel_actions'
+import { NavLink } from 'react-router-dom'
 
-function SidebarItem({ membership }) {
-  const dispatch = useDispatch();
-  const focus = useSelector(state => state.session.focus)
-  const channel = useSelector(state => state.entities.channels[membership.channel_id])
 
-  const applySidebarClasses = () => {
-    let baseClass = focus == channel.id ? "sidebar-selected" : "sidebar-item"
-    if (channel.last_message_posted > membership.last_read) baseClass += " sidebar-highlight"
-    return baseClass
-  }
+function SidebarItem({ membership, channel }) {
 
   return (
-    <li
-      className={applySidebarClasses()}
-      id={`chan-${channel.id}`}
-      onClick={() => {dispatch(requestChannel(channel.id))}}
-      >
-        # {channel.name}
-    </li>
+    <NavLink to={`/app/channels/${channel.id}`} className="sidebar-item" activeClassName="sidebar-selected">
+      # {channel.name}
+    </NavLink>
   )
 }
 

@@ -21,7 +21,7 @@
 @import "./app/view_header";
 @import "./app/profile.scss";
 @import "./app/topnav.scss";
-@import "./app/sidebar.scss";
+@import "./app/sidebar/sidebar.scss";
 @import "./app/main/main.scss";
 @import "./app/modal.scss";
 @import "./app/rightbar/rightbar.scss";
@@ -75,6 +75,8 @@ body {
 .hide {
   display: none;
 }
+
+a:visited, a:hover, a:focus, a:active { text-decoration: none; outline: 0;}
 //see outlines
 // * { 
 //   outline: 1px solid red;

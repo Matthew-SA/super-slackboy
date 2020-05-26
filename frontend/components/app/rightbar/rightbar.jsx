@@ -15,13 +15,13 @@ function Rightbar() {
             <div className="circle-plus">
               <FontAwesomeIcon style={{ fontSize: "18px" }} icon="plus"/>
             </div>
-            join
+            Join
           </div>
           <div className="button-container" onClick={() => dispatch(destroyMembership(focus))}>
             <div className="circle-plus">
               <FontAwesomeIcon style={{ fontSize: "18px" }} icon="minus"/>
             </div>
-            leave
+            Leave
           </div>
         </div>
 
