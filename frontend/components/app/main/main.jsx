@@ -8,8 +8,8 @@ function main() {
 
   return(
     <Switch>
-      <ChannelBrowser exact path='/app/channel-browser'/>
-      <Chat exact path='/app/channels/:id'/>
+      {/* <ChannelBrowser exact path='/app/channel-browser'/>
+      <Chat exact path='/app/channels/:id'/> */}
     </Switch>
   )
 }

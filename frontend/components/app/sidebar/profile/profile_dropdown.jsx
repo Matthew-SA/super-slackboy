@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-
-import { logout } from "../../../actions/session_actions";
+import { logout } from "../../../../actions/session_actions";
 
 function ProfileDropdown() {
   const currentUserName = useSelector(
@@ -10,10 +9,10 @@ function ProfileDropdown() {
   const dispatch = useDispatch();
 
   return (
-    <div className="profile-dropdown">
-      <div className="profile-menu-header">
+    <div className="profile-dropdown-container">
+      <div className="profile-dropdown-header">
         <img src={window.profile_pic} className="profile-pic" />
-        <h6>{currentUserName}</h6>
+        <div>{currentUserName}</div>
       </div>
 
       <div className="profile-divider"></div>

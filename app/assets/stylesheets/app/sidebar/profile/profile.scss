@@ -1,0 +1,42 @@
+@import './profile-dropdown.scss';
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #303E4D;
+  width: 100%;
+  height: 64px;
+  box-sizing: border-box;
+  color: white;
+  padding: 0 16px;
+  border-top: 1px solid #46525F;
+  border-bottom: 1px solid #46525F;
+  margin-bottom: 12px;
+  &:hover .profile-user {
+    color: white;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: #4C5663 
+  }
+}
+
+.profile-title {
+  font-size: 15px;
+  margin-bottom: 5px;
+  font-weight: 900;
+}
+
+.profile-user {
+  color: #BBBFC4;
+  font-size: 13px;
+  font-weight: 400px;
+  font-weight: lighter;
+}
+
+.status-dot {
+  color: rgb(143, 229, 143);
+  font-size: 10px;
+  margin-bottom: 1px;
+}

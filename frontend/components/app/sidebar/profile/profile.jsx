@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { openModal } from "../../../actions/modal_actions";
+import { openModal } from "../../../../actions/modal_actions";
 
 
 const Profile = () => {
@@ -12,18 +12,15 @@ const Profile = () => {
   const dispatch = useDispatch()
 
   return (
-    <div
-      className="profile"
-      onClick={() => dispatch(openModal("profile-dropdown"))}
-    >
-      <h2>
-        Super SlackBoy
-        <FontAwesomeIcon className="chevron-down" icon="chevron-down" />
-      </h2>
-      <p>
+    <div className="profile" onClick={() => dispatch(openModal("profile-dropdown"))}>
+      <div className="profile-title">
+        Super SlackBoy&nbsp;&nbsp;
+        <FontAwesomeIcon style={{fontSize: "9px", marginBottom: "2px"}} className="chevron-down" icon="chevron-down" />
+      </div>
+      <div className="profile-user">
         <FontAwesomeIcon className="status-dot" icon="circle" />{" "}
         {currentUserName}
-      </p>
+      </div>
     </div>
   );
 }

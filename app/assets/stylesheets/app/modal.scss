@@ -53,26 +53,6 @@
   font-weight: 400;
 }
 
-.profile-dropdown {
-  position: absolute;
-  cursor: default;
-  box-sizing: border-box;
-  padding: 12px 0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  width: 300px;
-  background-color: white;
-  top: 98px;
-  left: 16px;
-  z-index: 10;
-  color: black;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none;
-  box-shadow: 0 0 0 0px,0 4px 12px 0 rgba(0,0,0,.12);
-}
-
 .profile-divider {
   margin-top: 10px;
   border-bottom: 1px solid rgba(221,221,221,1);

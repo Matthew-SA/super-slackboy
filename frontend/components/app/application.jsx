@@ -77,8 +77,8 @@ function Application() {
     <div className={applyAppClass()}>
       <Modal />
       <TopNav />
-      <Profile />
-      <ViewHeader />
+      {/* <Profile /> */}
+      {/* <ViewHeader /> */}
       <Sidebar />
       <Main />
       {buildRightbarHeader()}
