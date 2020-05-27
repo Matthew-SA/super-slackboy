@@ -20,9 +20,7 @@ function Application() {
     dispatch(requestUi())
     dispatch(requestMemberships())
 
-    console.log(App.room)
     console.log(!!App.room)
-    // console.log(App.room.consumer.subscriptions.subscriptions)
 
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },
@@ -30,7 +28,6 @@ function Application() {
         received: data => {
           switch (data.type) {
             case "message":
-              console.log(App.cable)
               const message = {
                 author: data.author,
                 body: data.body,
@@ -54,7 +51,6 @@ function Application() {
     );
     return () => {
       App.cable.disconnect();
-      console.log(App)
     }
 
   }, []);
