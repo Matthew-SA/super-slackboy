@@ -27,6 +27,7 @@ function Application() {
       dispatch(requestChannel(focus))
     }
 
+    console.log(!!App.room)
 
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },
