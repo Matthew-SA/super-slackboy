@@ -1,5 +1,8 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
+import { useParams } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
+import { requestChannel } from '../../../../../actions/channel_actions'
+import { requestMessages } from '../../../../../actions/message_actions'
 
 import "moment-timezone"
 import LargeChatItem from "./large_chat_item"
@@ -7,40 +10,40 @@ import SmallChatItem from "./small_chat_item"
 
 
 function ChatWindow(){
+  const dispatch = useDispatch();
   const bottom = useRef();
-  const focus = useSelector(state => state.session.focus);
+  const { id } = useParams();
+  const channel = useSelector(state => state.entities.channels[id])
   const messages = useSelector(state => state.entities.messages);
+  const msgIds = channel ? channel.messageIds : [];
+
+  // useEffect(() => {
+  //   dispatch(requestChannel(id))
+  // },[id])
+
 
   useLayoutEffect(() => {
     if (messages) bottom.current.scrollIntoView();
   });
 
-  const buildMessageList = () => {
-    let messagesArray = Object.values(messages)
-    let lastAuthorId = null;
-
-    const messageList = messagesArray.map((message, idx) => {
-      if (message.channel_id == focus) {
-        if (lastAuthorId === message.author.id) {
-          lastAuthorId = message.author.id
-          return (
-            <SmallChatItem message={message} key={idx} />
-          );
-        } else {
-          lastAuthorId = message.author.id
-          return (
-            <LargeChatItem message={message} key={idx} />
-          );
-        }
+  const buildList = () => {
+    const messageList = msgIds.map((id, i) => {
+      let thisMsg = messages[id];
+      let lastMsg = messages[msgIds[i - 1]]
+      if (i === 0 || lastMsg.user_id !== thisMsg.user_id) {
+        return <LargeChatItem message={thisMsg} key={i} />
+      } else {
+        return <SmallChatItem message={thisMsg} key={i} />
       }
-    });
+    })
     return messageList
-  }
+  };
+
 
   return (
     <div className="chat-window">
       <div className="chat-log">
-        {buildMessageList()}
+        {buildList()}
         <div ref={bottom} />    
       </div>
     </div>

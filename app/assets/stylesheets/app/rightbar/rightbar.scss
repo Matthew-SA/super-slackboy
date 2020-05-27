@@ -1,4 +1,4 @@
-.rightbar {
+.rightbar-container {
   grid-area: rightbar;
   border-left: 1px solid #E2E2E2;
 }
@@ -10,6 +10,11 @@
   align-items: center;
   padding: 0 50px;
   justify-content: space-around;
+  user-select: none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  -ms-user-select:none;
 }
 
 .rightbar-item {

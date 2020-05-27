@@ -9,6 +9,11 @@
   width: 36px;
   padding-right: 8px;
   border-radius: 3px;
+  user-select: none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  -ms-user-select:none;
 }
 
 .chat {
@@ -66,4 +71,10 @@
   display: none;
   line-height: 1.46668;
   font-size: 12px;
-  color: grey;}
+  color: grey;
+  user-select: none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  -ms-user-select:none;
+}

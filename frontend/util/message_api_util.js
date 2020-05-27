@@ -1,8 +1,8 @@
-export const fetchMessages = (type) => (
+export const fetchMessages = (channelId) => (
   $.ajax({
     url: `/api/messages`,
     method: `GET`,
-    data: { type }
+    data: { channelId }
   })
 )
 

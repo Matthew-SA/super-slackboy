@@ -1,17 +1,19 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { requestChannel } from '../../../../actions/channel_actions';
+import { Link } from 'react-router-dom';
 
 const ChannelBrowserItem = ({ channel }) => {
-  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    // App.room.startListening({ room: channel.id });
+  }
 
   return(
-    <li className="channel-browser-item" key={channel.id} onClick={() => dispatch(requestChannel(channel.id))}>
+    <Link to={`/app/channels/${channel.id}`} className="channel-browser-item" onClick={() => handleClick()}>
       <div className="channel-browser-item-body">
         <div style={{ fontWeight: "700" }}># {channel.name}</div>
         <div style={{ fontWeight: "400", fontSize: "13px", color: "#616061" }}>{channel.description} </div>
       </div>
-    </li>
+    </Link>
   )
 
 }
