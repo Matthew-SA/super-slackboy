@@ -23,7 +23,7 @@ function Application() {
     console.log(App.room)
     console.log(!!App.room)
     // console.log(App.room.consumer.subscriptions.subscriptions)
-    App.room = null;
+
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },
       {
@@ -69,7 +69,7 @@ function Application() {
       <TopNav />
       <Sidebar />
       <Main />
-      {buildRightbar()}
+      {/* {buildRightbar()} */}
     </div>
   )
 };
