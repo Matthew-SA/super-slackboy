@@ -5,23 +5,20 @@ import Sidebar from './sidebar/sidebar';
 import Main from './main/main';
 import Modal from './modal/modal';
 import Rightbar from './rightbar/rightbar';
-// import RightbarHeader from './rightbar_header/rightbar_header';
 
 import { requestUi } from '../../actions/ui_actions';
 import { requestMemberships } from '../../actions/membership_actions';
 import { incomingMessage } from '../../actions/message_actions';
-import { requestChannel } from '../../actions/channel_actions';
 
 function Application() {
   const dispatch = useDispatch();
   const rightbar = useSelector(state => state.ui.persistentUi.rightbar);
-
+  
   useEffect(() => {
     dispatch(requestUi())
     dispatch(requestMemberships())
-
-    console.log(!!App.room)
-
+    
+    if (App.room) App.cable.subscriptions.remove(App.room)
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },
       {
@@ -46,9 +43,11 @@ function Application() {
           }
         },
         speak: function (data) { return this.perform("speak", data) },
-        startListening: function (data) { return this.perform("start_listening", data) },
+        startListening: function (data) { return this.perform("start_listening", data)},
+        stopListening: function (data) { return this.perform("stop_listening", data) },
       }
     );
+
     return () => {
       App.cable.disconnect();
     }
@@ -56,7 +55,7 @@ function Application() {
   }, []);
 
   const buildRightbar = () => {
-    if (rightbar) return <Rightbar />
+    if (rightbar) return <Rightbar option={5}/>
   }
 
   return (
@@ -65,7 +64,7 @@ function Application() {
       <TopNav />
       <Sidebar />
       <Main />
-      {/* {buildRightbar()} */}
+      {buildRightbar()}
     </div>
   )
 };

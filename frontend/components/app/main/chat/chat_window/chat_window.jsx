@@ -2,9 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { useParams } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { requestChannel } from '../../../../../actions/channel_actions'
-import { requestMessages } from '../../../../../actions/message_actions'
 
-import "moment-timezone"
 import LargeChatItem from "./large_chat_item"
 import SmallChatItem from "./small_chat_item"
 
@@ -17,10 +15,10 @@ function ChatWindow(){
   const messages = useSelector(state => state.entities.messages);
   const msgIds = channel ? channel.messageIds : [];
 
-  // useEffect(() => {
-  //   dispatch(requestChannel(id))
-  // },[id])
-
+  useEffect(() => {
+    dispatch(requestChannel(id))
+    if (channel) console.log(channel.last_read)
+  },[id])
 
   useLayoutEffect(() => {
     if (messages) bottom.current.scrollIntoView();

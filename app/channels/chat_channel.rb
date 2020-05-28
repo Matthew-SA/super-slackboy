@@ -6,29 +6,31 @@ class ChatChannel < ApplicationCable::Channel
       stream_for channel
     end
     stream_from "current_user_#{current_user.id}"
-    # stream_for current_user
+    stream_for current_user
   end
 
   def start_listening(data)
-    @membership = Membership.find_by(user_id: current_user.id, channel_id: data['room'])
-    if @membership
-      return
-    end
-    
     @channel = Channel.find(data['room'])
-    if !@channel.direct_message
+    if @channel && !@channel.direct_message
       stream_for @channel
+    end
+  end
+
+  def stop_listening(data)
+    @channel = Channel.find(data['room'])
+    if @channel
+      stop_stream_for @channel
     end
   end
 
   def speak(data)
     return false if data['message'].length <= 0
-    @channel = Channel.find(data['channelId'])
-    if !@channel.direct_message
+    @membership = Membership.find_by(user_id: current_user.id, channel_id: data['room'])
+    if @membership
       Message.create!(
         body: data['message'], 
         user_id: current_user.id, 
-        channel_id: data['channelId']
+        channel_id: data['room']
       )
     end
   end

@@ -9,7 +9,7 @@ function ChatForm() {
   const handleSubmit = (e) => {
     if (e.keyCode == 13) {
       e.preventDefault();
-      App.room.speak({ message: messageBody, channelId: id });
+      App.room.speak({ message: messageBody, room: id });
       setMessageBody('');
     }
   }

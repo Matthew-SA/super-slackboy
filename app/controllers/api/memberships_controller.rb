@@ -1,4 +1,5 @@
 class Api::MembershipsController < ApplicationController
+
   def index # √ Get Memberships and connected channels on initial load
     user = current_user
     @memberships = user.memberships

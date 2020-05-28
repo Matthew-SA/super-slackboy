@@ -7,10 +7,10 @@ import { Route } from 'react-router-dom'
 function Rightbar() {
 
   return(
-      <div className="rightbar-container">
-        <Route path='/app/channels/:id' component={RightbarHeader}/>
-        <Route path='/app/channels/:id'component={RightbarMain}/>
-      </div>
+    <div className="rightbar-container">
+      <Route path='/app/channels/:id' component={RightbarHeader}/>
+      <Route path='/app/channels/:id'component={RightbarMain}/>
+    </div>
   )
 }
 

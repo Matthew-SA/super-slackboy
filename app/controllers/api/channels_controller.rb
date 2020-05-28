@@ -6,8 +6,9 @@ class Api::ChannelsController < ApplicationController
 
   def show # √√ view a channel and its connected messages.
     @channel = Channel.find(params[:id])
-    if @channel.direct_message
-      if Membership.find_by(user_id: current_user.id, channel_id: params[:channelId])
+    @membership = Membership.find_by(user_id: current_user.id, channel_id: params[:id])
+    if @channel.direct_message 
+      if @membership
         @messages = @channel.messages.includes(:user)
       end
     else

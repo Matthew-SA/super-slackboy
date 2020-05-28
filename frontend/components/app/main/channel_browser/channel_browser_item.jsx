@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ChannelBrowserItem = ({ channel }) => {
 
   const handleClick = () => {
-    // App.room.startListening({ room: channel.id });
+    
   }
 
   return(
