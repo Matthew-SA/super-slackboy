@@ -5,6 +5,7 @@
   line-height: 28px;
   padding: 0 16px;
   box-sizing: border-box;
+  font-weight: 300;
   &:visited { text-decoration: none; color: silver}
   &:hover { text-decoration: none; color: silver; background-color: #4C5663;}
   &:focus { text-decoration: none; color: silver}
@@ -13,6 +14,7 @@
 }
 
 .sidebar-selected {
+  font-weight: 300;
   &:visited { text-decoration: none; color: white}
   &:hover { text-decoration: none; color: white; background-color: #7098C4;}
   &:focus { text-decoration: none; color: white}

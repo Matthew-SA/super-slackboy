@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { updateUi } from '../../../actions/ui_actions'
-import { openModal } from '../../../actions/modal_actions'
+import { updateUi } from '../../../../actions/ui_actions'
+import { openModal } from '../../../../actions/modal_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SidebarItem from './sidebar_item'
 

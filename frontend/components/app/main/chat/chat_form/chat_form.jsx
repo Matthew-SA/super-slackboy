@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router'
+
 
 function ChatForm() {
   const [messageBody, setMessageBody] = useState('')
+  const { id } = useParams();
 
   const handleSubmit = (e) => {
     if (e.keyCode == 13) {
       e.preventDefault();
-      App.room.speak({ message: messageBody });
+      App.room.speak({ message: messageBody, room: id });
       setMessageBody('');
     }
   }

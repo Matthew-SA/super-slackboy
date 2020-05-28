@@ -1,0 +1,26 @@
+.profile-dropdown-container {
+  position: absolute;
+  cursor: default;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 300px;
+  background-color: white;
+  top: 98px;
+  left: 16px;
+  z-index: 10;
+  color: black;
+  padding-bottom: 12px;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none;
+  box-shadow: 0 0 0 0px,0 4px 12px 0 rgba(0,0,0,.12);
+}
+
+.profile-dropdown-header {
+  height: 68px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 20px 16px 24px;
+}

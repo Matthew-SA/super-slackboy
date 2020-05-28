@@ -4,21 +4,19 @@ export const RECEIVE_MEMBERSHIPS = "RECEIVE_MEMBERSHIPS";
 export const RECEIVE_MEMBERSHIP = "RECEIVE_MEMBERSHIP";
 export const REMOVE_MEMBERSHIP = "REMOVE_MEMBERSHIP"
 
-const receiveMemberships = ({ memberships, channels, current_membership }) => ({
+const receiveMemberships = ({ memberships, channels }) => ({
   type: RECEIVE_MEMBERSHIPS,
   memberships,
   channels,
-  current_membership,
 });
 
-const receiveMembership = ({ membership, current_membership }) => ({
+const receiveMembership = (membership) => ({
   type: RECEIVE_MEMBERSHIP,
   membership,
-  current_membership,
 });
 
 const removeMembership = (membership) => ({
-  type: RECEIVE_MEMBERSHIP,
+  type: REMOVE_MEMBERSHIP,
   membership,
 });
 
@@ -35,7 +33,6 @@ export const requestMembership = (membershipId) => (dispatch) =>
 
 export const createMembership = (channelId) => (dispatch) =>
   MembershipAPIUtil.createMembership(channelId).then((membership) => {
-    App.room.startListening({room: membership.channel_id})
     dispatch(receiveMembership(membership))
   });
 
@@ -44,8 +41,7 @@ export const updateMembership = (membershipId) => (dispatch) =>
     dispatch(receiveMembership(membership))
   );
 
-export const destroyMembership = (channelId) => (dispatch) =>
-  MembershipAPIUtil.destroyMembership(channelId).then((membership) => {
-    // App.room.stopListening({ room: membership.channel_id });
+export const destroyMembership = (membershipId) => (dispatch) =>
+  MembershipAPIUtil.destroyMembership(membershipId).then((membership) => {
     dispatch(removeMembership(membership))
   });

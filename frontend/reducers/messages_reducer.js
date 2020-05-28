@@ -13,8 +13,6 @@ const messagesReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_CHANNEL:
       return Object.assign({}, oldState, action.messages)
-    case RECEIVE_MEMBERSHIP:
-      return Object.assign({}, oldState, action.messages)
     case RECEIVE_MESSAGE:
       nextState[action.message.id] = action.message;
       return nextState

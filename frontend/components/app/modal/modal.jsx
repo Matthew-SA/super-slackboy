@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModal } from '../../../actions/modal_actions';
 
-import ProfileDropdown from '../profile/profile_dropdown'
+import ProfileDropdown from '../sidebar/profile/profile_dropdown'
 import ChannelDropdown from './channel_dropdown'
 import ChannelForm from './channel_form'
 import DirectMessageForm from './create_direct_message_form/direct_message_form'

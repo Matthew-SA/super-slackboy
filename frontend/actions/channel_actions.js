@@ -9,11 +9,10 @@ const receiveChannels = ({ channels, focus }) => ({
   focus
 })
 
-const receiveChannel = ({ channel, messages, focus }) => ({
+const receiveChannel = ({ channel, messages }) => ({
   type: RECEIVE_CHANNEL,
   channel,
   messages,
-  focus,
 })
 
 export const requestChannels = () => dispatch => (
@@ -29,7 +28,6 @@ export const requestChannel = channelId => dispatch => (
 export const createChannel = channel => dispatch => (
   ChannelAPIUtil.createChannel(channel)
     .then(payload => { 
-      App.room.startListening({room: payload.channel.id});
       dispatch(receiveChannel(payload))
     })
 )

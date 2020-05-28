@@ -1,6 +1,17 @@
 .button-container {
   text-align: center;
   font-size: 13px;
+  color: rgba(29, 28, 29, 0.7);
+  &:visited { text-decoration: none; color: rgba(29, 28, 29, 0.7)}
+  &:hover { text-decoration: none; color: rgba(29, 28, 29, 0.7); cursor: pointer}
+  &:focus { text-decoration: none; color: rgba(29, 28, 29, 0.7)}
+  &:active { text-decoration: none; color: rgba(29, 28, 29, 0.7)}
+  div {
+    &:hover {
+      background-color: #E2E2E2;
+      cursor: pointer;
+    }
+  }
 }
 
 .circle-plus {
@@ -13,11 +24,11 @@
   border-radius: 25px;
   color: rgba(29, 28, 29, 0.7);
   background-color: #F7F7F7;
-  &:hover {
-    color: black;
-    cursor: pointer;
-    background-color: #E2E2E2;
-  }
+  // &:hover {
+  //   // color: black;
+  //   cursor: pointer;
+  //   background-color: #E2E2E2;
+  // }
 }
 
 .circle-x {

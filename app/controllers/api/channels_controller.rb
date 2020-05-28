@@ -1,14 +1,19 @@
 class Api::ChannelsController < ApplicationController
-  def index # view all public channels (for channel browser)
+  def index # √√ view all public channels (for channel browser)
     @channels = Channel.where(direct_message: false)
-    @focus = 'channel_browser'
-    current_user.update(focus: @focus)
     render :index
   end
 
-  def show # view a channel and its connected messages.
+  def show # √√ view a channel and its connected messages.
     @channel = Channel.find(params[:id])
-    current_user.update(focus: params[:id])
+    @membership = Membership.find_by(user_id: current_user.id, channel_id: params[:id])
+    if @channel.direct_message 
+      if @membership
+        @messages = @channel.messages.includes(:user)
+      end
+    else
+      @messages = @channel.messages.includes(:user)
+    end
     render :show
   end
 
@@ -23,8 +28,7 @@ class Api::ChannelsController < ApplicationController
         channel_id: @channel.id, 
         last_read: @timestamp
       )
-      @focus = @channel.id.to_s
-      current_user.update(focus: @focus)
+
       render :show
     end
   end
@@ -32,7 +36,6 @@ class Api::ChannelsController < ApplicationController
   def destroy
     @membership = Membership.find_by(user_id: current_user.id, channel_id: params[:id])
     @Channel = Channel.find(params[:id])
-    @focus = current_user.memberships.last.channel_id
   end
 
   private

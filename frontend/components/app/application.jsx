@@ -1,34 +1,24 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TopNav from './topnav/topnav';
-import ViewHeader from './view_header/viewheader';
-import Profile from './profile/profile';
 import Sidebar from './sidebar/sidebar';
 import Main from './main/main';
 import Modal from './modal/modal';
 import Rightbar from './rightbar/rightbar';
-import RightbarHeader from './rightbar_header/rightbar_header';
 
 import { requestUi } from '../../actions/ui_actions';
 import { requestMemberships } from '../../actions/membership_actions';
 import { incomingMessage } from '../../actions/message_actions';
-import { requestChannel } from '../../actions/channel_actions';
 
 function Application() {
   const dispatch = useDispatch();
-  const focus = useSelector(state => state.session.focus);
-
   const rightbar = useSelector(state => state.ui.persistentUi.rightbar);
-
+  
   useEffect(() => {
     dispatch(requestUi())
     dispatch(requestMemberships())
-    if (!isNaN(focus)) {
-      dispatch(requestChannel(focus))
-    }
-
-    console.log(!!App.room)
-
+    
+    if (App.room) App.cable.subscriptions.remove(App.room)
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel" },
       {
@@ -40,6 +30,7 @@ function Application() {
                 body: data.body,
                 id: data.id,
                 time: data.time,
+                user_id: data.user_id,
                 channel_id: data.channel_id,
               };
               dispatch(incomingMessage(message))
@@ -52,7 +43,8 @@ function Application() {
           }
         },
         speak: function (data) { return this.perform("speak", data) },
-        startListening: function (data) { return this.perform("start_listening", data) },
+        startListening: function (data) { return this.perform("start_listening", data)},
+        stopListening: function (data) { return this.perform("stop_listening", data) },
       }
     );
 
@@ -62,27 +54,16 @@ function Application() {
 
   }, []);
 
-  const isRightbar = () => rightbar && !isNaN(focus)
-
-  const applyAppClass = () => isRightbar() ? "app2" : "app"
-  
-  const buildRightbarHeader = () => {
-    if (isRightbar()) return <RightbarHeader />
-  }
-
   const buildRightbar = () => {
-    if (isRightbar()) return <Rightbar />
+    if (rightbar) return <Rightbar option={5}/>
   }
 
   return (
-    <div className={applyAppClass()}>
+    <div className={rightbar ? "app2" : "app"}>
       <Modal />
       <TopNav />
-      <Profile />
-      <ViewHeader />
       <Sidebar />
       <Main />
-      {buildRightbarHeader()}
       {buildRightbar()}
     </div>
   )

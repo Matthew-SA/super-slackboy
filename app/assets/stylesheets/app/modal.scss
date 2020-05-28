@@ -13,6 +13,7 @@
 }
 
 .dropdown-menu-item {
+  display: block;
   font-size: 15px;
   padding: 0px 24px;
   height: 28px;
@@ -23,6 +24,10 @@
     color: white;
     cursor: pointer;
   }
+  &:visited { text-decoration: none; color: black}
+  &:hover { text-decoration: none; color: white; background-color: #2C649E;}
+  &:focus { text-decoration: none; color: black}
+  &:active { text-decoration: none; color: white}
 }
 
 .channel-dropdown {
@@ -51,26 +56,6 @@
   height: 28px;
   line-height: 28px;
   font-weight: 400;
-}
-
-.profile-dropdown {
-  position: absolute;
-  cursor: default;
-  box-sizing: border-box;
-  padding: 12px 0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  width: 300px;
-  background-color: white;
-  top: 98px;
-  left: 16px;
-  z-index: 10;
-  color: black;
-  -webkit-user-select: none; /* Safari */        
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none;
-  box-shadow: 0 0 0 0px,0 4px 12px 0 rgba(0,0,0,.12);
 }
 
 .profile-divider {

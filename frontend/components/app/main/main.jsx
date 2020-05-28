@@ -1,27 +1,19 @@
 import React from 'react'
-import Chat from './chat/chat'
 import ChannelBrowser from './channel_browser/channel_browser'
-import { useSelector } from 'react-redux'
+import Chat from './chat/chat'
+import { Switch, Route } from 'react-router-dom'
 
 
 function main() {
-  const focus = useSelector(state => state.session.focus)
 
-  switch (focus) {
-    case 'channel_browser':
-      return(
-        <div className='main-container'>
-          <ChannelBrowser />
-        </div>
-      )
-    
-    default:
-      return (
-        <div className='main-container'>
-          <Chat />
-        </div>
-      )
-  }
+  return(
+    <div className="main-container">
+      <Switch>
+        <Route exact path='/app/channel-browser' component={ChannelBrowser}/>
+        <Route exact path='/app/channels/:id' component={Chat}/>
+      </Switch>
+    </div>
+  )
 }
 
 export default main

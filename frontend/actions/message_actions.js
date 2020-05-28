@@ -1,22 +1,22 @@
 import * as MessageAPIUtil from '../util/message_api_util'
 
-// export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
+export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 // export const REMOVE_MESSAGE = 'REMOVE_MESSAGE';
 
-// const receiveMessages = messages => ({
-//   type: RECEIVE_MESSAGES,
-//   messages
-// })
+const receiveMessages = messages => ({
+  type: RECEIVE_MESSAGES,
+  messages
+})
 
 const receiveMessage = message => ({
   type: RECEIVE_MESSAGE,
   message
 })
 
-// export const requestMessages = (type) => dispatch => (
-//   MessageAPIUtil.fetchMessages(type).then(messages => dispatch(receiveMessages(messages)))
-// )
+export const requestMessages = (channelId) => dispatch => (
+  MessageAPIUtil.fetchMessages(channelId).then(messages => dispatch(receiveMessages(messages)))
+)
 
 // export const requestMessage = messageId => dispatch => (
 //   MessageAPIUtil.fetchMessage(messageId).then(message => dispatch(receiveMessage(message)))

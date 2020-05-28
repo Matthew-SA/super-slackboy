@@ -14,20 +14,7 @@ const sessionReducer = (state = _nullUser, action) => {
   let nextState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      const { id, focus, current_membership } = action.currentUser
-      return { id: id, focus: focus, currentMembership: current_membership };
-    case RECEIVE_CHANNELS:
-      nextState.focus = action.focus
-      return nextState;
-    case RECEIVE_MEMBERSHIPS:
-      nextState.currentMembership = action.current_membership;
-      return nextState;
-    case RECEIVE_MEMBERSHIP:
-      nextState.currentMembership = action.current_membership
-      return nextState;
-    case RECEIVE_CHANNEL:
-      nextState.focus = action.focus
-      return nextState;
+      return { id: action.currentUser.id };
     case LOGOUT_CURRENT_USER:
       return _nullUser;
     default:
