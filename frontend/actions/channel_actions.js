@@ -9,8 +9,9 @@ const receiveChannels = ({ channels, focus }) => ({
   focus
 })
 
-const receiveChannel = ({ channel, messages }) => ({
+const receiveChannel = ({ membership, channel, messages }) => ({
   type: RECEIVE_CHANNEL,
+  membership,
   channel,
   messages,
 })

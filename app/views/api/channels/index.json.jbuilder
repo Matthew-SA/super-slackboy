@@ -8,4 +8,5 @@ json.channels do
   end
 end
 
-json.focus @focus
+
+# Should be careful with reducer - could overwrite last_read and mem_id of user's chans

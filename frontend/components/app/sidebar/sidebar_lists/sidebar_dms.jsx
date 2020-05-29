@@ -7,14 +7,12 @@ import SidebarItem from './sidebar_item'
 
 
 
-function SidebarDMs() {
+function SidebarDMs({ alphaDMs }) {
   const dispatch = useDispatch();
   const showDMs = useSelector(state => state.ui.persistentUi.show_direct_messages)
-  const memberships = useSelector(state => Object.values(state.entities.memberships))
-  const channels = useSelector(state => state.entities.channels)
 
-  const userChannels = memberships.map((membership, i) => {
-    return <SidebarItem membership={membership} channel={channels[membership.channel_id]} key={i}/> 
+  const userDMs = alphaDMs.map((DM, i) => {
+    return <SidebarItem DM={DM} key={i}/> 
   })
 
   return (
@@ -27,7 +25,7 @@ function SidebarDMs() {
           <FontAwesomeIcon icon="plus" />
         </div>
       </div>
-      {showDMs ? userChannels : ""}
+      {showDMs ? userDMs : null}
     </div>
   )
 }

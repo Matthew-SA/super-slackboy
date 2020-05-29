@@ -10,18 +10,18 @@ function LeaveChannelButton() {
   const channel = useSelector(state => state.entities.channels[parseInt(id)])
 
   const handleClick = () => {
+    if (!channel.membership_id) alert("Cannot leave a channel you have not joined")
     id === "1" ? alert("Membership is required in General.") : dispatch(destroyMembership(channel.membership_id))
   }
 
-    return (
-      <Link to='/app/channels/1' className="button-container" onClick={() => handleClick()}>
-        <div className="circle-plus">
-          <FontAwesomeIcon style={{ fontSize: "18px" }} icon="minus" />
-        </div>
-        Leave
-      </Link>
-    )
-
+  return (
+    <Link to='/app/channels/1' className="button-container" onClick={() => handleClick()}>
+      <div className="circle-plus">
+        <FontAwesomeIcon style={{ fontSize: "18px" }} icon="minus" />
+      </div>
+      Leave
+    </Link>
+  )
 }
 
 export default LeaveChannelButton;

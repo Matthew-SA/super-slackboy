@@ -7,14 +7,12 @@ import SidebarItem from './sidebar_item'
 
 
 
-function SidebarChannels() {
+function SidebarChannels({ alphaChannels }) {
   const dispatch = useDispatch();
   const showChannels = useSelector(state => state.ui.persistentUi.show_channels)
-  const memberships = useSelector(state => Object.values(state.entities.memberships))
-  const channels = useSelector(state => state.entities.channels)
 
-  const userChannels = memberships.map((membership, i) => {
-    return <SidebarItem membership={membership} channel={channels[membership.channel_id]} key={i}/> 
+  const userChannels = alphaChannels.map((userChannel, i) => {
+    return <SidebarItem userChannel={userChannel} key={i}/> 
   })
 
   return (
@@ -27,7 +25,7 @@ function SidebarChannels() {
           <FontAwesomeIcon icon="plus" />
         </div>
       </div>
-      {showChannels ? userChannels : ""}
+      {showChannels ? userChannels : null}
     </div>
   )
 }

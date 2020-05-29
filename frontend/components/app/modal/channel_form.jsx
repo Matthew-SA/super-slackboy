@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { createChannel } from '../../../actions/channel_actions'
 import { closeModal } from '../../../actions/modal_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Redirect } from 'react-router-dom';
 
 
 function ChannelForm() {

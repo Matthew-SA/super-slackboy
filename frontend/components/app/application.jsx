@@ -54,9 +54,9 @@ function Application() {
 
   }, []);
 
-  const buildRightbar = () => {
-    if (rightbar) return <Rightbar option={5}/>
-  }
+  // if (rightbar === undefined) {
+  //   return null;
+  // }
 
   return (
     <div className={rightbar ? "app2" : "app"}>
@@ -64,7 +64,7 @@ function Application() {
       <TopNav />
       <Sidebar />
       <Main />
-      {buildRightbar()}
+      {rightbar ? <Rightbar/> : null}
     </div>
   )
 };

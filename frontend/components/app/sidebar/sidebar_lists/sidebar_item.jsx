@@ -2,11 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom'
 
 
-function SidebarItem({ membership, channel }) {
+function SidebarItem({ userChannel }) {
 
   return (
-    <NavLink to={`/app/channels/${channel.id}`} className="sidebar-item" activeClassName="sidebar-selected">
-      # {channel.name}
+    <NavLink to={`/app/channels/${userChannel.id}`} className="sidebar-item" activeClassName="sidebar-selected">
+      # {userChannel.name}
     </NavLink>
   )
 }

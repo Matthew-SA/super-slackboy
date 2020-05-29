@@ -15,10 +15,9 @@ function ChatWindow(){
   const messages = useSelector(state => state.entities.messages);
   const msgIds = channel ? channel.messageIds : [];
 
-  useEffect(() => {
-    dispatch(requestChannel(id))
-    if (channel) console.log(channel.last_read)
-  },[id])
+  // useEffect(() => {
+  //   dispatch(requestChannel(id))
+  // },[id])
 
   useLayoutEffect(() => {
     if (messages) bottom.current.scrollIntoView();
