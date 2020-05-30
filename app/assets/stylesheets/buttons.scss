@@ -115,3 +115,19 @@
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);
   }
 }
+
+.chat-toolbar-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 26px;
+  width: 26px;
+  font-weight: 100;
+  border-radius: 4px;
+  color: rgba(29, 28, 29, 0.7);
+  &:hover {
+    color: black;
+    cursor: pointer;
+    background-color: #F7F7F7;
+  }
+}

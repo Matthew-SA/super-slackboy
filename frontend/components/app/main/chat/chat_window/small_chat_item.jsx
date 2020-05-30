@@ -1,5 +1,6 @@
 import React from 'react'
 import Moment from 'react-moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const SmallChatItem = ({message}) => (
@@ -9,6 +10,14 @@ const SmallChatItem = ({message}) => (
     </div>
     <div className="chat-content">
       {message.body}
+    </div>
+    <div className="chat-item-toolbar">
+      <div className="chat-toolbar-button">
+        <div style={{ fontSize: "10px" }} icon="times">E</div>
+      </div>
+      <div className="chat-toolbar-button">
+        <FontAwesomeIcon style={{ fontSize: "10px" }} icon="times" />
+      </div>
     </div>
   </li>
 )

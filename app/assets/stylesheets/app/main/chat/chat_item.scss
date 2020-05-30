@@ -1,7 +1,11 @@
 .chat-item {
+  position: relative;
   display: flex;
   padding: 6px 20px;
   min-height: 22px;
+  &:hover .chat-item-toolbar {
+    display: flex;
+  }
 }
 
 .chat-avatar {
@@ -77,4 +81,23 @@
   -webkit-user-select:none;
   -webkit-touch-callout:none;
   -ms-user-select:none;
+}
+
+.chat-item-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: absolute;
+  top: -26px;
+  right: 17px;
+  min-width: 32px;
+  height: 32px;
+  padding: 2px;
+  z-index:1;
+  border-radius: 4px;
+  display: none;
+  box-shadow: 0 0 0 0px,0 4px 12px 0 rgba(0,0,0,.12);
+  border: 1px solid #ddd;
+  box-sizing: border-box;
 }
