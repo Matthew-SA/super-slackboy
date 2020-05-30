@@ -20,8 +20,6 @@ function ChatForm() {
     }
   }
 
-  if (!memberships || rightbar === undefined) return null;
-
   if (memberships[id]) {
     return (
       <div className="chat-form-container" >
@@ -36,10 +34,11 @@ function ChatForm() {
       </div>
     )
   } else {
+    if (!channel) return null;
     return (
       <div className="cover-container">
         <div className="cover-preview-title">
-          You are previewing <text style={{fontWeight: "900"}}># {channel.name}</text> 
+          You are previewing <div style={{fontWeight: "900"}}># {channel.name}</div> 
         </div>
         <div className="preview-metadata">
   
