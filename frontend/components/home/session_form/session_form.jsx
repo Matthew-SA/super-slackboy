@@ -47,8 +47,8 @@ class SessionForm extends React.Component {
 
 
   render() {
-    let formTitle = this.props.formType === "Sign in" ? "Sign in to Super Slackboy" : "Sign up for Super Slackboy"
-    let demobutton = this.props.formType === "Sign in" ? <button className="demo-button" onClick={this.demoLogin}>Demo login</button> : ""
+    let formTitle = this.props.formType === "Log in" ? "Log in to Super Slackboy" : "Sign up for Super Slackboy"
+    let demobutton = this.props.formType === "Log in" ? <button className="purple-button" style={{ width: "80%", height: "44px", fontSize: "18px" }} onClick={this.demoLogin}>Login as Guest</button> : ""
 
     return (
       <div className="login-body">
@@ -65,7 +65,6 @@ class SessionForm extends React.Component {
                   className="login-input"
                   placeholder="you@example.com"
                 />
-              <br />
                 <input type="password"
                   value={this.state.password}
                   onChange={this.update('password')}
@@ -73,7 +72,7 @@ class SessionForm extends React.Component {
                   placeholder="password"
                 />
               <br />
-              <button className="session-submit" type="submit" value={this.props.formType}>
+              <button className="green-button" type="submit" style={{ width: "80%", height: "44px", fontSize: "18px", marginBottom: "10px" }} value={this.props.formType}>
                 <span>{this.props.formType}</span>
               </button>
             {demobutton}

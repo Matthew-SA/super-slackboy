@@ -10,6 +10,7 @@
 .chat-form-container textarea {
   height: 85px;
   width: 100%;
+  font-family: inherit;
   left: 20px;
   right: 0;
   border-radius: 4px;
@@ -19,7 +20,11 @@
   display: flex;
   flex-wrap: wrap;
   word-break: break-all;
-  padding: 10px 0px 48px 43px
+  padding: 10px 0px 48px 43px;
+  &:focus {
+    border-color: rgba(97,96,97,1);
+    transition: all 80ms linear;
+  }
 }
 
 .cover-container {

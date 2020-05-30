@@ -33,7 +33,11 @@ const Home = () => (
             <Link to="/login">Sign in</Link>
           </li>
           <li>
-            <Link to="/signup" className="purple-button">GET STARTED</Link>
+            <Link to="/signup">
+              <button className="purple-button" style={{ height: "42px" }}>
+                GET STARTED
+              </button>
+            </Link>
           </li>
         </ul>
     </header>

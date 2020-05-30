@@ -13,9 +13,12 @@ function Intro() {
           <h1>Super SlackBoy replaces email inside your company</h1>
           <p>Keep conversations organized in Super SlackBoy, the smart alternative to email.</p>
           <div className="intro-buttons">
-            <Link to="/login" className="purple-try-button">TRY DEMO</Link>
+            <Link to="/login">
+              <button className="purple-button" style={{ height: "57px", width: "155px" }}>
+                TRY DEMO
+              </button>
+            </Link>
           </div>
-            Already using Super Slackboy? <Link to="/login">Sign in</Link>
         </header>
       </div>
     </div>

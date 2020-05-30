@@ -1,8 +1,7 @@
 class ChatChannel < ApplicationCable::Channel
 
   def subscribed
-    room = params['room']
-    @channel = Channel.find(room)
+    @channel = Channel.find(params['room'])
     stream_for @channel
     # stream_for current_user
   end

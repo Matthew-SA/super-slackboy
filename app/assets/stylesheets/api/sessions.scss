@@ -29,7 +29,6 @@
   left: 0;
   right: 0;
   text-align: center;
-  // justify-content: center;
   background-color: #fff;
   box-shadow: 0 1px 0 rgba(0,0,0,.25);
   padding: 2rem 2rem 6rem;
@@ -38,12 +37,15 @@
   margin: auto;
   line-height: 1.5rem;
   min-width: 480px;
+  max-width: 610px;
 }
 
 .login-form {
   text-align: center;
   z-index: 3;
-  // width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login-form-box {
@@ -56,11 +58,29 @@
   padding: .75rem;
   border: 1px solid #868686;
   border-radius: .25rem;
-  margin: 0 0 .5rem;
+  margin: 5px 0;
   height: auto;
   font-family: inherit;
   width: 80%;
-  // min-width: 300px;
+  outline: none;
+  &:focus {
+    border: 1px solid rgba(55,71,79 ,1);
+    transition: border 80ms ease-out,box-shadow 80ms ease-out;
+    box-shadow: 0 0 0 3px rgba(79,195,247 ,1);
+    transition-property: border, box-shadow;
+    transition-duration: 80ms, 80ms;
+    transition-timing-function: ease-out, ease-out;
+    transition-delay: 0s, 0s;
+  }
+  // &:focus {
+  //   border: 1px solid rgba(55,71,79 ,1);
+  //   transition: border 80ms ease-out,box-shadow 80ms ease-out;
+  //   box-shadow: 0 0 3px 3px rgba(79,195,247 ,1);
+  //   transition-property: border, box-shadow;
+  //   transition-duration: 80ms, 80ms;
+  //   transition-timing-function: ease-out, ease-out;
+  //   transition-delay: 0s, 0s;
+  // }
 }
 
 .extra-margin {

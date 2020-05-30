@@ -142,9 +142,7 @@
   left: 28px;
   right: 28px;
   bottom: 33px;
-  // padding-left: 28px;
-  // padding-right: 28px;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
 
 .channel-form-input {
@@ -157,6 +155,16 @@
   height: 44px;
   font-family: inherit;
   width: 100%;
+  &:focus {
+    border: 1px solid rgba(55,71,79 ,1);
+    transition: border 80ms ease-out,box-shadow 80ms ease-out;
+    box-shadow: 0 0 0 3px rgba(79,195,247 ,1);
+    transition-property: border, box-shadow;
+    transition-duration: 80ms, 80ms;
+    transition-timing-function: ease-out, ease-out;
+    transition-delay: 0s, 0s;
+    z-index: 25;
+  }
   // min-width: 300px;
 }
 
