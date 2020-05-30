@@ -9,14 +9,11 @@ class ChatChannel < ApplicationCable::Channel
 
   def speak(data)
     return false if data['message'].length <= 0
-    @membership = Membership.find_by(user_id: current_user.id, channel_id: data['room'])
-    if @membership
-      Message.create!(
-        body: data['message'], 
-        user_id: current_user.id, 
-        channel_id: data['room']
-      )
-    end
+    Message.create!(
+      body: data['message'], 
+      user_id: current_user.id, 
+      channel_id: data['room']
+    )
   end
 
   def unsubscribed
