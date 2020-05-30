@@ -45,7 +45,7 @@ function ChatForm() {
         </div>
         <div className="cover-buttons-container">
           <button className="green-button" onClick={() => dispatch(createMembership({ chanId: id }))}>Join Channel</button>
-          <div style={{width: "16px"}}></div>
+          <div style={{width: "16px", display: "inline"}}></div>
           {!rightbar ? <button className="pale-button">See More Details</button> : ""}
         </div>
       </div>
