@@ -60,4 +60,8 @@
   text-decoration: none;
   margin: auto;
   font-size: 14px;
+  &:visited { text-decoration: none; color: white}
+  &:hover { text-decoration: none; color: white; cursor: pointer}
+  &:focus { text-decoration: none; color: white}
+  &:active { text-decoration: none; color: white}
 }

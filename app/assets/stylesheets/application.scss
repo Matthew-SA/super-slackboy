@@ -42,6 +42,7 @@ body {
 }
 
 .app {
+  color: black;
   height: 100%;
   width: 100%;
   display: grid;
@@ -75,7 +76,10 @@ body {
   display: none;
 }
 
-a:visited, a:hover, a:focus, a:active { text-decoration: none; outline: 0;}
+a:visited { text-decoration: none; outline: 0; color: black;} 
+a:hover { text-decoration: none; outline: 0; color: black;} 
+a:focus { text-decoration: none; outline: 0; color: black;}
+a:active { text-decoration: none; outline: 0; color: black;}
 //see outlines
 // * { 
 //   outline: 1px solid red;

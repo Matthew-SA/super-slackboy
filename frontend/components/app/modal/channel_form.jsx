@@ -64,8 +64,11 @@ function ChannelForm() {
             what's this channel about?
           </div>
 
-          <button className="modal-submit" type="submit" value="create">
-            <span>Create</span>
+          <button 
+            className="green-button" type="submit" value="create"
+            style={{position: "absolute", bottom: "10px", right: "20px"}}
+          >
+            Create
           </button>
           {/* <div className="errors">{this.renderErrors()}</div> */}
         </form>
