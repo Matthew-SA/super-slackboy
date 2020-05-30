@@ -1,15 +1,23 @@
 @import "./channel_browser_item.scss";
 
 .channel-browser-container {
-  grid-area: main;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.channel-browser-window {
   position: absolute;
-  top: 0px;
+  top: 65px;
   right: 0px;
   left: 0px;
   bottom: 0px;
-  overflow-y: auto;
 }
 
-.channel-list-container {
-  padding: 0 20px;
+.channel-log {
+  position: absolute;
+  max-height: 100%;
+  width: 100%;
+  bottom: 0px;
+  overflow-y: auto;
 }

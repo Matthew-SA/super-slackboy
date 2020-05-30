@@ -24,8 +24,10 @@ function ChannelBrowser() {
         </div>
       </div>
 
-      <div className='channel-list-container' >
-        {channelList}
+      <div className='channel-browser-window' >
+        <div className='channel-log'>
+          {channelList}
+        </div>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
   display: flex;
   min-height: 72px;
   align-items: center;
+  margin: 0 20px;
   border-bottom: 1px solid rgba(221,221,221,1);
   &:visited { text-decoration: none; color: black}
   &:hover { text-decoration: none; color: black; background-color: #F7F7F7;}
