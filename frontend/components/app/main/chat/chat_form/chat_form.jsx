@@ -20,7 +20,7 @@ function ChatForm() {
     }
   }
 
-
+  if (!memberships || rightbar === undefined) return null;
 
   if (memberships[id]) {
     return (
@@ -36,7 +36,6 @@ function ChatForm() {
       </div>
     )
   } else {
-    if (!channel) return null;
     return (
       <div className="cover-container">
         <div className="cover-preview-title">
