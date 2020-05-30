@@ -17,7 +17,6 @@ ApplicationRecord.transaction do
   Channel.create(name: 'demo-channel-3', topic: 'much chat', description: 'demo purposes only!', last_message_posted: DateTime.now)
   Channel.create(name: 'demo-channel-4', topic: 'much chat', description: 'demo purposes only!', last_message_posted: DateTime.now)
   
-  Membership.create(user_id: 1, channel_id: 4, last_read: DateTime.now)
   Membership.create(user_id: 1, channel_id: 3, last_read: DateTime.now)
   Membership.create(user_id: 1, channel_id: 2, last_read: DateTime.now)
   Membership.create(user_id: 1, channel_id: 1, last_read: DateTime.now)

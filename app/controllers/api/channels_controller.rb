@@ -4,18 +4,18 @@ class Api::ChannelsController < ApplicationController
     render :index
   end
   
-  # def show # √√ view a channel and its connected messages.
-  #   @channel = Channel.find(params[:id])
-  #   @membership = Membership.find_by(user_id: current_user.id, channel_id: params[:id])
-  #   if @channel.direct_message 
-  #     if @membership
-  #       @messages = @channel.messages.includes(:user)
-  #     end
-  #   else
-  #     @messages = @channel.messages.includes(:user)
-  #   end
-  #   render :show
-  # end
+  def show # √√ view a channel and its connected messages.
+    @channel = Channel.find(params[:id])
+    @membership = Membership.find_by(user_id: current_user.id, channel_id: params[:id])
+    if @channel.direct_message 
+      if @membership
+        @messages = @channel.messages.includes(:user)
+      end
+    else
+      @messages = @channel.messages.includes(:user)
+    end
+    render :show
+  end
 
   # def create # create a new channel AND membership (needed for potential private channels or DMs.  Cannot have this function as part of create membership)
   #   timestamp = DateTime.now

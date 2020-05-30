@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createChannel } from '../../../actions/channel_actions'
+import { createMembership } from '../../../actions/membership_actions'
 import { closeModal } from '../../../actions/modal_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Redirect } from 'react-router-dom';
-
 
 function ChannelForm() {
   const [name, setName] = useState('');
@@ -13,7 +12,9 @@ function ChannelForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createChannel({ name, description }))
+    dispatch(createMembership({ name, description }))
+
+    dispatch(closeModal())
   }
 
   return (

@@ -21,11 +21,11 @@ export const updateMembership = (membershipId) => (
   })
 )
 
-export const createMembership = channelId => (
+export const createMembership = membership => (
   $.ajax({
     url: `/api/memberships`,
     method: `POST`,
-    data: {channelId},
+    data: { membership },
   })
 )
 

@@ -3,15 +3,13 @@ import * as ChannelAPIUtil from '../util/channel_api_util'
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 
-const receiveChannels = ({ channels, focus }) => ({
+const receiveChannels = ({ channels }) => ({
   type: RECEIVE_CHANNELS,
-  channels,
-  focus
+  channels
 })
 
-const receiveChannel = ({ membership, channel, messages }) => ({
+const receiveChannel = ({ channel, messages }) => ({
   type: RECEIVE_CHANNEL,
-  membership,
   channel,
   messages,
 })

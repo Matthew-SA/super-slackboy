@@ -63,3 +63,40 @@
   cursor: pointer;
   background-color: #CBCFD34C;
 }
+
+.green-button {
+  color: white;
+  background: #006e51;
+  height: 36px;
+  min-width: 80px;
+  box-shadow: none;
+  padding: 0 12px 1px;
+  border: 1px solid rgba(29,28,29,0.3);
+  border-radius: 4px;
+  font-weight: 900;
+  outline:none;
+  border:none;
+  &:hover {
+    background-color: #148567;
+    border-color: rgba(29,28,29,.5);
+    transition: all 80ms linear;
+    box-shadow: 0 1px 4px rgba(0,0,0,.3);
+  }
+}
+
+.pale-button {
+  background: rgba(248,248,248,1);
+  height: 36px;
+  min-width: 80px;
+  box-shadow: none;
+  padding: 0 12px 1px;
+  border: 1px solid rgba(29,28,29,0.3);
+  border-radius: 4px;
+  font-weight: 900;
+  &:hover {
+    background-color: rgba(29,28,29,.04);
+    border-color: rgba(29,28,29,.5);
+    transition: all 80ms linear;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);
+  }
+}

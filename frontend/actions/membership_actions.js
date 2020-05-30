@@ -1,5 +1,5 @@
 import * as MembershipAPIUtil from "../util/membership_api_util";
-
+import history from '../components/history'
 export const RECEIVE_MEMBERSHIPS = "RECEIVE_MEMBERSHIPS";
 export const RECEIVE_MEMBERSHIP = "RECEIVE_MEMBERSHIP";
 export const REMOVE_MEMBERSHIP = "REMOVE_MEMBERSHIP"
@@ -10,14 +10,16 @@ const receiveMemberships = ({ memberships, channels }) => ({
   channels,
 });
 
-const receiveMembership = (membership) => ({
+const receiveMembership = ({ membership, channel}) => ({
   type: RECEIVE_MEMBERSHIP,
   membership,
+  channel,
 });
 
-const removeMembership = (membership) => ({
+const removeMembership = ({ membership, channel }) => ({
   type: REMOVE_MEMBERSHIP,
   membership,
+  channel,
 });
 
 
@@ -27,13 +29,14 @@ export const requestMemberships = () => (dispatch) =>
   );
 
 export const requestMembership = (membershipId) => (dispatch) =>
-  MembershipAPIUtil.fetchMembership(membershipId).then((membership) =>
+  MembershipAPIUtil.fetchMembership(membershipId).then((membership) => 
     dispatch(receiveMembership(membership))
   );
 
-export const createMembership = (channelId) => (dispatch) =>
-  MembershipAPIUtil.createMembership(channelId).then((membership) => {
-    dispatch(receiveMembership(membership))
+export const createMembership = (membership) => (dispatch) =>
+  MembershipAPIUtil.createMembership(membership).then((payload) => {
+    dispatch(receiveMembership(payload))
+    history.push(`/app/channels/${payload.channel.id}`)
   });
 
 export const updateMembership = (membershipId) => (dispatch) =>

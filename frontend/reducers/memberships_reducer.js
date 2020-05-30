@@ -4,9 +4,6 @@ import {
   REMOVE_MEMBERSHIP
 } from '../actions/membership_actions';
 
-import { RECEIVE_CHANNEL } from '../actions/channel_actions';
-
-
 const membershipsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   const nextState = Object.assign({}, oldState);
@@ -14,14 +11,10 @@ const membershipsReducer = (oldState = {}, action) => {
     case RECEIVE_MEMBERSHIPS:
       return action.memberships;
     case RECEIVE_MEMBERSHIP:
-      nextState[action.membership.id] = action.membership;
+      nextState[action.membership.channel_id] = action.membership;
       return nextState;
     case REMOVE_MEMBERSHIP:
-
-      delete nextState[action.membership.id];
-      return nextState;
-    case RECEIVE_CHANNEL:
-      if (action.membership) nextState[action.membership.id] = action.membership
+      delete nextState[action.membership.channel_id];
       return nextState;
     default:
       return oldState;

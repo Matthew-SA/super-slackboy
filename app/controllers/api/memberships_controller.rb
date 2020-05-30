@@ -5,19 +5,34 @@ class Api::MembershipsController < ApplicationController
     render :index
   end
 
-  # def create # if channel is public, join user to channel
-  #   @channel = Channel.find(params[:channelId])
-  #   if !@channel.direct_message
-  #     @membership = Membership.create!(user_id: current_user.id, channel_id: params[:channelId], last_read: DateTime.now)
-  #     render :show
-  #   end
-  # end
+  def create
+    user = current_user
+    chanId = params[:membership][:chanId]
+    time = DateTime.now
+    if chanId
+      @membership = Membership.create!(user_id: user.id, channel_id: chanId, last_read: time)
+      @channel = Channel.find(chanId)
+      render :show
+    else
+      @channel = Channel.new(membership_params)
+      @channel.last_message_posted = time
+      if @channel.save
+        @membership = Membership.create!(user_id: user.id, channel_id: @channel.id, last_read: time)
+        render :show
+      end
+    end
+  end
 
-  # def destroy # removes connection from user to a channel
-  #   @membership = Membership.find(params[:id]).destroy
-  #   render :show
-  # end
+  def destroy # removes connection from user to a channel
+    @membership = Membership.find(params[:id]).destroy
+    @channel = @membership.channel
+    render :show
+  end
 
+  private
+  def membership_params
+    params.require(:membership).permit(:name, :description, :chanId)
+  end
 end
 # memberships: {membershipId => membership}
 # channels: {channelId => channel}

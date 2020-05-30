@@ -1,5 +1,5 @@
 import { RECEIVE_CHANNELS, RECEIVE_CHANNEL } from "../actions/channel_actions";
-import { RECEIVE_MEMBERSHIPS } from "../actions/membership_actions";
+import { RECEIVE_MEMBERSHIPS, RECEIVE_MEMBERSHIP } from "../actions/membership_actions";
 import { RECEIVE_MESSAGE } from "../actions/message_actions";
 
 const channelsReducer = (oldState = {}, action) => {
@@ -11,6 +11,9 @@ const channelsReducer = (oldState = {}, action) => {
     case RECEIVE_CHANNELS:
       return Object.assign(action.channels, nextState);
     case RECEIVE_CHANNEL:
+      nextState[action.channel.id] = action.channel;
+      return nextState;
+    case RECEIVE_MEMBERSHIP:
       nextState[action.channel.id] = action.channel;
       return nextState;
     // case REMOVE_MEMBERSHIP:

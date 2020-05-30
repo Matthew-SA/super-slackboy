@@ -22,3 +22,25 @@
   padding: 10px 0px 48px 43px
 }
 
+.cover-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 109px;
+  padding: 16px 30px;
+  box-sizing: border-box;
+  background-color: rgba(248,248,248,1);
+}
+
+.cover-preview-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cover-buttons-container {
+  display: flex;
+}

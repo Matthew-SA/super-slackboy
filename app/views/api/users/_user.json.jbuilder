@@ -1,2 +1,2 @@
-json.extract! user, :id, :username, :focus, :current_membership
+json.extract! user, :id, :username
 json.channelIds user.channels.pluck(:id)
