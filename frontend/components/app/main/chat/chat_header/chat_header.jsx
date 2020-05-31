@@ -18,7 +18,7 @@ function ChatHeader() {
   return(
     <div className="main-header-container">
       <div className="main-header-left">
-        <div className="main-header-title">{name}</div>
+        <div className="main-header-title"># {name}</div>
         <div className="main-header-subtitle">
           <FontAwesomeIcon
             style={{ fontSize: "12px" }}

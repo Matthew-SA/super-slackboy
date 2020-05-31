@@ -6,12 +6,12 @@ import { login } from './actions/session_actions'
 import { fetchMessages }from '../frontend/util/message_api_util'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus, faBriefcase, faSearch, faInfoCircle, faTimes, faMinus} from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { faUser, faEdit } from '@fortawesome/free-regular-svg-icons';
 import { faLinkedin, faAngellist, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
 library.add(faEnvelope, faChevronDown, faCircle, faCaretDown, faPlus, 
   faBriefcase, faLinkedin, faAngellist, faGithubSquare, faSearch, faInfoCircle,
-  faTimes, faUser, faMinus);
+  faTimes, faUser, faMinus, faEdit);
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
