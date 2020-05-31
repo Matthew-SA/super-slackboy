@@ -18,15 +18,7 @@ function ToggleMembershipButton() {
     id === "1" ? alert("Membership is required in General.") : dispatch(destroyMembership(memberships[id].membership_id))
   }
 
-  if (!memberships) {
-    return(
-      <div className="button-container">
-        <div className="circle-plus">
-        </div>
-        Join
-      </div>
-    )
-  } else if (memberships[id]) {
+  if (memberships[id]) {
     return(
       <Link to='/app/channels/1' className="button-container" onClick={() => handleLeave()}>
         <div className="circle-plus">
@@ -35,13 +27,21 @@ function ToggleMembershipButton() {
         Leave
       </Link>
     )
-  } else {
+  } else if (Object.values(memberships).length > 0 && !memberships[id]) {
     return(
       <div className="button-container" onClick={() => handleJoin()}>
         <div className="circle-plus">
           <FontAwesomeIcon style={{ fontSize: "18px" }} icon="plus" />
         </div>
         Join
+      </div>
+    )
+  } else {
+    return (
+      <div className="button-container">
+        <div className="circle-plus">
+        </div>
+      &nbsp;
       </div>
     )
   }

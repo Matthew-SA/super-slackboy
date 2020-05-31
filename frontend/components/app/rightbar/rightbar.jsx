@@ -9,7 +9,7 @@ function Rightbar() {
   return(
     <div className="rightbar-container">
       <Route path='/app/channels/:id' component={RightbarHeader}/>
-      <Route path='/app/channels/:id'component={RightbarMain}/>
+      <Route path='/app/channels/:id' component={RightbarMain}/>
     </div>
   )
 }
