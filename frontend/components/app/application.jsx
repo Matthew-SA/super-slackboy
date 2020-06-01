@@ -19,6 +19,9 @@ function Application() {
     dispatch(requestUi())
     dispatch(requestMemberships())
 
+    return(() => {
+      App.cable.disconnect()
+    })
   }, []);
 
   return (

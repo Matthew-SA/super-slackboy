@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import Moment from "react-moment"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useSelector } from 'react-redux';
 
 
 function LargeChatItem({message}) {
   const [isEdit, setIsEdit] = useState(false)
   const [messageBody, setMessageBody] = useState(message.body);
+  const userId = useSelector(state => state.session.id)
+
 
   const handleSubmit = (e) => {
     if (messageBody.length > 100) return;
@@ -60,8 +63,8 @@ function LargeChatItem({message}) {
         </div>
       </div>
 
-        <div className="chat-item-toolbar" style={{ top: "-16px" }} onClick={() => setIsEdit(!isEdit)}>
-        <div className="chat-toolbar-button">
+        <div className={message.user_id !== userId ? "hide" : "chat-item-toolbar"}>
+          <div className="chat-toolbar-button" onClick={() => setIsEdit(!isEdit)}>
           <FontAwesomeIcon
             style={{ fontSize: "16px" }}
             icon={["far", "edit"]}
