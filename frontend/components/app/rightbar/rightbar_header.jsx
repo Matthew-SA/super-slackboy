@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateUi } from '../../../../actions/ui_actions'
+import { updateUi } from '../../../actions/ui_actions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useParams } from 'react-router'
 

@@ -15,7 +15,7 @@ function ChatForm() {
     if (e.keyCode == 13) {
       if (messageBody.length > 100) return;
       e.preventDefault();
-      App.room.speak({ message: messageBody, room: id });
+      App.room.speak({ message: messageBody });
       setMessageBody('');
     }
   }
@@ -33,12 +33,11 @@ function ChatForm() {
         </form>
       </div>
     )
-  } else {
-    if (!channel) return null;
+  } else if (Object.values(memberships).length > 0 && !memberships[id] && channel)  {
     return (
       <div className="cover-container">
         <div className="cover-preview-title">
-          You are previewing <div style={{fontWeight: "900"}}># {channel.name}</div> 
+          You are previewing <div style={{ fontWeight: "900" }}>&nbsp;#{channel.name}</div> 
         </div>
         <div className="preview-metadata">
   
@@ -50,6 +49,8 @@ function ChatForm() {
         </div>
       </div>
     );
+  } else {
+    return null;
   }
 }
 

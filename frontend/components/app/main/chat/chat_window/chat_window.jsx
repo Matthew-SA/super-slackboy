@@ -7,6 +7,7 @@ import LargeChatItem from "./large_chat_item"
 import SmallChatItem from "./small_chat_item"
 
 
+
 function ChatWindow(){
   const dispatch = useDispatch();
   const bottom = useRef();
@@ -43,6 +44,7 @@ function ChatWindow(){
               break;
           }
         },
+        update: function(data) { return this.perform("update", data)},
         speak: function (data) { return this.perform("speak", data) },
       }
     );
@@ -57,17 +59,34 @@ function ChatWindow(){
   });
 
   const buildList = () => {
-    const messageList = msgIds.map((id, i) => {
-      let thisMsg = messages[id];
-      let lastMsg = messages[msgIds[i - 1]]
-      if (i === 0 || lastMsg.user_id !== thisMsg.user_id) {
-        return <LargeChatItem message={thisMsg} key={i} />
+    let lastMsgUserId = 0;
+    let chanId = parseInt(id)
+    const messageList = (Object.values(messages)).map((message, i) => {
+      if (message.channel_id !== chanId) {
+        return
+      } else if (i === 0 || message.user_id !== lastMsgUserId) {
+        lastMsgUserId = message.user_id
+        return <LargeChatItem message={message} key={i} />
       } else {
-        return <SmallChatItem message={thisMsg} key={i} />
+        lastMsgUserId = message.user_id
+        return <SmallChatItem message={message} key={i} />
       }
     })
     return messageList
   };
+
+  // const buildList = () => {
+  //   const messageList = msgIds.map((id, i) => {
+  //     let thisMsg = messages[id];
+  //     let lastMsg = messages[msgIds[i - 1]]
+  //     if (i === 0 || lastMsg.user_id !== thisMsg.user_id) {
+  //       return <LargeChatItem message={thisMsg} key={i} />
+  //     } else {
+  //       return <SmallChatItem message={thisMsg} key={i} />
+  //     }
+  //   })
+  //   return messageList
+  // };
 
 
   return (

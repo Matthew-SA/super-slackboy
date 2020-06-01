@@ -1,3 +1,5 @@
+@import './rightbar-item-about.scss';
+
 .rightbar-container {
   grid-area: rightbar;
   border-left: 1px solid #E2E2E2;
@@ -35,6 +37,13 @@
   }
 }
 
-.rightbar-chevron {
-  transform: rotate(-90deg)
+.chevron {
+  transform: rotate(-90deg);
+  transition: .1s linear;
+  transform-style: preserve-3d;
+}
+
+.chevron-rotate {
+  transition: .1s linear;
+  transform-style: preserve-3d;
 }

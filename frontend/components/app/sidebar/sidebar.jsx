@@ -17,8 +17,8 @@ function Sidebar() {
   const [alphaChannels, alphaDMs] = useMemo(() => {
     const userChannels = [];
     const userDMs = [];
-    console.log(`channel length: ${Object.keys(channels).length} from inside MEMO`)
-    console.log(`membership length: ${memberships.length} from inside MEMO`)
+    // console.log(`channel length: ${Object.keys(channels).length} from inside MEMO`)
+    // console.log(`membership length: ${memberships.length} from inside MEMO`)
     Object.keys(memberships).map((id) => {
       if (channels[id].direct_message) {
         userDMs.push(channels[id])
@@ -42,7 +42,7 @@ function Sidebar() {
 
       <SidebarChannels alphaChannels={alphaChannels}/>
 
-      <SidebarDMs alphaDMs={alphaDMs}/>
+      {/* <SidebarDMs alphaDMs={alphaDMs}/> */}
     </div>
   );
 }

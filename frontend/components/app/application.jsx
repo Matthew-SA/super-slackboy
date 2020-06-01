@@ -18,40 +18,6 @@ function Application() {
   useEffect(() => {
     dispatch(requestUi())
     dispatch(requestMemberships())
-    
-    // if (App.room) App.cable.subscriptions.remove(App.room)
-    // App.room = App.cable.subscriptions.create(
-    //   { channel: "ChatChannel" },
-    //   {
-    //     received: data => {
-    //       switch (data.type) {
-    //         case "message":
-    //           const message = {
-    //             author: data.author,
-    //             body: data.body,
-    //             id: data.id,
-    //             time: data.time,
-    //             user_id: data.user_id,
-    //             channel_id: data.channel_id,
-    //           };
-    //           dispatch(incomingMessage(message))
-    //           let element = document.getElementById(`chan-${message.channel_id}`)
-    //           if (element) element.classList.add("sidebar-highlight")
-    //           break;
-    //         case "channel":
-    //           console.log(data)
-    //           break;
-    //       }
-    //     },
-    //     speak: function (data) { return this.perform("speak", data) },
-    //     startListening: function (data) { return this.perform("start_listening", data)},
-    //     stopListening: function (data) { return this.perform("stop_listening", data) },
-    //   }
-    // );
-
-    // return () => {
-    //   App.cable.disconnect();
-    // }
 
   }, []);
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import RightbarHeader from './rightbar_header/rightbar_header';
-import RightbarMain from './rightbar_main/rightbar_main'
-import { Route } from 'react-router-dom'
+import RightbarHeader from './rightbar_header';
+import RightbarMain from './rightbar_main';
+import { Route } from 'react-router-dom';
 
 
 function Rightbar() {
