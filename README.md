@@ -66,6 +66,8 @@ Super SlackBoy is a light weight communication application where users can post 
   }, [id])
 ```
 
+![slice2](https://user-images.githubusercontent.com/47997709/84436594-917ef380-abe8-11ea-8610-37c852c388b0.png)
+
 * Chat Channels with persistent Messages - Channel logic is handled in the backend to keep conversations private and prevent abuse by the frontend user.  Additionally, Channel names in the sidebar will bold when user has unread messages.  All previous messages are handled through standard routes and the database, and will render upon page load. 
 
 ```ruby
