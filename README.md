@@ -24,13 +24,14 @@ Super SlackBoy is a light weight communication application where users can post 
 
 ## Features
 
-* Instant Messaging - Action Cable web sockets provide messaging updates without having to manually refresh the page.  When a user joins the chat page, a user subscription is created to the chat channel.  Anytime a user posts a new message, the chat channel will update all current clients with the new message.
+* Instant Messaging - Action Cable web sockets provide messaging updates without having to manually refresh the page.  When a user views a channel, a user subscription is created to the chat channel.  Anytime a user posts a new message, the chat channel will update all current clients with the new message.
 
 ```javascript
-  subscribe() {
-    App.cable.disconnect()
+  useEffect(() => {
+    dispatch(requestChannel(id))
+
     App.room = App.cable.subscriptions.create(
-      { channel: "ChatChannel" },
+      { channel: "ChatChannel", room: id },
       {
         received: data => {
           switch (data.type) {
@@ -40,18 +41,24 @@ Super SlackBoy is a light weight communication application where users can post 
                 body: data.body,
                 id: data.id,
                 time: data.time,
+                user_id: data.user_id,
                 channel_id: data.channel_id,
               };
-              this.props.incomingMessage(message)
+              dispatch(incomingMessage(message))
               let element = document.getElementById(`chan-${message.channel_id}`)
               if (element) element.classList.add("sidebar-highlight")
               break;
           }
         },
+        update: function(data) { return this.perform("update", data)},
         speak: function (data) { return this.perform("speak", data) },
       }
     );
-  }
+
+    return () => {
+      App.room.unsubscribe();
+    }
+  }, [id])
 ```
 
 * Persistant Messages - All older messages are handled through standard routes and the database, and will render chat history upon page load.
