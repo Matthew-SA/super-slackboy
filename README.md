@@ -63,7 +63,7 @@ Super SlackBoy is a light weight communication application where users can post 
 
 * Persistant Messages - All older messages are handled through standard routes and the database, and will render chat history upon page load.
 
-```
+```ruby
   def show # view a channel and its connected messages.
     @channel = Channel.find(params[:id])
     @membership = Membership.find_by(user_id: current_user.id, channel_id: params[:id])
