@@ -61,7 +61,7 @@ Super SlackBoy is a light weight communication application where users can post 
   }, [id])
 ```
 
-* Persistant Messages - All older messages are handled through standard routes and the database, and will render chat history upon page load.
+* Chat Channels with persistent Messages - Channel logic is handled in the backend to keep conversations private and prevent abuse by the frontend user.  Additionally, Channel names in the sidebar will bold when user has unread messages.  All previous messages are handled through standard routes and the database, and will render upon page load. 
 
 ```ruby
   def show # view a channel and its connected messages.
@@ -78,9 +78,17 @@ Super SlackBoy is a light weight communication application where users can post 
   end
 ```
 
-* Chat channels - Channel logic is handled in the backend to keep conversations private and prevent abuse by the frontend user.  Channel names in the sidebar will bold when user has unread messages.
+* Persistant UI elements - User's menu state, including sidebar preferences, are saved between sessions.
 
-* Persistant UI elements - User's menu state and current chat room are consistent between sessions.
+```ruby
+  create_table "uis", force: :cascade do |t|
+    t.boolean "show_channels", default: true
+    t.boolean "show_direct_messages", default: true
+    t.integer "user_id"
+    t.boolean "rightbar", default: true
+    t.index ["user_id"], name: "index_uis_on_user_id"
+  end
+```
 
 ## Future Direction
 * Direct messaging
