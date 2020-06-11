@@ -27,6 +27,8 @@ Super SlackBoy is a light weight communication application where users can post 
 
 ## Features
 
+![slice1](https://user-images.githubusercontent.com/47997709/84436357-27fee500-abe8-11ea-94fa-29253906f927.png)
+
 * Instant Messaging - Action Cable web sockets provide messaging updates without having to manually refresh the page.  When a user views a channel, a user subscription is created to the chat channel.  Anytime a user posts a new message, the chat channel will update all current clients with the new message.
 
 ```javascript
