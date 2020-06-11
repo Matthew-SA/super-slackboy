@@ -1,6 +1,7 @@
 # Super SlackBoy
 [Super SlackBoy live page](https://super-slackboy.herokuapp.com "Super SlackBoy")
-<img width="1685" alt="Screen Shot 2020-04-29 at 11 16 47 AM" src="https://user-images.githubusercontent.com/47997709/80632101-95c1c980-8a0b-11ea-8ebc-8fe0c36ce811.png">
+
+<img width="1682" alt="screen2" src="https://user-images.githubusercontent.com/47997709/84433044-8aed7d80-abe2-11ea-9dd0-31ffc25a1952.png">
 
 <img width="1682" alt="screen" src="https://user-images.githubusercontent.com/47997709/84432656-fa16a200-abe1-11ea-9ea1-abae87dc0545.png">
 
