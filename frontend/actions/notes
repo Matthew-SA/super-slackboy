@@ -1,5 +1,0 @@
-messages
-
-def index(parameter) - chan or all
-  @messages
-end

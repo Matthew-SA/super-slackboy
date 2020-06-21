@@ -20,7 +20,6 @@ function ChatWindow(){
   useEffect(() => {
     dispatch(requestChannel(id))
 
-    // if (App.room) App.cable.subscriptions.remove(App.room)
     App.room = App.cable.subscriptions.create(
       { channel: "ChatChannel", room: id },
       {
@@ -38,9 +37,6 @@ function ChatWindow(){
               dispatch(incomingMessage(message))
               let element = document.getElementById(`chan-${message.channel_id}`)
               if (element) element.classList.add("sidebar-highlight")
-              break;
-            case "channel":
-              console.log(data)
               break;
           }
         },
