@@ -100,5 +100,5 @@ Super SlackBoy is a light weight communication application where users can post 
 ## Future Direction
 * Direct messaging.
 * advanced channel options (set title, topic, etc.).
-* advanced UI options (set profile attributes including profile photo, dark mode, etc!).
+* advanced UI options (set profile attributes including profile photo, dark mode, etc.)!
 
