@@ -40,14 +40,14 @@ const Home = () => (
             </Link>
           </li>
         </ul>
-    </header>
-    <div className="main">
-      <Switch>
-        <AuthRoute exact path="/login" component={LoginFormContainer} />
-        <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        <Route exact path="/" component={Intro} />
-      </Switch>
-    </div>
+      </header>
+      <div className="main">
+        <Switch>
+          <AuthRoute exact path="/login" component={LoginFormContainer} />
+          <AuthRoute exact path="/signup" component={SignupFormContainer} />
+          <Route exact path="/" component={Intro} />
+        </Switch>
+      </div>
     </div>
     <footer className="home-footer">
       <div className="first-subfooter">
