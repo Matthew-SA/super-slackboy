@@ -12,7 +12,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "babel-loader": "^8.0.6",
     "js-cookie": "^2.2.1",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "react": "^16.12.0",
